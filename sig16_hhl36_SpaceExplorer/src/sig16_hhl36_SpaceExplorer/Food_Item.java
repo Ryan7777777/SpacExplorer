@@ -9,11 +9,4 @@ public class Food_Item {
 		food_nutrition = nutrition;
 		food_name = name;
 	}
-	public String get_food_Name() {
-		return food_name;
-	}
-	public String toString() {
-		String st = "food name" + get_food_Name();
-		return st;
-	}
-	}
+}
