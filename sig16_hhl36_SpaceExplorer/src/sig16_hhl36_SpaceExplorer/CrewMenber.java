@@ -54,6 +54,9 @@ public class CrewMenber {
 			hungeylevel = 0;
 		}
 	}
-	
+	public String viewtype() {
+		System.out.println(type);
+		return type;
+	}
 	}
 
