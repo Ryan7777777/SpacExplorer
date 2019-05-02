@@ -17,10 +17,6 @@ public class GameManager {
 		crewname = name;
 	}
 	public static void main(String arg[]) {
-		GameManager game = new GameManager();
-		game.setupshipname("testship");
-		game.setupcrewname("testcrew");
-		System.out.printf(game.shipname);
 	}
 	
 
