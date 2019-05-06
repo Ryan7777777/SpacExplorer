@@ -1,6 +1,5 @@
 package sig16_hhl36_SpaceExplorer;
 
-
 public class Medical_Item {
 	
 	private double medItemPrice;
