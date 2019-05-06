@@ -22,7 +22,7 @@ public class CrewMenber {
 		action = 2;
 		vitality = 100;
 		hungeylevel = 0;
-		healthdroprate = healthdroprate;
+		healthdroprate = crew_healthdroprate;
 		hungerrate = crew_hungerrate;
 		tirednesrate = crew_tirednesrate;
 		ability = crew_ability;
@@ -36,8 +36,8 @@ public class CrewMenber {
 		healthdroprate = 10;
 	}
 	public void sleep() {
-		if(vitality + 20 < 100) {
-			vitality +=20;
+		if((vitality + 20) < 100) {
+			vitality += 20;
 		} else{
 			vitality = 100;
 		}

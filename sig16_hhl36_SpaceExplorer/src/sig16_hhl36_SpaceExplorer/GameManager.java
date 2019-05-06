@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GameManager {
 	private String shipname;
 	private String crewname;
-	private Double  money = (double) 100;
+	private double money = 100;
 	private ArrayList<CrewMenber> crew_menber = new ArrayList<CrewMenber>();
 	//private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	//private ArrayList<MedicalItem> crew_medical = new ArrayList<MedicalItem>();
@@ -23,7 +23,7 @@ public class GameManager {
 		return crewname;
 	}
 	public void addCrew(CrewMenber crew) {
-		crew_menber.add((CrewMenber)crew);
+		crew_menber.add(crew);
 	}
 	public void printAllPlanets() {
 		for (CrewMenber crewmenber: crew_menber) {
