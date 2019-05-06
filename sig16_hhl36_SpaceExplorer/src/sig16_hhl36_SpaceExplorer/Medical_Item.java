@@ -7,8 +7,22 @@ public class Medical_Item {
 	private int medHealthAdd;
 	private String medName;
 	
-	public Medical_Item() {
-		
+	public Medical_Item(double price, int addHealth, String name) {
+		medItemPrice = price;
+		medHealthAdd = addHealth;
+		medName = name;
+	}
+	
+	public double getPrice() {
+		return medItemPrice;
+	}
+	
+	public int getHealthAdd() {
+		return medHealthAdd;
+	}
+	
+	public String getMedName() {
+		return medName;
 	}
 	
 }
