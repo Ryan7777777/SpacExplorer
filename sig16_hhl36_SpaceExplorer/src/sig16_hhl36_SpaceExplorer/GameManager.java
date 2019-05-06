@@ -63,7 +63,7 @@ public class GameManager {
 		}
 	}
 	
-	public void printAllPlanets() {
+	public void printAllCrewMembers() {
 		for (CrewMember crewmember: crew_members) {
 			System.out.println(crewmember.viewtype());
 		}
@@ -73,7 +73,7 @@ public class GameManager {
 		CrewMember hungryboy = new HungryBoy();
 		GameManager crew = new GameManager("The Space Invaders", "Normandy");
 		crew.addCrew(hungryboy);
-		crew.printAllPlanets();
+		crew.printAllCrewMembers();
 	}
 	
 }
