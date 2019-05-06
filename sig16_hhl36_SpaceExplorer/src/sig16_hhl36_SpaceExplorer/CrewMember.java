@@ -1,6 +1,6 @@
 package sig16_hhl36_SpaceExplorer;
 
-public class CrewMenber {
+public class CrewMember {
 	
 	private String name;
 	private int health;
@@ -14,7 +14,7 @@ public class CrewMenber {
 	private String ability;
 	private boolean sick = false;
 	
-	public CrewMenber(String crew_name, String crew_type, int crew_healthdroprate, int crew_hungerrate, 
+	public CrewMember(String crew_name, String crew_type, int crew_healthdroprate, int crew_hungerrate, 
 			int crew_tirednesrate, String crew_ability) {
 		name = crew_name;
 		health = 100;
