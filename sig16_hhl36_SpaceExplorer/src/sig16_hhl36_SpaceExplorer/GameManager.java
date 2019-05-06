@@ -50,17 +50,11 @@ public class GameManager {
 	public void setCrewSize(int size) {
 		crewSize = size;
 	}
+	
 	public void addCrew(CrewMember crew) {
-		if (getCrewSize() < 2) {
-			throw new IllegalStateException("Please add more crew members!");
-		}
-		if (getCrewSize() > 4) {
-			throw new IllegalStateException("Cannot have more than 4 crew members!");
-		}
-		else {
-			crew_members.add(crew);
-			setCrewSize(crew_members.size() + 1);
-		}
+		int count = crew_members.size();
+		crew_members.add(crew);
+		setCrewSize(count + 1);
 	}
 	
 	public void printAllCrewMembers() {
@@ -71,9 +65,13 @@ public class GameManager {
 	
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
+		CrewMember hungry = new HungryBoy();
 		GameManager crew = new GameManager("The Space Invaders", "Normandy");
 		crew.addCrew(hungryboy);
+		crew.addCrew(hungry);
 		crew.printAllCrewMembers();
+		System.out.println(crew.getCrewSize());
+		System.out.println(crew.getShipname());
 	}
 	
 }
