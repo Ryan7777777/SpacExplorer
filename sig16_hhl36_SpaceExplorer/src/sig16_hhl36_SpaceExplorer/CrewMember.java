@@ -10,7 +10,7 @@ public class CrewMember {
 	private int hungerrate;
 	private int tirednesrate;
 	private int vitality;
-	private int hungeylevel;
+	private int hungrylevel;
 	private String ability;
 	private boolean sick = false;
 	
@@ -21,7 +21,7 @@ public class CrewMember {
 		type = crew_type;
 		action = 2;
 		vitality = 100;
-		hungeylevel = 0;
+		hungrylevel = 0;
 		healthdroprate = crew_healthdroprate;
 		hungerrate = crew_hungerrate;
 		tirednesrate = crew_tirednesrate;
@@ -50,10 +50,10 @@ public class CrewMember {
 		}
 	}
 	public void eat(int nutritionamount) {
-		if(hungeylevel - nutritionamount > 0) {
-			hungeylevel -= nutritionamount;
+		if(hungrylevel - nutritionamount > 0) {
+			hungrylevel -= nutritionamount;
 		} else {
-			hungeylevel = 0;
+			hungrylevel = 0;
 		}
 	}
 	public String viewtype() {
