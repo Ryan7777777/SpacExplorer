@@ -20,7 +20,7 @@ public class CrewMember {
 		type = crewType;
 		action = 2;
 		vitality = 100;
-		hungrylevel = 0;
+		hungrylevel = 100;
 		healthdroprate = crewHealthdroprate;
 		hungerrate = crewHungerrate;
 		tirednessrate = crewTirednessrate;
@@ -69,7 +69,7 @@ public class CrewMember {
 		return type;
 	}
 	public String viewStatus() {
-		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nTriedness: " + tirednessrate + "\nHealth: " + health;
+		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health;
 		return status;
 	}
 	

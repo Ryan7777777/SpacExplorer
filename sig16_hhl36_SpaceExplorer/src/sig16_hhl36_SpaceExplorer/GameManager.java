@@ -8,6 +8,7 @@ public class GameManager {
 	private String crewName;
 	private int crewSize;
 	private double crewMoney;
+	private int shieldhealth;
 	private ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	//private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	//private ArrayList<MedicalItem> crew_medical = new ArrayList<MedicalItem>();
@@ -17,6 +18,7 @@ public class GameManager {
 		crewName = teamName;
 		crewSize = 0;
 		crewMoney = 100.0;
+		shieldhealth = 100;
 	}
 	
 	public void setMoney(int money) {
@@ -49,6 +51,9 @@ public class GameManager {
 	
 	public void setCrewSize(int size) {
 		crewSize = size;
+	}
+	public int getShieldhealth() {
+		return shieldhealth;
 	}
 	
 	public void addCrew(CrewMember crew) {
