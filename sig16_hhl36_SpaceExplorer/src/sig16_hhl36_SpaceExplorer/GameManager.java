@@ -3,7 +3,6 @@ package sig16_hhl36_SpaceExplorer;
 import java.util.ArrayList;
 
 public class GameManager {
-	
 	private String shipName;
 	private String crewName;
 	private int crewSize;
@@ -60,6 +59,25 @@ public class GameManager {
 		medical_sell.add(plaguecure);
 		medical_sell.add(smallmedpack);
 	}
+	public String getFood() {
+		String food ="";
+		for(Food_Item myfood: crew_food) {
+			food += "Food name:" + myfood.getFoodName();
+			food += "\nNutrition :" + myfood.getFoodNutrition();
+			food += "\nQuantity :" + myfood.getQuantity();
+	}
+		return food;
+	}
+	public String getMedical() {
+		String med ="";
+		for(Medical_Item mymed: crew_medical) {
+			med += "Food name:" + mymed.getMedName();
+			med += "\nNutrition :" + mymed.getHealthAdd();
+			med += "\nQuantity :" + mymed.getQuantity();
+	}
+		return med;
+	}
+	
 	public String getShipname() {
 		return shipName;
 	}
@@ -108,9 +126,7 @@ public class GameManager {
 		crew.printStatus();
 		System.out.println(crew.getCrewSize());
 		System.out.println(crew.getShipname());
-		crew.setMedicalstore();
-		crew.viewMedicalStore();
-		
+		System.out.println(crew.getFood());
 	}
 	
 }

@@ -5,6 +5,7 @@ public class Medical_Item {
 	private double medItemPrice;
 	private int medHealthAdd;
 	private String medName;
+	private int quantity;
 	
 	public Medical_Item(double price, int addHealth, String name) {
 		medItemPrice = price;
@@ -23,5 +24,7 @@ public class Medical_Item {
 	public String getMedName() {
 		return medName;
 	}
-	
+	public int getQuantity() {
+		return quantity;
+	}
 }
