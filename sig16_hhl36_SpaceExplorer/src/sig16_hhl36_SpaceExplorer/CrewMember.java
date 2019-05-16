@@ -27,6 +27,9 @@ public class CrewMember {
 		ability = crewAbility;
 		sick = false;
 	}
+	public void setname(String newName) {
+		name = newName;
+	}
 	
 	public void sick() {
 		sick = true;

@@ -71,6 +71,8 @@ public class GameManager {
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
 		CrewMember hungry = new HungryBoy();
+		hungryboy.setname("Name1");
+		hungry.setname("Name2");
 		GameManager crew = new GameManager("The Space Invaders", "Normandy");
 		crew.addCrew(hungryboy);
 		crew.addCrew(hungry);
