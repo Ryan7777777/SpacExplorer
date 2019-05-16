@@ -63,8 +63,12 @@ public class CrewMember {
 	}
 	
 	public String viewtype() {
-		System.out.println(type);
 		return type;
 	}
+	public String viewStatus() {
+		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nTriedness: " + tirednessrate + "\nHealth: " + health;
+		return status;
+	}
+	
 }
 

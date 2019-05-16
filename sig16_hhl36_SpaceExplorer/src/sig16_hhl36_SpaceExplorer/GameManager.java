@@ -62,6 +62,11 @@ public class GameManager {
 			System.out.println(crewmember.viewtype());
 		}
 	}
+	public void printStatus() {
+		for (CrewMember crewmember: crew_members) {
+			System.out.println(crewmember.viewStatus());
+		}
+	}
 	
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
@@ -70,6 +75,7 @@ public class GameManager {
 		crew.addCrew(hungryboy);
 		crew.addCrew(hungry);
 		crew.printAllCrewMembers();
+		crew.printStatus();
 		System.out.println(crew.getCrewSize());
 		System.out.println(crew.getShipname());
 	}
