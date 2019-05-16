@@ -20,7 +20,7 @@ public class Food_Item {
 		return foodNutrition;
 	}
 	
-	public String getMedName() {
+	public String getFoodName() {
 		return foodName;
 	}
 	
