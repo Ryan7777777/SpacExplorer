@@ -10,8 +10,10 @@ public class GameManager {
 	private double crewMoney;
 	private int shieldhealth;
 	private ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
-	//private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
-	//private ArrayList<MedicalItem> crew_medical = new ArrayList<MedicalItem>();
+	private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
+	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
+	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
+	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
 	
 	public GameManager(String teamName, String vehicleName) {
 		shipName = vehicleName;
@@ -36,7 +38,28 @@ public class GameManager {
 	public void setCrewname(String name) {
 		crewName = name;
 	}
-	
+	public void setFoodstore() {
+		Food_Item peach = new Peaches();
+		Food_Item butter_chicken = new ButterChicken();
+		Food_Item banana = new Banana();
+		Food_Item hamsandwiches = new HamSandwiches();
+		Food_Item strawberry = new Strawberries();
+		Food_Item sapghettibologonese = new SpaghettiBolognese();
+		food_sell.add(peach);
+		food_sell.add(butter_chicken);
+		food_sell.add(hamsandwiches);
+		food_sell.add(strawberry);
+		food_sell.add(sapghettibologonese);
+		food_sell.add(banana);
+	}
+	public void setMedicalstore() {
+		Medical_Item largenedoack = new LargeMedPack();
+		Medical_Item plaguecure = new PlagueCure();
+		Medical_Item smallmedpack = new SmallMedPack();
+		medical_sell.add(largenedoack);
+		medical_sell.add(plaguecure);
+		medical_sell.add(smallmedpack);
+	}
 	public String getShipname() {
 		return shipName;
 	}
@@ -85,6 +108,9 @@ public class GameManager {
 		crew.printStatus();
 		System.out.println(crew.getCrewSize());
 		System.out.println(crew.getShipname());
+		crew.setMedicalstore();
+		crew.viewMedicalStore();
+		
 	}
 	
 }
