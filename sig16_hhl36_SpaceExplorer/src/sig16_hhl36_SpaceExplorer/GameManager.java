@@ -13,7 +13,7 @@ public class GameManager {
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
-	private int day;
+	private int day = 8;
 	private int pieces;
 	
 	public GameManager(String teamName, String vehicleName) {
@@ -21,7 +21,7 @@ public class GameManager {
 		crewName = teamName;
 		crewSize = 0;
 		crewMoney = 100.0;
-		shieldhealth = 100;
+		shieldhealth = 0;
 	}
 	
 	public void setMoney(int money) {
@@ -37,6 +37,12 @@ public class GameManager {
 	}
 	public void setCrewname(String name) {
 		crewName = name;
+	}
+	public void newday() {
+		day -=1;
+		for (CrewMember crew: crew_members) {
+			crew.resetaction();
+		}
 	}
 	public void setFoodstore() {
 		Food_Item peach = new Peaches();
@@ -132,6 +138,7 @@ public class GameManager {
 				}
 			}
 		}
+	}
 		public void useemditem(CrewMember currentcrew, Medical_Item med) {
 			int remove = -1;
 			int index = -1;
@@ -154,7 +161,7 @@ public class GameManager {
 			}
 		}
 	}
-	public void repaire(CrewMember currentcrew) {
+	public void repair(CrewMember currentcrew) {
 		currentcrew.subtractaction();
 		if(currentcrew.viewtype() == "Technician") {
 			shieldhealth += 11;
@@ -201,12 +208,12 @@ public class GameManager {
 	}
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
-		CrewMember hungry = new HungryBoy();
-		hungryboy.setname("Name1");
-		hungry.setname("Name2");
+		CrewMember technician = new Technician();
+		hungryboy.setname("Play1-Hungyboy");
+		technician.setname("Player2-Technician");
 		GameManager crew = new GameManager("The Space Invaders", "Normandy");
 		crew.addCrew(hungryboy);
-		crew.addCrew(hungry);
+		crew.addCrew(technician);
 		crew.printAllCrewMembers();
 		crew.printStatus();
 		crew.setFoodstore();
@@ -214,7 +221,11 @@ public class GameManager {
 		Medical_Item largepack = new LargeMedPack();
 		//Food_Item banana = new Banana();
 		//Food_Item butterchicken = new ButterChicken();
-		crew.medPurchase(largepack);
+		//crew.medPurchase(largepack);
+		//crew.repair(technician);
+		//crew.repair(hungryboy);
+		//System.out.println(hungryboy.getaction());
+		//crew.newday();
 		//crew.foodPurchase(butterchicken);
 		//crew.foodPurchase(butterchicken);
 		//crew.foodPurchase(banana);
@@ -223,8 +234,10 @@ public class GameManager {
 		System.out.println(crew.getCrewSize());
 		System.out.println(crew.getShipname());
 		System.out.println(crew.getMedical());
+		System.out.println(crew.getShieldhealth());
+		
 		//System.out.println(crew.getFood());
-		System.out.println(hungry.getaction());
+		
 	}
 	
 }
