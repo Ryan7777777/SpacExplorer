@@ -149,6 +149,16 @@ public class GameManager {
 			}
 		}
 	}
+	public void repaire(CrewMember currentcrew) {
+		currentcrew.subtractaction();
+		if(currentcrew.viewtype() == "Technician") {
+			shieldhealth += 11;
+		} else if(currentcrew.viewtype() == "Superman") {
+			shieldhealth += 8;
+		} else {
+			shieldhealth += 4;
+		}
+	}
 	public String getShipname() {
 		return shipName;
 	}
