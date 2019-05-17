@@ -123,15 +123,27 @@ public class GameManager {
 				}
 			}
 		}
+		public void useemditem(CrewMember currentcrew, Medical_Item med) {
+			int remove = -1;
+			int index = -1;
+			for(Medical_Item mymed: crew_medical) {
+				index +=1;
+				if(med.getMedName() == mymed.getMedName()) {
+					med.subtractQuantity();
+					if(med.getQuantity() == 0 ) {
+						remove = index;
+					}
+				}
+			}
 		if(remove > -1) {
-			crew_food.remove(remove);
+			crew_medical.remove(remove);
 		}
 		for (CrewMember crew: crew_members) {
 			if(currentcrew == crew) {
-				crew.addnutrition(food.getFoodNutrition());
+				crew.addhealth(med.getHealthAdd());
+				crew.subtractaction();
 			}
 		}
-		
 	}
 	public String getShipname() {
 		return shipName;
@@ -168,7 +180,6 @@ public class GameManager {
 			System.out.println(crewmember.viewStatus());
 		}
 	}
-	
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
 		CrewMember hungry = new HungryBoy();
@@ -182,19 +193,19 @@ public class GameManager {
 		crew.setFoodstore();
 		crew.setMedicalstore();
 		Medical_Item largepack = new LargeMedPack();
-		Food_Item banana = new Banana();
-		Food_Item butterchicken = new ButterChicken();
+		//Food_Item banana = new Banana();
+		//Food_Item butterchicken = new ButterChicken();
 		crew.medPurchase(largepack);
-		crew.foodPurchase(butterchicken);
-		crew.foodPurchase(butterchicken);
-		crew.foodPurchase(banana);
-		crew.eat(hungry, banana);
-		
-		System.out.println(crew.getFood());
+		//crew.foodPurchase(butterchicken);
+		//crew.foodPurchase(butterchicken);
+		//crew.foodPurchase(banana);
+		//crew.eat(hungry, banana);
+		//crew.useemditem(hungry, largepack);
 		System.out.println(crew.getCrewSize());
 		System.out.println(crew.getShipname());
 		System.out.println(crew.getMedical());
-		System.out.println(crew.getFood());
+		//System.out.println(crew.getFood());
+		System.out.println(hungry.getaction());
 	}
 	
 }
