@@ -111,6 +111,10 @@ public class GameManager {
 				crew_medical.add(object);
 			}
 		}
+	public void crewasleep(CrewMember currentcrew) {
+		currentcrew.sleep();
+		currentcrew.subtractaction();
+	}
 	public void eat(CrewMember currentcrew, Food_Item food) {
 		int remove = -1;
 		int index = -1;
