@@ -57,11 +57,11 @@ public class CrewMember {
 		}
 	}
 	
-	public void eat(int nutritionamount) {
-		if (hungrylevel - nutritionamount > 0) {
+	public void addnutrition(int nutritionamount) {
+		if (hungrylevel + nutritionamount < 100) {
 			hungrylevel -= nutritionamount;
 		} else {
-			hungrylevel = 0;
+			hungrylevel = 100;
 		}
 	}
 	

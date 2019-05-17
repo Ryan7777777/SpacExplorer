@@ -27,4 +27,10 @@ public class Medical_Item {
 	public int getQuantity() {
 		return quantity;
 	}
+	public void addQuantity() {
+		quantity += 1;
+	}
+	public void subtractQuantity() {
+		quantity -= 1;
+	}
 }
