@@ -13,6 +13,8 @@ public class GameManager {
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
+	private int day;
+	private int pieces;
 	
 	public GameManager(String teamName, String vehicleName) {
 		shipName = vehicleName;
@@ -29,7 +31,10 @@ public class GameManager {
 	public void setShipname(String name) {
 		shipName = name;
 	}
-	
+	public void calculatePieces() {
+		double index = day*2/3;
+		pieces = (int) Math.floor(index);
+	}
 	public void setCrewname(String name) {
 		crewName = name;
 	}
