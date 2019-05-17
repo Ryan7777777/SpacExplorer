@@ -30,7 +30,12 @@ public class CrewMember {
 	public void setname(String newName) {
 		name = newName;
 	}
-	
+	public int getaction() {
+		return action;
+	}
+	public void subtractaction() {
+		action = action -1;
+	}
 	public void sick() {
 		sick = true;
 		healthdroprate = 20;
