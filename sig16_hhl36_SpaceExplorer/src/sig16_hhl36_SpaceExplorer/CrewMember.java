@@ -33,6 +33,9 @@ public class CrewMember {
 	public int getaction() {
 		return action;
 	}
+	public void resetaction() {
+		action = 2;
+	}
 	public void subtractaction() {
 		action = action -1;
 	}
