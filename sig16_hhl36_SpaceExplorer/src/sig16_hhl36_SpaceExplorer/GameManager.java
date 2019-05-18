@@ -1,7 +1,7 @@
 package sig16_hhl36_SpaceExplorer;
 
 import java.util.ArrayList;
-
+import java.util.Random;
 public class GameManager {
 	private String shipName;
 	private String crewName;
@@ -15,7 +15,7 @@ public class GameManager {
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
 	private int day = 8;
 	private int pieces;
-	
+	Random rand = new Random();
 	public GameManager(String teamName, String vehicleName) {
 		shipName = vehicleName;
 		crewName = teamName;
@@ -81,7 +81,7 @@ public class GameManager {
 	public String getFood() {
 		String food ="";
 		for(Food_Item myfood: crew_food) {
-			food += "Food name:" + myfood.getFoodName();
+			food += "\nFood name:" + myfood.getFoodName();
 			food += "\nNutrition :" + myfood.getFoodNutrition();
 			food += "\nQuantity :" + myfood.getQuantity();
 	}
@@ -206,6 +206,48 @@ public class GameManager {
 			System.out.println(crewmember.viewStatus());
 		}
 	}
+	public void alienpary() {
+		boolean remove = false;
+		int remove_index = -1;
+		while (remove == false) {
+			int item_type = rand.nextInt(2);
+			if(item_type == 0) {
+				int i = rand.nextInt(crew_food.size());
+				int index  = -1;
+			    for(Food_Item myfood: crew_food) {
+			    index+=1;
+				if(index == i) {
+					myfood.subtractQuantity();
+					remove = true;
+					if(myfood.getQuantity() == 0) {
+						remove_index = index;
+					}
+					
+				}
+			}
+			    if(remove_index > -1) {
+			    	crew_food.remove(remove_index);
+			    }
+		} else  {
+			int i = rand.nextInt(crew_medical.size());
+			int index  = -1;
+		    for(Medical_Item mymed: crew_medical) {
+		    index+=1;
+			if(index == i) {
+				mymed.subtractQuantity();
+				remove = true;
+				if(mymed.getQuantity() == 0) {
+					remove_index = index;
+				}
+				
+			}
+		}
+		    if(remove_index > -1) {
+		    	crew_medical.remove(remove_index);
+		    }
+	}
+	}
+	}
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
 		CrewMember technician = new Technician();
@@ -219,24 +261,22 @@ public class GameManager {
 		crew.setFoodstore();
 		crew.setMedicalstore();
 		Medical_Item largepack = new LargeMedPack();
-		//Food_Item banana = new Banana();
-		//Food_Item butterchicken = new ButterChicken();
-		//crew.medPurchase(largepack);
+		Food_Item banana = new Banana();
+		Food_Item butterchicken = new ButterChicken();
+		crew.medPurchase(largepack);
 		//crew.repair(technician);
 		//crew.repair(hungryboy);
 		//System.out.println(hungryboy.getaction());
 		//crew.newday();
-		//crew.foodPurchase(butterchicken);
-		//crew.foodPurchase(butterchicken);
-		//crew.foodPurchase(banana);
+		crew.foodPurchase(butterchicken);
+		crew.foodPurchase(butterchicken);
+		crew.foodPurchase(banana);
 		//crew.eat(hungry, banana);
 		//crew.useemditem(hungry, largepack);
-		System.out.println(crew.getCrewSize());
-		System.out.println(crew.getShipname());
-		System.out.println(crew.getMedical());
-		System.out.println(crew.getShieldhealth());
-		
-		//System.out.println(crew.getFood());
+		//System.out.println(crew.getCrewSize());
+		//System.out.println(crew.getShipname());
+		//System.out.println(crew.getMedical());
+		///System.out.println(crew.getShieldhealth());
 		
 	}
 	
