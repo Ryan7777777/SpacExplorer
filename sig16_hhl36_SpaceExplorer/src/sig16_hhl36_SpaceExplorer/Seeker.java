@@ -4,9 +4,4 @@ public class Seeker extends CrewMember{
 	public Seeker() {
 		super("name", "Seekrer", 10, 10, 8, "Inch-by-inch-search");
 	}
-	public static void main(String arg[]) {
-		Seeker seeker = new Seeker();
-		System.out.println(seeker instanceof CrewMember);
-		
-	}
 }
