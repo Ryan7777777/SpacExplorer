@@ -33,20 +33,20 @@ public class CrewMember {
 	public int getaction() {
 		return action;
 	}
+	public int gethealth() {
+		return health;
+	}
 	public void resetaction() {
 		action = 2;
 	}
 	public void subtractaction() {
 		action = action -1;
 	}
-	public void sick() {
-		sick = true;
-		healthdroprate = 20;
+	public boolean issick() {
+		return sick;
 	}
-	
 	public void recovery() {
 		sick = false;
-		healthdroprate = 10;
 	}
 	
 	public void sleep() {
@@ -64,7 +64,14 @@ public class CrewMember {
 			health = 100;
 		}
 	}
-	
+	public void sicklost(int losthealth) {
+		health -= losthealth;
+	}
+	public void newday() {
+		health = health *(100-healthdroprate)/100;
+		vitality = vitality *(100-tirednessrate)/100;
+		hungrylevel = hungrylevel*(100-hungerrate)/100;
+	}
 	public void addnutrition(int nutritionamount) {
 		if (hungrylevel + nutritionamount < 100) {
 			hungrylevel -= nutritionamount;

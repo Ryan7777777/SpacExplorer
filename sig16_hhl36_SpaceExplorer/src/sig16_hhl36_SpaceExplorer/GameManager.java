@@ -39,9 +39,21 @@ public class GameManager {
 		crewName = name;
 	}
 	public void newday() {
-		day -=1;
+		int index = -1;
+		int remove = -1;
 		for (CrewMember crew: crew_members) {
+			index += 1;
 			crew.resetaction();
+			if(crew.issick() == true) {
+				crew.sicklost(10);
+			}
+			crew.newday();
+			if(crew.gethealth() <=0) {
+				remove = index;
+			}
+		}
+		if(remove >-1) {
+			crew_members.remove(index);
 		}
 	}
 	public void setFoodstore() {
@@ -256,7 +268,6 @@ public class GameManager {
 		GameManager crew = new GameManager("The Space Invaders", "Normandy");
 		crew.addCrew(hungryboy);
 		crew.addCrew(technician);
-		crew.printAllCrewMembers();
 		crew.printStatus();
 		crew.setFoodstore();
 		crew.setMedicalstore();
@@ -267,17 +278,18 @@ public class GameManager {
 		//crew.repair(technician);
 		//crew.repair(hungryboy);
 		//System.out.println(hungryboy.getaction());
-		//crew.newday();
+		crew.newday();
 		crew.foodPurchase(butterchicken);
 		crew.foodPurchase(butterchicken);
 		crew.foodPurchase(banana);
+		crew.newday();
 		//crew.eat(hungry, banana);
 		//crew.useemditem(hungry, largepack);
 		//System.out.println(crew.getCrewSize());
 		//System.out.println(crew.getShipname());
 		//System.out.println(crew.getMedical());
 		///System.out.println(crew.getShieldhealth());
-		
+		crew.printStatus();
 	}
 	
 }
