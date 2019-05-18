@@ -13,27 +13,41 @@ public class GameManager {
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
-	private int day = 8;
+	private int day;
 	private int pieces;
 	Random rand = new Random();
-	public GameManager(String teamName, String vehicleName) {
-		shipName = vehicleName;
-		crewName = teamName;
+	public GameManager() {
+		shipName = "";
+		crewName = "";
 		crewSize = 0;
 		crewMoney = 100.0;
 		shieldhealth = 0;
 	}
-	
+	public void setcrewname(String name) {
+		crewName = name;
+	}
+	public void setshipname(String name) {
+		shipName = name;
+	}
 	public void setMoney(int money) {
 		crewMoney = money;
 	}
-	
+	public void setDay(int setday) {
+		day = setday;
+		calculatePieces();
+	}
 	public void setShipname(String name) {
 		shipName = name;
 	}
 	public void calculatePieces() {
 		double index = day*2/3;
 		pieces = (int) Math.floor(index);
+	}
+	public int getpices() {
+		return pieces;
+	}
+	public double getmoney() {
+		return crewMoney;
 	}
 	public void setCrewname(String name) {
 		crewName = name;
@@ -150,6 +164,15 @@ public class GameManager {
 				}
 			}
 		}
+		if(remove > -1) {
+			crew_food.remove(remove);
+		}
+		for (CrewMember crew: crew_members) {
+			if(currentcrew == crew) {
+				crew.addnutrition(food.getFoodNutrition());
+				crew.subtractaction();
+			}
+	}
 	}
 		public void useemditem(CrewMember currentcrew, Medical_Item med) {
 			int remove = -1;
@@ -168,6 +191,9 @@ public class GameManager {
 		}
 		for (CrewMember crew: crew_members) {
 			if(currentcrew == crew) {
+				if(med.getMedName() == "Space Plague Curer") {
+					crew.recovery();
+				}
 				crew.addhealth(med.getHealthAdd());
 				crew.subtractaction();
 			}
@@ -234,7 +260,6 @@ public class GameManager {
 					if(myfood.getQuantity() == 0) {
 						remove_index = index;
 					}
-					
 				}
 			}
 			    if(remove_index > -1) {
@@ -251,7 +276,6 @@ public class GameManager {
 				if(mymed.getQuantity() == 0) {
 					remove_index = index;
 				}
-				
 			}
 		}
 		    if(remove_index > -1) {
@@ -269,39 +293,74 @@ public class GameManager {
 		}
 	}
 	public static void main(String arg[]) {
+		GameManager crew = new GameManager();
+		// test all six characters
 		CrewMember hungryboy = new HungryBoy();
+		CrewMember hunk = new Hunk();
+		CrewMember lazyslepper = new LazySleeper();
+		CrewMember seeker = new Seeker();
+		CrewMember superman = new Superman();
 		CrewMember technician = new Technician();
-		hungryboy.setname("Play1-Hungyboy");
-		technician.setname("Player2-Technician");
-		GameManager crew = new GameManager("The Space Invaders", "Normandy");
+		//set up name for cahraters
+		hungryboy.setname("Player1-hungeyboy");
+		hunk.setname("Player2-hunk");
+		lazyslepper.setname("Player3-lazyslepper");
+		seeker.setname("Player4-seeker");
+		superman.setname("Player5-superman");
+		technician.setname("Player6-techiniciain");
+		//add those six charaters in the crew_manber array
 		crew.addCrew(hungryboy);
+		crew.addCrew(hunk);
+		crew.addCrew(lazyslepper);
+		crew.addCrew(seeker);
+		crew.addCrew(superman);
 		crew.addCrew(technician);
+		//print all status of crew
+		System.out.println("All status before start");
 		crew.printStatus();
-		crew.setFoodstore();
-		crew.setMedicalstore();
-		Medical_Item largepack = new LargeMedPack();
+		//test pices with correct day
+		crew.setDay(7);
+		System.out.println("Pices");
+		System.out.println(crew.getpices());
+		//set up all six foods
 		Food_Item banana = new Banana();
 		Food_Item butterchicken = new ButterChicken();
-		crew.medPurchase(largepack);
-		//crew.repair(technician);
-		//crew.repair(hungryboy);
-		//System.out.println(hungryboy.getaction());
-		crew.newday();
-		crew.foodPurchase(butterchicken);
-		crew.foodPurchase(butterchicken);
+		Food_Item hamsandwihes = new HamSandwiches();
+		Food_Item peaches = new Peaches();
+		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
+		Food_Item straeberries = new Strawberries();
+		//test purchase food item 
+		crew.setFoodstore();
 		crew.foodPurchase(banana);
+		crew.foodPurchase(butterchicken);
+		crew.foodPurchase(hamsandwihes);
+		crew.foodPurchase(peaches);
+		crew.foodPurchase(spaghetti_bolonese);
+		crew.foodPurchase(straeberries);
+		System.out.println(crew.getFood());
+		System.out.println(crew.getmoney());
+		//set up all three medical items
+		Medical_Item plagurcure = new PlagueCure();
+		Medical_Item samllmedpack = new SmallMedPack();
+		Medical_Item bigmedpack = new LargeMedPack();
+		//test purchase medical item 
+		crew.medPurchase(plagurcure);
+		crew.medPurchase(samllmedpack);
+		crew.medPurchase(bigmedpack);
+		System.out.println(crew.getMedical());
+		System.out.println(crew.getmoney());
+		//test eat function 
 		crew.newday();
+		crew.eat(hungryboy, straeberries);
+		crew.eat(hungryboy, butterchicken);
+		//test use medical function 
+		crew.useemditem(hunk, samllmedpack);
+		//test party
+		crew.alienpary();
+		//test space plague
 		crew.spaceplague();
-		System.out.println(hungryboy.issick());
-		System.out.println(technician.issick());
-		crew.newday();
-		//crew.eat(hungry, banana);
-		//crew.useemditem(hungry, largepack);
-		//System.out.println(crew.getCrewSize());
-		//System.out.println(crew.getShipname());
-		//System.out.println(crew.getMedical());
-		///System.out.println(crew.getShieldhealth());
-		crew.printStatus();
+		System.out.println(crew.getFood());
+		System.out.println(crew.getMedical());
 	}
 	
 }
