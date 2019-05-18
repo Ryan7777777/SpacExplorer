@@ -260,6 +260,14 @@ public class GameManager {
 	}
 	}
 	}
+	public void spaceplague() {
+		for(CrewMember crew :crew_members) {
+			boolean bool =  rand.nextBoolean();
+			if(bool == true) {
+				crew.sick();
+			}
+		}
+	}
 	public static void main(String arg[]) {
 		CrewMember hungryboy = new HungryBoy();
 		CrewMember technician = new Technician();
@@ -282,6 +290,10 @@ public class GameManager {
 		crew.foodPurchase(butterchicken);
 		crew.foodPurchase(butterchicken);
 		crew.foodPurchase(banana);
+		crew.newday();
+		crew.spaceplague();
+		System.out.println(hungryboy.issick());
+		System.out.println(technician.issick());
 		crew.newday();
 		//crew.eat(hungry, banana);
 		//crew.useemditem(hungry, largepack);

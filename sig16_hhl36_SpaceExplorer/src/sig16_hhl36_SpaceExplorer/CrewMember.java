@@ -48,7 +48,9 @@ public class CrewMember {
 	public void recovery() {
 		sick = false;
 	}
-	
+	public void sick() {
+		sick = true;
+	}
 	public void sleep() {
 		if ((vitality + 20) < 100) {
 			vitality += 20;
