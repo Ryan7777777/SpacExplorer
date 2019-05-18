@@ -76,7 +76,7 @@ public class CrewMember {
 	}
 	public void addnutrition(int nutritionamount) {
 		if (hungrylevel + nutritionamount < 100) {
-			hungrylevel -= nutritionamount;
+			hungrylevel += nutritionamount;
 		} else {
 			hungrylevel = 100;
 		}
@@ -86,7 +86,7 @@ public class CrewMember {
 		return type;
 	}
 	public String viewStatus() {
-		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health;
+		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health + "\nSick: " +sick;
 		return status;
 	}
 	
