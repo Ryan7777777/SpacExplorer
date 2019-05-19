@@ -24,7 +24,7 @@ public class GameManager {
 		crewName = "";
 		crewSize = 0;
 		crewMoney = 100.0;
-		shieldHealth = 0;
+		shieldHealth = 100;
 	}
 	public void setcrewname(String name) {
 		crewName = name;
