@@ -16,7 +16,7 @@ public class GameManager {
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
 	private int day;
 	private int pieces;
-	private boolean shipparts;
+	private boolean shipParts;
 	Random rand = new Random();
 	
 	public GameManager() {
@@ -57,7 +57,7 @@ public class GameManager {
 	}
 	public void search() {
 		int type = -1;
-		if(shipparts == false) {
+		if(shipParts == false) {
 			type = rand.nextInt(3);
 		} else {
 			type = rand.nextInt(2);
