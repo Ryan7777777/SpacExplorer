@@ -2,12 +2,13 @@ package sig16_hhl36_SpaceExplorer;
 
 import java.util.ArrayList;
 import java.util.Random;
+
 public class GameManager {
 	private String shipName;
 	private String crewName;
 	private int crewSize;
 	private double crewMoney;
-	private int shieldhealth;
+	private int shieldHealth;
 	private ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
@@ -17,12 +18,13 @@ public class GameManager {
 	private int pieces;
 	private boolean shipparts;
 	Random rand = new Random();
+	
 	public GameManager() {
 		shipName = "";
 		crewName = "";
 		crewSize = 0;
 		crewMoney = 100.0;
-		shieldhealth = 0;
+		shieldHealth = 0;
 	}
 	public void setcrewname(String name) {
 		crewName = name;
@@ -257,11 +259,11 @@ public class GameManager {
 	public void repair(CrewMember currentcrew) {
 		currentcrew.subtractaction();
 		if(currentcrew.viewtype() == "Technician") {
-			shieldhealth += 11;
+			shieldHealth += 11;
 		} else if(currentcrew.viewtype() == "Superman") {
-			shieldhealth += 8;
+			shieldHealth += 8;
 		} else {
-			shieldhealth += 4;
+			shieldHealth += 4;
 		}
 	}
 	public String getShipname() {
@@ -280,7 +282,11 @@ public class GameManager {
 		crewSize = size;
 	}
 	public int getShieldhealth() {
-		return shieldhealth;
+		return shieldHealth;
+	}
+	
+	public void setShieldhealth(int shield_health) {
+		shieldHealth = shield_health;
 	}
 	
 	public void addCrew(CrewMember crew) {
@@ -347,6 +353,13 @@ public class GameManager {
 			}
 		}
 	}
+	
+	public void asteroidBelt() {
+		int shield_health = getShieldhealth();
+		shield_health -= (shield_health * 0.2);
+		setShieldhealth(shield_health);
+	}
+	
 	public static void main(String arg[]) {
 		GameManager crew = new GameManager();
 		// test all six characters
@@ -356,14 +369,14 @@ public class GameManager {
 		CrewMember seeker = new Seeker();
 		CrewMember superman = new Superman();
 		CrewMember technician = new Technician();
-		//set up name for cahraters
+		//set up name for characters
 		hungryboy.setname("Player1-hungeyboy");
 		hunk.setname("Player2-hunk");
-		lazyslepper.setname("Player3-lazyslepper");
+		lazyslepper.setname("Player3-lazysleeper");
 		seeker.setname("Player4-seeker");
 		superman.setname("Player5-superman");
 		technician.setname("Player6-techiniciain");
-		//add those six charaters in the crew_manber array
+		//add those six characters in the crew_manber array
 		crew.addCrew(hungryboy);
 		crew.addCrew(hunk);
 		crew.addCrew(lazyslepper);
@@ -373,7 +386,7 @@ public class GameManager {
 		//print all status of crew
 		System.out.println("All status before start");
 		crew.printStatus();
-		//test pices with correct day
+		//test pieces with correct day
 		crew.setDay(7);
 		System.out.println("Pices");
 		System.out.println(crew.getpices());
@@ -408,10 +421,10 @@ public class GameManager {
 		System.out.println(crew.getmoney());
 		//test eat function 
 		//crew.newday();
-		//crew.eat(hungryboy, straeberries);
+		//crew.eat(hungryboy, strawberries);
 		//crew.eat(hungryboy, butterchicken);
 		//test use medical function 
-		//crew.useemditem(hunk, samllmedpack);
+		//crew.useemditem(hunk, smallmedpack);
 		//test party
 		//crew.alienpary();
 		//test space plague
