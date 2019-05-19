@@ -55,7 +55,7 @@ public class GameManager {
 	public void setCrewname(String name) {
 		crewName = name;
 	}
-	public void search() {
+	public void searchParts() {
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(3);
@@ -67,23 +67,24 @@ public class GameManager {
 			int index = 0;
 			int length = crew_food.size();
 			int lengthindex = 0;
-		for (Food_Item food: food_sell) {
-			if(index == random_index) {
-				System.out.println("JFKJFBKSJBD");
-				System.out.println(food.getFoodName());
-			for(Food_Item myfood: crew_food) {
-				lengthindex+=1;
-				if (lengthindex <= length) {
-				if(myfood.getFoodName() == food.getFoodName()) {
-					myfood.addQuantity();}
-			}else {
-				food.addQuantity();
-				crew_food.add(food);
-			}
-			}
-		}
-			index += 1;
-	} 
+			for (Food_Item food: food_sell) {
+				if(index == random_index) {
+					System.out.println("JFKJFBKSJBD");
+					System.out.println(food.getFoodName());
+					for(Food_Item myfood: crew_food) {
+						lengthindex += 1;
+						if (lengthindex <= length) {
+							if(myfood.getFoodName() == food.getFoodName()) {
+								myfood.addQuantity();
+							}
+						} else {
+							food.addQuantity();
+							crew_food.add(food);
+						}
+					}
+				}
+				index += 1;
+			} 
 	} else if (type == 2) {
 		int random_index = rand.nextInt(3);
 		int index = 0;
@@ -91,21 +92,21 @@ public class GameManager {
 		int lengthindex = 0;
 		
 		for (Medical_Item med: medical_sell) {
-		if(index == random_index) {
-		for(Medical_Item mymed: crew_medical) {
-			lengthindex+=1;
-		if (lengthindex <= length) {
-		if(mymed.getMedName() == med.getMedName()) {
-				mymed.addQuantity();}
-		}else {
-			med.addQuantity();
-		crew_medical.add(med);
+			if(index == random_index) {
+				for(Medical_Item mymed: crew_medical) {
+					lengthindex+=1;
+					if (lengthindex <= length) {
+						if(mymed.getMedName() == med.getMedName()) {
+							mymed.addQuantity();}
+					} else {
+						med.addQuantity();
+						crew_medical.add(med);
+					}
+				}
+			}
+			index += 1;
 		}
-		}
-	}
-		index += 1;
-	}
-	}else {
+	} else {
 		pieces -=1;
 	}
 	}
@@ -305,6 +306,9 @@ public class GameManager {
 			System.out.println(crewmember.viewStatus());
 		}
 	}
+	public void spaceshipStatus() {
+		System.out.println("The " + getShipname() + "has a shield health of " + getShieldhealth());
+	}
 	public void alienpary() {
 		boolean remove = false;
 		int remove_index = -1;
@@ -358,6 +362,10 @@ public class GameManager {
 		int shield_health = getShieldhealth();
 		shield_health -= (shield_health * 0.2);
 		setShieldhealth(shield_health);
+	}
+	
+	public void newPlanet() {
+		
 	}
 	
 	public static void main(String arg[]) {
@@ -431,7 +439,7 @@ public class GameManager {
 		//crew.spaceplague();
 		//System.out.println(crew.getFood());
 		//System.out.println(crew.getMedical());
-		crew.search();
+		crew.searchParts();
 		System.out.println(crew.getFood());
 		System.out.println(crew.getMedical());
 		System.out.println(crew.pieces);

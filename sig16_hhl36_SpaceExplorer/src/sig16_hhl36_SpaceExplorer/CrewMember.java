@@ -36,11 +36,14 @@ public class CrewMember {
 	public int gethealth() {
 		return health;
 	}
+	public String getAbility() {
+		return ability;
+	}
 	public void resetaction() {
 		action = 2;
 	}
 	public void subtractaction() {
-		action = action -1;
+		action -= 1;
 	}
 	public boolean issick() {
 		return sick;
