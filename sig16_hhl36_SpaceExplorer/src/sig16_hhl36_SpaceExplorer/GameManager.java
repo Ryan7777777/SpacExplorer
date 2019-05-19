@@ -2,6 +2,8 @@ package sig16_hhl36_SpaceExplorer;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
+
 
 public class GameManager {
 	private String shipName;
@@ -9,6 +11,8 @@ public class GameManager {
 	private int crewSize;
 	private double crewMoney;
 	private int shieldHealth;
+	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
+	private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 	private ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
@@ -167,7 +171,7 @@ public class GameManager {
 		for(Food_Item myfood: crew_food) {
 			food += "\nFood name:" + myfood.getFoodName();
 			food += "\nNutrition :" + myfood.getFoodNutrition();
-			food += "\nQuantity :" + myfood.getQuantity();
+			food += "\nQuantity :" + myfood.getQuantity() + "\n";
 	}
 		return food;
 	}
@@ -176,7 +180,7 @@ public class GameManager {
 		for(Medical_Item mymed: crew_medical) {
 			med += "\nFood name:" + mymed.getMedName();
 			med += "\nNutrition :" + mymed.getHealthAdd();
-			med += "\nQuantity :" + mymed.getQuantity();
+			med += "\nQuantity :" + mymed.getQuantity() + "\n";
 	}
 		return med;
 	}
@@ -298,12 +302,12 @@ public class GameManager {
 	
 	public void printAllCrewMembers() {
 		for (CrewMember crewmember: crew_members) {
-			System.out.println(crewmember.viewtype());
+			System.out.println(crewmember.viewtype() + "\n");
 		}
 	}
 	public void printStatus() {
 		for (CrewMember crewmember: crew_members) {
-			System.out.println(crewmember.viewStatus());
+			System.out.println(crewmember.viewStatus() + "\n");
 		}
 	}
 	public void spaceshipStatus() {
@@ -364,8 +368,40 @@ public class GameManager {
 		setShieldhealth(shield_health);
 	}
 	
-	public void newPlanet() {
+	public void setPilot() {
+		String print = "";
+		Scanner input = new Scanner(System.in);
+		try {
+			for (CrewMember crewmate: pilot_candidate) {
+				print += pilot_candidate.indexOf(crewmate) + ": " + crewmate;
+			}
+			System.out.println("Please select the number beside your chosen crew member: ");
+			System.out.println(print);
+			int num = input.nextInt();
+			pilots.add();
+		} finally {
+			input.close();
+		}
 		
+	}
+	
+	public void newPlanet() throws PilotCrewException {
+		if (getCrewSize() >= 2) {
+				for (CrewMember crewmember: crew_members) {
+					if (crewmember.getaction() >= 1) {
+						pilot_candidate.add(crewmember);
+					} else {
+						System.out.println("Crew Member: " + crewmember + " is out of actions!");
+					}
+				}
+				if (pilot_candidate.size() >= 2) {
+					setPilot();
+				} else {
+					throw new PilotCrewException("Don't have enough Crew Members for this action!");
+				}
+		} else {
+				throw new PilotCrewException("Don't have enough Crew Members for this action!");
+		}
 	}
 	
 	public static void main(String arg[]) {
@@ -378,12 +414,12 @@ public class GameManager {
 		CrewMember superman = new Superman();
 		CrewMember technician = new Technician();
 		//set up name for characters
-		hungryboy.setname("Player1-hungeyboy");
+		hungryboy.setname("Player1-hungryboy");
 		hunk.setname("Player2-hunk");
 		lazyslepper.setname("Player3-lazysleeper");
 		seeker.setname("Player4-seeker");
 		superman.setname("Player5-superman");
-		technician.setname("Player6-techiniciain");
+		technician.setname("Player6-technician");
 		//add those six characters in the crew_manber array
 		crew.addCrew(hungryboy);
 		crew.addCrew(hunk);
@@ -396,7 +432,7 @@ public class GameManager {
 		crew.printStatus();
 		//test pieces with correct day
 		crew.setDay(7);
-		System.out.println("Pices");
+		System.out.println("Pieces:");
 		System.out.println(crew.getpices());
 		//set up all six foods
 		Food_Item banana = new Banana();
@@ -439,10 +475,11 @@ public class GameManager {
 		//crew.spaceplague();
 		//System.out.println(crew.getFood());
 		//System.out.println(crew.getMedical());
-		crew.searchParts();
 		System.out.println(crew.getFood());
 		System.out.println(crew.getMedical());
 		System.out.println(crew.pieces);
+		crew.searchParts();
+		crew.newPlanet();
 		
 	}
 	
