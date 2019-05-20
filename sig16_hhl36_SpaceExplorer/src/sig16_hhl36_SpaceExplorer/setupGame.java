@@ -13,6 +13,8 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.JButton;
 import java.awt.Color;
+import java.awt.EventQueue;
+
 import javax.swing.JComboBox;
 import javax.swing.JTable;
 
@@ -27,6 +29,10 @@ public class setupGame {
 	private String btn3;
 	private String btn4;
 	private int index;
+	private JTextField txtName1;
+	private JTextField txtName2;
+	private JTextField txtName3;
+	private JTextField txtName4;
 
 
 	/**
@@ -60,23 +66,40 @@ public class setupGame {
 			for (CrewMember member: manager.crew_members) {
 				index += 1;
 				if(index == 0) {
-					btn1 = member.viewtype();
+					btn1 = (member.viewtype() +"Name :"+member.getName());
 					btn2 = "";
 					btn3 = "";
 					btn4 = "";		
 				}
 				else if (index == 1) {
-					btn2 = member.viewtype();
+					btn2 = (member.viewtype() +"Name :"+member.getName());
 					btn3 = "";
 					btn4 = "";	
 				} else if(index == 2) {
-					btn3 = member.viewtype();
+					btn3 =(member.viewtype() +"Name :"+member.getName());
 				} else {
-					btn4 = member.viewtype();
+					btn4 = (member.viewtype() +"Name :"+member.getName());
 				}
 		}
 		}
 	}
+	public void namecrew() {
+		index = -1;
+		for (CrewMember member: manager.crew_members) {
+			index += 1;
+			if(index == 0) {
+				member.setname(txtName1.getText());
+			} else if(index == 1) {
+				member.setname(txtName2.getText());
+			} else if(index == 2) {
+				member.setname(txtName3.getText());
+			} else if(index ==4) {
+				member.setname(txtName4.getText());
+			}
+		}
+		
+	}
+
 	/**
 	 * Create the application.
 	 */
@@ -115,10 +138,21 @@ public class setupGame {
 		lblHowManyCrew.setBounds(30, 180, 172, 16);
 		frame.getContentPane().add(lblHowManyCrew);
 		
+		txtName1 = new JTextField();
+		txtName1.setColumns(10);
+		txtName1.setBounds(30, 499, 89, 24);
+		frame.getContentPane().add(txtName1);
+	
+		
+		
 		JButton btnCrew1 = new JButton("");
+		btnCrew1.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		JButton btnCrew2 = new JButton("");
+		btnCrew2.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		JButton btnCrew3 = new JButton("");
+		btnCrew3.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		JButton btnCrew4 = new JButton("");
+		btnCrew4.setFont(new Font("Tahoma", Font.PLAIN, 10));
 		btnCrew1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				if(btnCrew1.getText() != "") {
@@ -131,7 +165,7 @@ public class setupGame {
 				}
 				}
 			});
-		btnCrew1.setBounds(12, 459, 104, 38);
+		btnCrew1.setBounds(30, 412, 104, 56);
 		frame.getContentPane().add(btnCrew1);
 		btnCrew2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -146,7 +180,7 @@ public class setupGame {
 				}
 			});
 		
-		btnCrew2.setBounds(146, 459, 104, 38);
+		btnCrew2.setBounds(156, 412, 104, 56);
 		frame.getContentPane().add(btnCrew2);
 		btnCrew3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -161,7 +195,7 @@ public class setupGame {
 			}
 			});
 		
-		btnCrew3.setBounds(283, 459, 104, 38);
+		btnCrew3.setBounds(272, 412, 104, 56);
 		frame.getContentPane().add(btnCrew3);
 		btnCrew4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -177,7 +211,7 @@ public class setupGame {
 			});
 		
 		
-		btnCrew4.setBounds(415, 459, 104, 38);
+		btnCrew4.setBounds(408, 412, 104, 56);
 		frame.getContentPane().add(btnCrew4);
 		
 		JSlider slider = new JSlider();
@@ -197,13 +231,18 @@ public class setupGame {
 		position.put(10, new JLabel("10"));
 		slider.setLabelTable(position);
 		frame.getContentPane().add(slider);
+		slider.addChangeListener(new ChangeListener() {
+			public void stateChanged(ChangeEvent e) {
+					manager.setDay(slider.getValue());
+				}
+		});
 		
 		JLabel lbl_crewtype = new JLabel("");
-		lbl_crewtype.setBounds(609, 253, 110, 24);
+		lbl_crewtype.setBounds(611, 249, 110, 24);
 		frame.getContentPane().add(lbl_crewtype);
 		
 		JLabel lbl_Ability = new JLabel("");
-		lbl_Ability.setBounds(615, 286, 89, 16);
+		lbl_Ability.setBounds(615, 286, 151, 16);
 		
 		frame.getContentPane().add(lbl_Ability);
 		JSlider slider2 = new JSlider();
@@ -357,10 +396,18 @@ public class setupGame {
 		frame.getContentPane().add(btnTechnician);
 		
 		JLabel lblSelect = new JLabel("Selected:");
-		lblSelect.setBounds(30, 414, 89, 32);
+		lblSelect.setBounds(30, 367, 89, 32);
 		frame.getContentPane().add(lblSelect);
 		
 		JButton btnStart = new JButton("Start");
+		btnStart.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				manager.setCrewname(tfcrewname.getText());
+				manager.setshipname(tfshipname.getText());
+				namecrew();
+				finishedWindow();
+			}
+		});
 		btnStart.setBounds(615, 478, 89, 22);
 		btnStart.setBackground(Color.BLUE);
 		btnStart.setForeground(Color.BLACK);
@@ -374,13 +421,44 @@ public class setupGame {
 		lblCrewType.setBounds(519, 247, 89, 22);
 		frame.getContentPane().add(lblCrewType);
 		
+		JLabel lblCrewName = new JLabel("Name");
+		frame.getContentPane().add(lblCrewName);
+		
 		JLabel lblAbility = new JLabel("Ability");
-		lblAbility.setBounds(519, 286, 64, 16);
+		lblAbility.setBounds(519, 286, 56, 16);
 		frame.getContentPane().add(lblAbility);
 		
-	
+		JLabel lblName = new JLabel("Name");
+		lblName.setBounds(40, 481, 56, 16);
+		frame.getContentPane().add(lblName);
 		
-
+		txtName2 = new JTextField();
+		txtName2.setColumns(10);
+		txtName2.setBounds(156, 499, 89, 24);
+		frame.getContentPane().add(txtName2);
+		
+		txtName3 = new JTextField();
+		txtName3.setColumns(10);
+		txtName3.setBounds(279, 499, 89, 24);
+		frame.getContentPane().add(txtName3);
+		
+		txtName4 = new JTextField();
+		txtName4.setColumns(10);
+		txtName4.setBounds(423, 499, 89, 24);
+		frame.getContentPane().add(txtName4);
+		
+		JLabel label = new JLabel("Name");
+		label.setBounds(166, 481, 56, 16);
+		frame.getContentPane().add(label);
+		
+		JLabel label_1 = new JLabel("Name");
+		label_1.setBounds(289, 481, 56, 16);
+		frame.getContentPane().add(label_1);
+		
+		JLabel label_2 = new JLabel("Name");
+		label_2.setBounds(423, 481, 56, 16);
+		frame.getContentPane().add(label_2);
+		
 		
 	}
 }

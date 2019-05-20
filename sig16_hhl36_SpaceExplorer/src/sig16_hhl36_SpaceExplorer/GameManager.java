@@ -9,7 +9,7 @@ import java.util.Scanner;
 public class GameManager {
 	private String shipName;
 	private String crewName;
-	private int crewSize = 2;
+	private int crewSize = 4;
 	private double crewMoney;
 	private int shieldHealth;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
@@ -19,7 +19,7 @@ public class GameManager {
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
-	private int day;
+	private int day = 10;
 	private int pieces;
 	private boolean shipParts;
 	Random rand = new Random();
