@@ -13,7 +13,7 @@ public class GameManager {
 	private double crewMoney;
 	private int shieldHealth;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
-	private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
+	//private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();

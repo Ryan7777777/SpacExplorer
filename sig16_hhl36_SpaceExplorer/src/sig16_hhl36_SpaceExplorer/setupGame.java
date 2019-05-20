@@ -103,9 +103,9 @@ public class setupGame {
 	/**
 	 * Create the application.
 	 */
-	public setupGame() {
-		initialize();
-	}
+	//public setupGame() {
+		//initialize();
+	//}
 
 	/**
 	 * Initialize the contents of the frame.
