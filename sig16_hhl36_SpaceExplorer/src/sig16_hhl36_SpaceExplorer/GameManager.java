@@ -10,7 +10,7 @@ public class GameManager {
 	private String shipName;
 	private String crewName;
 	private int crewSize = 4;
-	private double crewMoney;
+	private double crewMoney = 100;
 	private int shieldHealth = 100;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();

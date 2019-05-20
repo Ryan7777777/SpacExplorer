@@ -403,10 +403,12 @@ public class setupGame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_members.size() >= 2) {
+					if(manager.crew_members.size()==manager.crewsize()) {
 				manager.setCrewname(tfcrewname.getText());
 				manager.setshipname(tfshipname.getText());
 				namecrew();
 				finishedWindow();
+					}
 			}
 			}
 		});
