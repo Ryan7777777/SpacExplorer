@@ -127,6 +127,7 @@ public class GameManager {
 		if(remove >-1) {
 			crew_members.remove(index);
 		}
+		randomEvent();
 	}
 	public void setFoodstore() {
 		Food_Item peach = new Peaches();
@@ -232,17 +233,17 @@ public class GameManager {
 			}
 	}
 	}
-		public void useemditem(CrewMember currentcrew, Medical_Item med) {
-			int remove = -1;
-			int index = -1;
-			for(Medical_Item mymed: crew_medical) {
-				index +=1;
-				if(med.getMedName() == mymed.getMedName()) {
-					med.subtractQuantity();
-					if(med.getQuantity() == 0 ) {
-						remove = index;
-					}
+	public void useemditem(CrewMember currentcrew, Medical_Item med) {
+		int remove = -1;
+		int index = -1;
+		for(Medical_Item mymed: crew_medical) {
+			index +=1;
+			if(med.getMedName() == mymed.getMedName()) {
+				med.subtractQuantity();
+				if(med.getQuantity() == 0 ) {
+					remove = index;
 				}
+			}
 			}
 		if(remove > -1) {
 			crew_medical.remove(remove);
@@ -313,36 +314,36 @@ public class GameManager {
 				int i = rand.nextInt(crew_food.size());
 				int index  = -1;
 			    for(Food_Item myfood: crew_food) {
-			    index+=1;
-				if(index == i) {
-					myfood.subtractQuantity();
-					remove = true;
-					if(myfood.getQuantity() == 0) {
-						remove_index = index;
+				    index += 1;
+					if(index == i) {
+						myfood.subtractQuantity();
+						remove = true;
+						if(myfood.getQuantity() == 0) {
+							remove_index = index;
+						}
 					}
-				}
-			}
+			    }
 			    if(remove_index > -1) {
 			    	crew_food.remove(remove_index);
 			    }
-		} else  {
-			int i = rand.nextInt(crew_medical.size());
-			int index  = -1;
-		    for(Medical_Item mymed: crew_medical) {
-		    index+=1;
-			if(index == i) {
-				mymed.subtractQuantity();
-				remove = true;
-				if(mymed.getQuantity() == 0) {
-					remove_index = index;
-				}
-			}
+			  } else {
+				  int i = rand.nextInt(crew_medical.size());
+				  int index  = -1;
+				  for(Medical_Item mymed: crew_medical) {
+				    index+=1;
+					if(index == i) {
+						mymed.subtractQuantity();
+						remove = true;
+						if(mymed.getQuantity() == 0) {
+							remove_index = index;
+						}
+					}
+				  }
+				  if(remove_index > -1) {
+					  crew_medical.remove(remove_index);
+				  }
+			  }
 		}
-		    if(remove_index > -1) {
-		    	crew_medical.remove(remove_index);
-		    }
-	}
-	}
 	}
 	public void spaceplague() {
 		for(CrewMember crew :crew_members) {
@@ -357,6 +358,10 @@ public class GameManager {
 		int shield_health = getShieldhealth();
 		shield_health -= (shield_health * 0.2);
 		setShieldhealth(shield_health);
+	}
+	public void randomEvent() {
+		
+		
 	}
 	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
 		String print = "Crew members availabe to be a pilot for the spaceship: ";
