@@ -21,12 +21,15 @@ public class mainGame {
 
 	private JFrame frame;
 	private GameManager manager;
+<<<<<<< HEAD
 	private String btn1;
 	private String btn2;
 	private String btn3;
 	private String btn4;
 	private int index;
 	
+=======
+>>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
 
 	/**
 	 * Launch the application.
@@ -73,14 +76,21 @@ public class mainGame {
 		}
 		}
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public mainGame() {
 		initialize();
 	}
-
+	/**
+	 * Create the application.
+	 */
+	public mainGame(GameManager incomingManager) {
+		manager = incomingManager;
+		initialize();
+		frame.setVisible(true);
+	}
+	
+	public void closeWindow() {
+		frame.dispose();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */
