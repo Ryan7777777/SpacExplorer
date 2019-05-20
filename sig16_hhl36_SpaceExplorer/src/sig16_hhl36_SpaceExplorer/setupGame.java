@@ -402,10 +402,12 @@ public class setupGame {
 		JButton btnStart = new JButton("Start");
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if(manager.crew_members.size() >= 2) {
 				manager.setCrewname(tfcrewname.getText());
 				manager.setshipname(tfshipname.getText());
 				namecrew();
 				finishedWindow();
+			}
 			}
 		});
 		btnStart.setBounds(615, 478, 89, 22);

@@ -11,7 +11,7 @@ public class GameManager {
 	private String crewName;
 	private int crewSize = 4;
 	private double crewMoney;
-	private int shieldHealth;
+	private int shieldHealth = 100;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
@@ -23,6 +23,10 @@ public class GameManager {
 	private int pieces;
 	private boolean shipParts;
 	Random rand = new Random();
+	
+	public String getdays() {
+		return Integer.toString(day);
+	}
 	public int getcrewsize() {
 		return crew_members.size();
 	}
@@ -412,6 +416,7 @@ public class GameManager {
 		mainWindow.closeWindow();
 	}
 	public void launchSetupScreen() {
+		calculatePieces();
 		setupGame setupWindow = new setupGame(this);
 	}
 	public void closeSetupScreen(setupGame setupWindow) {

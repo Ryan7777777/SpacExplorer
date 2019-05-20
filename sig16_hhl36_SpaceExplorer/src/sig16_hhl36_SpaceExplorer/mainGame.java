@@ -12,21 +12,21 @@ import javax.swing.SwingConstants;
 public class mainGame {
 
 	private JFrame frame;
+	private GameManager manager;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainGame window = new mainGame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public mainGame(GameManager incomingManager) {
+		manager = incomingManager;
+		initialize();
+		frame.setVisible(true);
+	}
+	public void closeWindow() {
+		frame.dispose();
+	}
+	public void finishedWindow() {
+		manager.closeMainScreen(this);
 	}
 
 	/**
@@ -107,27 +107,23 @@ public class mainGame {
 		btnStatus.setBounds(174, 412, 97, 25);
 		frame.getContentPane().add(btnStatus);
 		
-		JComboBox cbCrewMenber = new JComboBox();
-		cbCrewMenber.setBounds(12, 213, 259, 22);
-		frame.getContentPane().add(cbCrewMenber);
-		
-		JLabel lblCrewName = new JLabel("");
+		JLabel lblCrewName = new JLabel(manager.getCrewname());
 		lblCrewName.setBounds(112, 13, 159, 16);
 		frame.getContentPane().add(lblCrewName);
 		
-		JLabel lblShipName = new JLabel("");
+		JLabel lblShipName = new JLabel(manager.getShipname());
 		lblShipName.setBounds(112, 42, 159, 16);
 		frame.getContentPane().add(lblShipName);
 		
-		JLabel lblDays = new JLabel("");
+		JLabel lblDays = new JLabel(manager.getdays());
 		lblDays.setBounds(112, 71, 159, 16);
 		frame.getContentPane().add(lblDays);
 		
-		JLabel lblLostPices = new JLabel("");
+		JLabel lblLostPices = new JLabel(Integer.toString(manager.getpices()));
 		lblLostPices.setBounds(112, 100, 159, 16);
 		frame.getContentPane().add(lblLostPices);
 		
-		JLabel lblShipHealth = new JLabel("");
+		JLabel lblShipHealth = new JLabel(Integer.toString(manager.getShieldhealth()));
 		lblShipHealth.setBounds(112, 129, 159, 16);
 		frame.getContentPane().add(lblShipHealth);
 		
@@ -143,5 +139,25 @@ public class mainGame {
 		lblStatus.setVerticalAlignment(SwingConstants.TOP);
 		lblStatus.setBounds(317, 245, 180, 170);
 		frame.getContentPane().add(lblStatus);
+		
+		JButton btnCrew1 = new JButton("");
+		btnCrew1.setVerticalAlignment(SwingConstants.TOP);
+		btnCrew1.setBounds(12, 245, 97, 25);
+		frame.getContentPane().add(btnCrew1);
+		
+		JButton btnCrew3 = new JButton("");
+		btnCrew3.setVerticalAlignment(SwingConstants.TOP);
+		btnCrew3.setBounds(12, 311, 97, 25);
+		frame.getContentPane().add(btnCrew3);
+		
+		JButton btnCrew2 = new JButton("");
+		btnCrew2.setVerticalAlignment(SwingConstants.TOP);
+		btnCrew2.setBounds(135, 245, 97, 25);
+		frame.getContentPane().add(btnCrew2);
+		
+		JButton btnCrew4 = new JButton("");
+		btnCrew4.setVerticalAlignment(SwingConstants.TOP);
+		btnCrew4.setBounds(135, 311, 97, 25);
+		frame.getContentPane().add(btnCrew4);
 	}
 }
