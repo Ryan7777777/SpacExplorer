@@ -379,6 +379,7 @@ public class GameManager {
 				    continue;
 				}
 			}
+			input.close();
 		}
 		System.out.println(getPilot());
 	}

@@ -12,6 +12,7 @@ import javax.swing.SwingConstants;
 public class mainGame {
 
 	private JFrame frame;
+	private GameManager manager;
 
 	/**
 	 * Launch the application.
@@ -28,14 +29,21 @@ public class mainGame {
 			}
 		});
 	}
-
-	/**
-	 * Create the application.
-	 */
 	public mainGame() {
 		initialize();
 	}
-
+	/**
+	 * Create the application.
+	 */
+	public mainGame(GameManager incomingManager) {
+		manager = incomingManager;
+		initialize();
+		frame.setVisible(true);
+	}
+	
+	public void closeWindow() {
+		frame.dispose();
+	}
 	/**
 	 * Initialize the contents of the frame.
 	 */

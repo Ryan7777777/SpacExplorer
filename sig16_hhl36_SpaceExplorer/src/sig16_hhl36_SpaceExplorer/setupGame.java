@@ -34,7 +34,13 @@ public class setupGame {
 	private JTextField txtName3;
 	private JTextField txtName4;
 
-
+	/**
+	 * Create the application.
+	 */
+	public setupGame() {
+		initialize();
+	}
+	
 	/**
 	 * Launch the application.
 	 */
@@ -99,13 +105,6 @@ public class setupGame {
 		}
 		
 	}
-
-	/**
-	 * Create the application.
-	 */
-	//public setupGame() {
-		//initialize();
-	//}
 
 	/**
 	 * Initialize the contents of the frame.
