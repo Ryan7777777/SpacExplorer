@@ -92,7 +92,7 @@ public class CrewMember {
 		return type;
 	}
 	public String viewStatus() {
-		String status = "Current status for " + name +":\n" + "Hunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health + "\nSick: " +sick;
+		String status = "Current status for " + name +":\n" +"Type: " + type + "\nHunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health + "\nSick: " +sick;
 		return status;
 	}
 	

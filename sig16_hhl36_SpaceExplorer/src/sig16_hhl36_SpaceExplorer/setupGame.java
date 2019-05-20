@@ -93,11 +93,10 @@ public class setupGame {
 				member.setname(txtName2.getText());
 			} else if(index == 2) {
 				member.setname(txtName3.getText());
-			} else if(index ==4) {
+			} else if(index == 3) {
 				member.setname(txtName4.getText());
 			}
 		}
-		
 	}
 
 	/**

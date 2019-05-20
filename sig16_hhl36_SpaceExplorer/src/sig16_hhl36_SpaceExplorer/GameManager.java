@@ -416,6 +416,10 @@ public class GameManager {
 	public void closeMainScreen(mainGame mainWindow) {
 		mainWindow.closeWindow();
 	}
+	public void gotoStore(mainGame mainWindow) {
+		mainWindow.closeWindow();
+		launchStore();
+	}
 	public void launchSetupScreen() {
 		calculatePieces();
 		setupGame setupWindow = new setupGame(this);
@@ -424,7 +428,13 @@ public class GameManager {
 		setupWindow.closeWindow();
 		launchMainScreen();
 	}
-	
+	public void launchStore() {
+		Store storeWindows = new Store(this);
+	}
+	public void closeStore(Store storeWindows) {
+		storeWindows.closeWindow();
+		launchMainScreen();
+	}
 	public static void main(String arg[]) {
 		GameManager manager = new GameManager();
 		manager.launchSetupScreen();

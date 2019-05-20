@@ -8,11 +8,25 @@ import javax.swing.JButton;
 import javax.swing.JSeparator;
 import javax.swing.JComboBox;
 import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import javax.swing.JTextPane;
+import javax.swing.JList;
+import javax.swing.JTextArea;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class mainGame {
 
 	private JFrame frame;
 	private GameManager manager;
+	private String btn1;
+	private String btn2;
+	private String btn3;
+	private String btn4;
+	private int index;
+	
 
 	/**
 	 * Launch the application.
@@ -25,8 +39,39 @@ public class mainGame {
 	public void closeWindow() {
 		frame.dispose();
 	}
+	public void goStore() {
+		manager.gotoStore(this);
+	}
 	public void finishedWindow() {
 		manager.closeMainScreen(this);
+	}
+	public void setStringButton() {
+		if(manager.getcrewsize() == 0) {
+			btn1 = "";
+			btn2 = "";
+			btn3 = "";
+			btn4 = "";
+		} else {
+			index = -1;
+			for (CrewMember member: manager.crew_members) {
+				index += 1;
+				if(index == 0) {
+					btn1 = ("Crew1 :"+member.getName());
+					btn2 = "";
+					btn3 = "";
+					btn4 = "";		
+				}
+				else if (index == 1) {
+					btn2 = ("Crew2 :"+member.getName());
+					btn3 = "";
+					btn4 = "";	
+				} else if(index == 2) {
+					btn3 =("Crew3: "+member.getName());
+				} else {
+					btn4 = ("Crew4: "+member.getName());
+				}
+		}
+		}
 	}
 
 	/**
@@ -44,7 +89,7 @@ public class mainGame {
 		frame.setBounds(100, 100, 825, 605);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
-		
+		setStringButton();
 		JLabel lblDay = new JLabel("Day:");
 		lblDay.setBounds(12, 71, 56, 16);
 		frame.getContentPane().add(lblDay);
@@ -73,31 +118,22 @@ public class mainGame {
 		lblFood.setBounds(553, 13, 104, 22);
 		frame.getContentPane().add(lblFood);
 		
-		JLabel lblFoodItem = new JLabel("");
-		lblFoodItem.setVerticalAlignment(SwingConstants.TOP);
-		lblFoodItem.setBounds(553, 42, 242, 209);
-		frame.getContentPane().add(lblFoodItem);
-		
 		JLabel lblMedical = new JLabel("Crew's Medical Item");
 		lblMedical.setBounds(553, 264, 150, 22);
 		frame.getContentPane().add(lblMedical);
-		
-		JLabel lblMedicalItem = new JLabel("");
-		lblMedicalItem.setVerticalAlignment(SwingConstants.TOP);
-		lblMedicalItem.setBounds(553, 299, 242, 209);
-		frame.getContentPane().add(lblMedicalItem);
 		
 		JButton btnNextDay = new JButton("Next Day");
 		btnNextDay.setBounds(12, 483, 97, 25);
 		frame.getContentPane().add(btnNextDay);
 		
-		JButton btnBuyFood = new JButton("Buy Food");
-		btnBuyFood.setBounds(174, 483, 97, 25);
-		frame.getContentPane().add(btnBuyFood);
-		
-		JButton btnBuyMedical = new JButton("Buy Medical Item");
-		btnBuyMedical.setBounds(352, 483, 97, 25);
-		frame.getContentPane().add(btnBuyMedical);
+		JButton btnStore = new JButton("Go to Store");
+		btnStore.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goStore();
+			}
+		});
+		btnStore.setBounds(174, 483, 97, 25);
+		frame.getContentPane().add(btnStore);
 		
 		JButton btnPeform = new JButton("peform");
 		btnPeform.setBounds(12, 412, 97, 25);
@@ -106,6 +142,23 @@ public class mainGame {
 		JButton btnStatus = new JButton("Status");
 		btnStatus.setBounds(174, 412, 97, 25);
 		frame.getContentPane().add(btnStatus);
+		
+		JTextArea textStstus = new JTextArea();
+		textStstus.setBackground(SystemColor.menu);
+		textStstus.setBounds(317, 264, 206, 173);
+		frame.getContentPane().add(textStstus);
+		
+		JTextArea txtFood = new JTextArea();
+		txtFood.setBackground(SystemColor.menu);
+		txtFood.setBounds(553, 54, 242, 197);
+		txtFood.setText(manager.getFood());
+		frame.getContentPane().add(txtFood);
+		
+		JTextPane txtMedicial = new JTextPane();
+		txtMedicial.setBackground(SystemColor.menu);
+		txtMedicial.setBounds(553, 314, 242, 213);
+		txtMedicial.setText(manager.getMedical());
+		frame.getContentPane().add(txtMedicial);
 		
 		JLabel lblCrewName = new JLabel(manager.getCrewname());
 		lblCrewName.setBounds(112, 13, 159, 16);
@@ -127,7 +180,7 @@ public class mainGame {
 		lblShipHealth.setBounds(112, 129, 159, 16);
 		frame.getContentPane().add(lblShipHealth);
 		
-		JLabel lblCrewMoney = new JLabel("");
+		JLabel lblCrewMoney = new JLabel(Double.toString(manager.getmoney()));
 		lblCrewMoney.setBounds(112, 158, 159, 16);
 		frame.getContentPane().add(lblCrewMoney);
 		
@@ -135,29 +188,78 @@ public class mainGame {
 		lblCrewStatus.setBounds(317, 216, 97, 16);
 		frame.getContentPane().add(lblCrewStatus);
 		
-		JLabel lblStatus = new JLabel("");
-		lblStatus.setVerticalAlignment(SwingConstants.TOP);
-		lblStatus.setBounds(317, 245, 180, 170);
-		frame.getContentPane().add(lblStatus);
-		
-		JButton btnCrew1 = new JButton("");
+		JButton btnCrew1 = new JButton(btn1);
+		btnCrew1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew1.setVerticalAlignment(SwingConstants.TOP);
-		btnCrew1.setBounds(12, 245, 97, 25);
+		btnCrew1.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+			 index = 0;
+			 for(CrewMember member: manager.crew_members) {
+					index +=1;
+					if(index == 1) {
+						textStstus.setText(member.viewStatus());
+				}
+			}
+		}
+		});
+		btnCrew1.setBounds(12, 245, 130, 25);
 		frame.getContentPane().add(btnCrew1);
 		
-		JButton btnCrew3 = new JButton("");
+		JButton btnCrew3 = new JButton(btn3);
+		btnCrew3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew3.setVerticalAlignment(SwingConstants.TOP);
-		btnCrew3.setBounds(12, 311, 97, 25);
+		btnCrew3.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+			 index = 0;
+			 for(CrewMember member: manager.crew_members) {
+					index +=1;
+					if(index == 3) {
+						textStstus.setText(member.viewStatus());
+				}
+			}
+		}
+		});
+		btnCrew3.setBounds(12, 311, 130, 25);
 		frame.getContentPane().add(btnCrew3);
 		
-		JButton btnCrew2 = new JButton("");
+		JButton btnCrew2 = new JButton(btn2);
+		btnCrew2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew2.setVerticalAlignment(SwingConstants.TOP);
-		btnCrew2.setBounds(135, 245, 97, 25);
+		btnCrew2.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+			 index = 0;
+			 for(CrewMember member: manager.crew_members) {
+					index +=1;
+					if(index == 2) {
+						textStstus.setText(member.viewStatus());
+				}
+			}
+		}
+		});
+		btnCrew2.setBounds(174, 245, 131, 25);
 		frame.getContentPane().add(btnCrew2);
 		
-		JButton btnCrew4 = new JButton("");
+		JButton btnCrew4 = new JButton(btn4);
+		btnCrew4.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew4.setVerticalAlignment(SwingConstants.TOP);
-		btnCrew4.setBounds(135, 311, 97, 25);
+		btnCrew4.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+			 index = 0;
+			 for(CrewMember member: manager.crew_members) {
+					index +=1;
+					if(index == 4) {
+						textStstus.setText(member.viewStatus());
+				}
+			}
+		}
+		});
+		btnCrew4.setBounds(174, 311, 131, 25);
 		frame.getContentPane().add(btnCrew4);
+		
+		JSeparator separator = new JSeparator();
+		separator.setBounds(466, 245, -136, 140);
+		frame.getContentPane().add(separator);
+		
+		
 	}
 }
