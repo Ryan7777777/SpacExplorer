@@ -7,21 +7,20 @@ import javax.swing.JFrame;
 public class mainGame {
 
 	private JFrame frame;
-
+	private GameManager manager;
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					mainGame window = new mainGame();
-					window.frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
+	public  mainGame(GameManager incomingManager){
+		manager = incomingManager;
+		initialize();
+		frame.setVisible(true);
+	}
+	public void closeWindow() {
+		frame.dispose();
+	}
+	public void finishedWindow() {
+		manager.closeMainScreen(this);
 	}
 
 	/**

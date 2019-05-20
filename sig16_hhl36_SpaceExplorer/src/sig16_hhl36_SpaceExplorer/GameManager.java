@@ -9,12 +9,12 @@ import java.util.Scanner;
 public class GameManager {
 	private String shipName;
 	private String crewName;
-	private int crewSize;
+	private int crewSize = 2;
 	private double crewMoney;
 	private int shieldHealth;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
-	private ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
+	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	private ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
@@ -23,13 +23,11 @@ public class GameManager {
 	private int pieces;
 	private boolean shipParts;
 	Random rand = new Random();
-	
-	public GameManager() {
-		shipName = "";
-		crewName = "";
-		crewSize = 0;
-		crewMoney = 100.0;
-		shieldHealth = 100;
+	public int getcrewsize() {
+		return crew_members.size();
+	}
+	public int crewsize() {
+		return crewSize;
 	}
 	public void setcrewname(String name) {
 		crewName = name;
@@ -43,9 +41,6 @@ public class GameManager {
 	public void setDay(int setday) {
 		day = setday;
 		calculatePieces();
-	}
-	public void setShipname(String name) {
-		shipName = name;
 	}
 	public void calculatePieces() {
 		double index = day*2/3;
@@ -280,10 +275,6 @@ public class GameManager {
 		return crewName;
 	}
 	
-	public int getCrewSize() {
-		return crewSize;
-	}
-	
 	public void setCrewSize(int size) {
 		crewSize = size;
 	}
@@ -296,9 +287,8 @@ public class GameManager {
 	}
 	
 	public void addCrew(CrewMember crew) {
-		int count = crew_members.size();
 		crew_members.add(crew);
-		setCrewSize(count + 1);
+		
 	}
 	
 	public void printAllCrewMembers() {
@@ -415,31 +405,45 @@ public class GameManager {
 		}
 		setPilot(pilot_candidate);
 	}
+	public void launchMainScreen () {
+		mainGame mainWindow = new mainGame(this);
+	}
+	public void closeMainScreen(mainGame mainWindow) {
+		mainWindow.closeWindow();
+	}
+	public void launchSetupScreen() {
+		setupGame setupWindow = new setupGame(this);
+	}
+	public void closeSetupScreen(setupGame setupWindow) {
+		setupWindow.closeWindow();
+		launchMainScreen();
+	}
 	
 	public static void main(String arg[]) {
-		GameManager crew = new GameManager();
+		GameManager manager = new GameManager();
+		manager.launchSetupScreen();
 		// test all six characters
-		CrewMember hungryboy = new HungryBoy();
+		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember hunk = new Hunk();
 		CrewMember lazyslepper = new LazySleeper();
 		CrewMember seeker = new Seeker();
 		CrewMember superman = new Superman();
 		CrewMember technician = new Technician();
-		//set up name for characters
+		set up name for characters
 		hungryboy.setname("Player1-hungryboy");
 		hunk.setname("Player2-hunk");
 		lazyslepper.setname("Player3-lazysleeper");
 		seeker.setname("Player4-seeker");
 		superman.setname("Player5-superman");
 		technician.setname("Player6-technician");
-		//add those six characters in the crew_manber array
+		add those six characters in the crew_manber array
 		crew.addCrew(hungryboy);
 		crew.addCrew(hunk);
 		crew.addCrew(lazyslepper);
 		crew.addCrew(seeker);
 		crew.addCrew(superman);
 		crew.addCrew(technician);
-		//print all status of crew
+		print all status of crew
 		System.out.println("All status before start");
 		crew.printStatus();
 		//test pieces with correct day
@@ -475,23 +479,23 @@ public class GameManager {
 		crew.medPurchase(bigmedpack);
 		System.out.println(crew.getMedical());
 		System.out.println(crew.getmoney());
-		//test eat function 
-		//crew.newday();
-		//crew.eat(hungryboy, strawberries);
-		//crew.eat(hungryboy, butterchicken);
-		//test use medical function 
-		//crew.useemditem(hunk, smallmedpack);
-		//test party
-		//crew.alienpary();
-		//test space plague
-		//crew.spaceplague();
-		//System.out.println(crew.getFood());
-		//System.out.println(crew.getMedical());
+		test eat function 
+		crew.newday();
+		crew.eat(hungryboy, strawberries);
+		crew.eat(hungryboy, butterchicken);
+		test use medical function 
+		crew.useemditem(hunk, smallmedpack);
+		test party
+		crew.alienpary();
+		test space plague
+		crew.spaceplague();
+		System.out.println(crew.getFood());
+		System.out.println(crew.getMedical());
 		System.out.println(crew.getFood());
 		System.out.println(crew.getMedical());
 		System.out.println(crew.pieces);
 		crew.searchParts();
-		crew.newPlanet();
+		crew.newPlanet();*/
 		
 	}
 	
