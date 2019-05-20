@@ -372,10 +372,11 @@ public class GameManager {
 			    try { // checks code for exceptions
 			        System.out.println("Please select the number beside the possible Crew Member pilot: ");
 			        int index = input.nextInt();
-			        
+			        pilots.add(pilot_candidate.get(index));
 				} catch (InputMismatchException e) { //if an exception appears prints message below
 				    System.err.println("Please enter a number! " + e.getMessage());
-				    input.next(); // clear scanner wrong input
+				    input.next(); 
+				    continue;
 				}
 			}
 		}
@@ -392,7 +393,7 @@ public class GameManager {
 	public void newPlanet() throws PilotCrewException {
 		ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 
-		if (getCrewSize() >= 2) {
+		if (getcrewsize() >= 2) {
 				for (CrewMember crewmember: crew_members) {
 					if (crewmember.getaction() >= 1) {
 						pilot_candidate.add(crewmember);
