@@ -30,6 +30,9 @@ public class CrewMember {
 	public void setname(String newName) {
 		name = newName;
 	}
+	public String getName() {
+		return name;
+	}
 	public int getaction() {
 		return action;
 	}

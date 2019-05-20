@@ -1,6 +1,7 @@
 package sig16_hhl36_SpaceExplorer;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -367,25 +368,40 @@ public class GameManager {
 		shield_health -= (shield_health * 0.2);
 		setShieldhealth(shield_health);
 	}
-	
-	public void setPilot() {
-		String print = "";
-		Scanner input = new Scanner(System.in);
-		try {
-			for (CrewMember crewmate: pilot_candidate) {
-				print += pilot_candidate.indexOf(crewmate) + ": " + crewmate;
+	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
+		String print = "Crew members availabe to be a pilot for the spaceship: ";
+		if (pilot_candidate.size() < 2) {
+			throw new PilotCrewException("Need at least two Crew Members to pilot a ship");
+		} else {
+			for (CrewMember pilot: pilot_candidate) {
+				print += ", " + pilot_candidate.indexOf(pilot) + ": " + pilot.getName();
 			}
-			System.out.println("Please select the number beside your chosen crew member: ");
 			System.out.println(print);
-			int num = input.nextInt();
-			pilots.add();
-		} finally {
-			input.close();
+			Scanner input = new Scanner(System.in);
+			while (pilots.size() < 2) {
+			    try { // checks code for exceptions
+			        System.out.println("Please select the number beside the possible Crew Member pilot: ");
+			        int index = input.nextInt();
+			        
+				} catch (InputMismatchException e) { //if an exception appears prints message below
+				    System.err.println("Please enter a number! " + e.getMessage());
+				    input.next(); // clear scanner wrong input
+				}
+			}
 		}
-		
+		System.out.println(getPilot());
 	}
-	
+	public String getPilot() {
+		String print = "Your pilots are: \n";
+		
+		for (CrewMember pilot: pilots) {
+			print += pilot.getName() + "\n";
+		}
+		return print;
+	}
 	public void newPlanet() throws PilotCrewException {
+		ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
+
 		if (getCrewSize() >= 2) {
 				for (CrewMember crewmember: crew_members) {
 					if (crewmember.getaction() >= 1) {
@@ -394,14 +410,10 @@ public class GameManager {
 						System.out.println("Crew Member: " + crewmember + " is out of actions!");
 					}
 				}
-				if (pilot_candidate.size() >= 2) {
-					setPilot();
-				} else {
-					throw new PilotCrewException("Don't have enough Crew Members for this action!");
-				}
 		} else {
 				throw new PilotCrewException("Don't have enough Crew Members for this action!");
 		}
+		setPilot(pilot_candidate);
 	}
 	
 	public static void main(String arg[]) {
