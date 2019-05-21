@@ -315,7 +315,7 @@ public class GameManager {
 	public void spaceshipStatus() {
 		System.out.println("The " + getShipname() + "has a shield health of " + getShieldhealth());
 	}
-	public void alienpary() {
+	public void alienparty() {
 		boolean remove = false;
 		int remove_index = -1;
 		while (remove == false) {
@@ -370,8 +370,12 @@ public class GameManager {
 		setShieldhealth(shield_health);
 	}
 	public void randomEvent() {
-		
-		
+		int randint = new Random().nextInt(3);
+        switch (randint) {
+           case 0: spaceplague();
+           case 1: alienparty();
+           case 2: asteroidBelt();
+        }		
 	}
 	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
 		String print = "Crew members availabe to be a pilot for the spaceship: ";
@@ -421,6 +425,7 @@ public class GameManager {
 				throw new PilotCrewException("Don't have enough Crew Members for this action!");
 		}
 		setPilot(pilot_candidate);
+		randomEvent();
 	}
 	public void launchMainScreen () {
 		mainGame mainWindow = new mainGame(this);
