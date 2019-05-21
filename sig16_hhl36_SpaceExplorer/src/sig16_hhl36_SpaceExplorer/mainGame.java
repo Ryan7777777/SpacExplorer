@@ -43,6 +43,9 @@ public class mainGame {
 	public void goStore() {
 		manager.gotoStore(this);
 	}
+	public void goPeform() {
+		manager.gotoPeform(this);
+	}
 	public void finishedWindow() {
 		manager.closeMainScreen(this);
 	}
@@ -57,19 +60,19 @@ public class mainGame {
 			for (CrewMember member: manager.crew_members) {
 				index += 1;
 				if(index == 0) {
-					btn1 = ("Crew1 :"+member.getName());
+					btn1 = (member.getName());
 					btn2 = "";
 					btn3 = "";
 					btn4 = "";		
 				}
 				else if (index == 1) {
-					btn2 = ("Crew2 :"+member.getName());
+					btn2 = (member.getName());
 					btn3 = "";
 					btn4 = "";	
 				} else if(index == 2) {
-					btn3 =("Crew3: "+member.getName());
+					btn3 =(member.getName());
 				} else {
-					btn4 = ("Crew4: "+member.getName());
+					btn4 = (member.getName());
 				}
 		}
 		}
@@ -135,8 +138,15 @@ public class mainGame {
 		btnStore.setBounds(174, 412, 97, 25);
 		frame.getContentPane().add(btnStore);
 		
-		JButton btnPeform = new JButton("peform");
+		JButton btnPeform = new JButton("action");
 		btnPeform.setBounds(12, 412, 97, 25);
+		btnPeform.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.selectcrew != null) {
+				goPeform();
+				}
+			} 
+		});
 		frame.getContentPane().add(btnPeform);
 		
 		JTextArea textStstus = new JTextArea();
@@ -193,6 +203,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 1) {
+						manager.selectcrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -210,6 +221,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 3) {
+						manager.selectcrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -227,6 +239,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 2) {
+						manager.selectcrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -244,6 +257,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 4) {
+						manager.selectcrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}

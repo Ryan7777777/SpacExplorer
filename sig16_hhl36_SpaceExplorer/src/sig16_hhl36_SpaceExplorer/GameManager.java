@@ -22,6 +22,7 @@ public class GameManager {
 	private int day = 10;
 	private int pieces;
 	private boolean shipParts;
+	public CrewMember selectcrew; 
 	Random rand = new Random();
 	
 	public String getdays() {
@@ -450,6 +451,17 @@ public class GameManager {
 	}
 	public void closeStore(Store storeWindows) {
 		storeWindows.closeWindow();
+		launchMainScreen();
+	}
+	public void gotoPeform(mainGame mainWindow) {
+		mainWindow.closeWindow();
+		launchPeform();
+	}
+	public void launchPeform() {
+		Peform peforeWindows = new Peform(this);
+	}
+	public void closePeform(Peform peforeWindows) {
+		peforeWindows.closeWindow();
 		launchMainScreen();
 	}
 	public static void main(String arg[]) {

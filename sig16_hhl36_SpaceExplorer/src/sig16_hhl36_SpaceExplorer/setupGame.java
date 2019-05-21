@@ -88,13 +88,29 @@ public class setupGame {
 		for (CrewMember member: manager.crew_members) {
 			index += 1;
 			if(index == 0) {
+				if(txtName1.getText().length() == 0) {
+					member.setname("Crew1");
+				}else {
 				member.setname(txtName1.getText());
+				}
 			} else if(index == 1) {
+				if(txtName2.getText().length() == 0) {
+					member.setname("Crew2");
+				}else {
 				member.setname(txtName2.getText());
+				}
 			} else if(index == 2) {
+				if(txtName3.getText().length() == 0) {
+					member.setname("Crew3");
+				}else {
 				member.setname(txtName3.getText());
+				}
 			} else if(index == 3) {
+				if(txtName4.getText().length() == 0) {
+					member.setname("Crew4");
+				}else {
 				member.setname(txtName4.getText());
+				}
 			}
 		}
 	}
