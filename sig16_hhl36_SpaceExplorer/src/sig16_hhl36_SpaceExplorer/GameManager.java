@@ -75,12 +75,18 @@ public class GameManager {
 			int lengthindex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
+<<<<<<< HEAD
 					getteditem = food.getFoodName();
 					if(crew_food.size() == 0) {
 						food.addQuantity();
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
 						for(Food_Item myfood: crew_food) {
+=======
+					for(Food_Item myfood: crew_food) {
+						lengthindex += 1;
+						if (lengthindex <= length) {
+>>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
 							if(myfood.getFoodName() == food.getFoodName()) {
 								myfood.addQuantity();
 							}
