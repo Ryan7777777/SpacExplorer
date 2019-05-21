@@ -21,15 +21,13 @@ public class mainGame {
 
 	private JFrame frame;
 	private GameManager manager;
-<<<<<<< HEAD
 	private String btn1;
 	private String btn2;
 	private String btn3;
 	private String btn4;
 	private int index;
 	
-=======
->>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
+
 
 	/**
 	 * Launch the application.
@@ -76,20 +74,12 @@ public class mainGame {
 		}
 		}
 	}
-	public mainGame() {
-		initialize();
-	}
 	/**
 	 * Create the application.
 	 */
-	public mainGame(GameManager incomingManager) {
-		manager = incomingManager;
+
+	public mainGame() {
 		initialize();
-		frame.setVisible(true);
-	}
-	
-	public void closeWindow() {
-		frame.dispose();
 	}
 	/**
 	 * Initialize the contents of the frame.
@@ -125,48 +115,44 @@ public class mainGame {
 		frame.getContentPane().add(lblMoney);
 		
 		JLabel lblFood = new JLabel("Crew's Food");
-		lblFood.setBounds(553, 13, 104, 22);
+		lblFood.setBounds(347, 10, 104, 22);
 		frame.getContentPane().add(lblFood);
 		
 		JLabel lblMedical = new JLabel("Crew's Medical Item");
-		lblMedical.setBounds(553, 264, 150, 22);
+		lblMedical.setBounds(570, 178, 150, 22);
 		frame.getContentPane().add(lblMedical);
 		
 		JButton btnNextDay = new JButton("Next Day");
 		btnNextDay.setBounds(12, 483, 97, 25);
 		frame.getContentPane().add(btnNextDay);
 		
-		JButton btnStore = new JButton("Go to Store");
+		JButton btnStore = new JButton("Store");
 		btnStore.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				goStore();
 			}
 		});
-		btnStore.setBounds(174, 483, 97, 25);
+		btnStore.setBounds(174, 412, 97, 25);
 		frame.getContentPane().add(btnStore);
 		
 		JButton btnPeform = new JButton("peform");
 		btnPeform.setBounds(12, 412, 97, 25);
 		frame.getContentPane().add(btnPeform);
 		
-		JButton btnStatus = new JButton("Status");
-		btnStatus.setBounds(174, 412, 97, 25);
-		frame.getContentPane().add(btnStatus);
-		
 		JTextArea textStstus = new JTextArea();
 		textStstus.setBackground(SystemColor.menu);
-		textStstus.setBounds(317, 264, 206, 173);
+		textStstus.setBounds(570, 39, 206, 135);
 		frame.getContentPane().add(textStstus);
 		
 		JTextArea txtFood = new JTextArea();
 		txtFood.setBackground(SystemColor.menu);
-		txtFood.setBounds(553, 54, 242, 197);
+		txtFood.setBounds(317, 42, 227, 503);
 		txtFood.setText(manager.getFood());
 		frame.getContentPane().add(txtFood);
 		
 		JTextPane txtMedicial = new JTextPane();
 		txtMedicial.setBackground(SystemColor.menu);
-		txtMedicial.setBounds(553, 314, 242, 213);
+		txtMedicial.setBounds(570, 213, 242, 315);
 		txtMedicial.setText(manager.getMedical());
 		frame.getContentPane().add(txtMedicial);
 		
@@ -195,7 +181,7 @@ public class mainGame {
 		frame.getContentPane().add(lblCrewMoney);
 		
 		JLabel lblCrewStatus = new JLabel("Crew Status");
-		lblCrewStatus.setBounds(317, 216, 97, 16);
+		lblCrewStatus.setBounds(570, 13, 97, 16);
 		frame.getContentPane().add(lblCrewStatus);
 		
 		JButton btnCrew1 = new JButton(btn1);

@@ -155,17 +155,23 @@ public class GameManager {
 		medical_sell.add(plaguecure);
 		medical_sell.add(smallmedpack);
 	}
-	public void viewStore() {
+	public String viewMed() {
+		String string ="";
 		for (Medical_Item item: medical_sell) {
-			System.out.println(item.getMedName());
-			System.out.println(item.getPrice());
-			System.out.println(item.getHealthAdd());
+			string += item.getMedName() +"\n";
+			string += "Price :"+Double.toString(item.getPrice()) +"\n";
+			string += "Health add: "+item.getHealthAdd() +"\n";
 		}
+		return string;
+	}
+	public String viewFood() {
+		String string ="";
 		for(Food_Item item: food_sell) {
-			System.out.println(item.getFoodName());
-			System.out.println(item.getFoodNutrition());
-			System.out.println(item.getFoodNutrition());
+			string += item.getFoodName() +"\n";
+			string += "Price: "+ Double.toString(item.getPrice()) +"\n";
+			string += "Nutrition: "+item.getFoodNutrition() +"\n";
 		}
+		return string;
 	}
 	public String getFood() {
 		String food ="";
@@ -444,6 +450,17 @@ public class GameManager {
 	public static void main(String arg[]) {
 		GameManager manager = new GameManager();
 		manager.launchSetupScreen();
+		Food_Item banana = new Banana();
+		Food_Item butterchicken = new ButterChicken();
+		Food_Item hamsandwihes = new HamSandwiches();
+		Food_Item peaches = new Peaches();
+		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
+		Food_Item straeberries = new Strawberries();
+		manager.setFoodstore();
+		Medical_Item plagurcure = new PlagueCure();
+		Medical_Item samllmedpack = new SmallMedPack();
+		Medical_Item bigmedpack = new LargeMedPack();
+		manager.setMedicalstore();
 		// test all six characters
 		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember hunk = new Hunk();

@@ -34,13 +34,7 @@ public class setupGame {
 	private JTextField txtName3;
 	private JTextField txtName4;
 
-	/**
-	 * Create the application.
-	 */
-	public setupGame() {
-		initialize();
-	}
-	
+
 	/**
 	 * Launch the application.
 	 */
@@ -72,19 +66,19 @@ public class setupGame {
 			for (CrewMember member: manager.crew_members) {
 				index += 1;
 				if(index == 0) {
-					btn1 = (member.viewtype() +"Name :"+member.getName());
+					btn1 = member.viewtype();
 					btn2 = "";
 					btn3 = "";
 					btn4 = "";		
 				}
 				else if (index == 1) {
-					btn2 = (member.viewtype() +"Name :"+member.getName());
+					btn2 = member.viewtype();
 					btn3 = "";
 					btn4 = "";	
 				} else if(index == 2) {
-					btn3 =(member.viewtype() +"Name :"+member.getName());
+					btn3 = member.viewtype();
 				} else {
-					btn4 = (member.viewtype() +"Name :"+member.getName());
+					btn4 = member.viewtype();
 				}
 		}
 		}
@@ -103,6 +97,13 @@ public class setupGame {
 				member.setname(txtName4.getText());
 			}
 		}
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public setupGame() {
+		initialize();
 	}
 
 	/**
@@ -138,7 +139,7 @@ public class setupGame {
 		
 		txtName1 = new JTextField();
 		txtName1.setColumns(10);
-		txtName1.setBounds(30, 499, 89, 24);
+		txtName1.setBounds(40, 477, 89, 24);
 		frame.getContentPane().add(txtName1);
 	
 		
@@ -163,7 +164,7 @@ public class setupGame {
 				}
 				}
 			});
-		btnCrew1.setBounds(30, 412, 104, 56);
+		btnCrew1.setBounds(40, 401, 104, 38);
 		frame.getContentPane().add(btnCrew1);
 		btnCrew2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -178,7 +179,7 @@ public class setupGame {
 				}
 			});
 		
-		btnCrew2.setBounds(156, 412, 104, 56);
+		btnCrew2.setBounds(146, 401, 104, 38);
 		frame.getContentPane().add(btnCrew2);
 		btnCrew3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -193,7 +194,7 @@ public class setupGame {
 			}
 			});
 		
-		btnCrew3.setBounds(272, 412, 104, 56);
+		btnCrew3.setBounds(253, 401, 104, 38);
 		frame.getContentPane().add(btnCrew3);
 		btnCrew4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -209,7 +210,7 @@ public class setupGame {
 			});
 		
 		
-		btnCrew4.setBounds(408, 412, 104, 56);
+		btnCrew4.setBounds(361, 401, 104, 38);
 		frame.getContentPane().add(btnCrew4);
 		
 		JSlider slider = new JSlider();
@@ -431,34 +432,34 @@ public class setupGame {
 		frame.getContentPane().add(lblAbility);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(40, 481, 56, 16);
+		lblName.setBounds(50, 452, 56, 16);
 		frame.getContentPane().add(lblName);
 		
 		txtName2 = new JTextField();
 		txtName2.setColumns(10);
-		txtName2.setBounds(156, 499, 89, 24);
+		txtName2.setBounds(151, 477, 89, 24);
 		frame.getContentPane().add(txtName2);
 		
 		txtName3 = new JTextField();
 		txtName3.setColumns(10);
-		txtName3.setBounds(279, 499, 89, 24);
+		txtName3.setBounds(261, 477, 89, 24);
 		frame.getContentPane().add(txtName3);
 		
 		txtName4 = new JTextField();
 		txtName4.setColumns(10);
-		txtName4.setBounds(423, 499, 89, 24);
+		txtName4.setBounds(365, 477, 89, 24);
 		frame.getContentPane().add(txtName4);
 		
 		JLabel label = new JLabel("Name");
-		label.setBounds(166, 481, 56, 16);
+		label.setBounds(156, 452, 56, 16);
 		frame.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("Name");
-		label_1.setBounds(289, 481, 56, 16);
+		label_1.setBounds(263, 452, 56, 16);
 		frame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("Name");
-		label_2.setBounds(423, 481, 56, 16);
+		label_2.setBounds(369, 452, 56, 16);
 		frame.getContentPane().add(label_2);
 		
 		
