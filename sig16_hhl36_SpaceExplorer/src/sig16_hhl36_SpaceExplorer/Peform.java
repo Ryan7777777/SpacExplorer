@@ -38,6 +38,7 @@ public class Peform {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public Peform() {
 		initialize();
@@ -105,7 +106,7 @@ public class Peform {
 				if(manager.selectcrew.getaction() > 0) {
 					manager.searchParts(manager.selectcrew);
 					if(manager.getteditem != "") {
-						JOptionPane.showMessageDialog(parent, "Congratulation you get "+manager.getteditem);
+						JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.getteditem);
 						finishedWindow();
 					} else {
 						finishedWindow();

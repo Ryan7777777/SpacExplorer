@@ -116,6 +116,7 @@ public class UseItem {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public UseItem() {
 		initialize();

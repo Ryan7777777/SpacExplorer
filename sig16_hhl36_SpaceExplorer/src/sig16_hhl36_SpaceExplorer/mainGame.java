@@ -82,6 +82,7 @@ public class mainGame {
 	}
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 
 	public mainGame() {

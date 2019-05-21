@@ -25,6 +25,7 @@ public class GameManager {
 	public CrewMember selectcrew; 
 	public String getteditem;
 	Random rand = new Random();
+	
 	public String getdays() {
 		return Integer.toString(day);
 	}
@@ -81,7 +82,7 @@ public class GameManager {
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
 						for(Food_Item myfood: crew_food) {
-							for(Food_Item myfood: crew_food) {
+							for(Food_Item _: crew_food) {
 								lengthindex += 1;
 								if (lengthindex <= length) {
 									if(myfood.getFoodName() == food.getFoodName()) {
@@ -379,8 +380,8 @@ public class GameManager {
 	}
 	
 	public void asteroidBelt() {
-		int shield_health = getShieldhealth();
-		shield_health -= (shield_health * 0.2);
+		int shield_health = 100;
+		shield_health -= (shield_health * 0.45);
 		setShieldhealth(shield_health);
 	}
 	public void randomEvent() {
@@ -471,7 +472,7 @@ public class GameManager {
 		launchPeform();
 	}
 	public void launchPeform() {
-		Peform peforeWindows = new Peform(this);
+		Peform peformWindows = new Peform(this);
 	}
 	public void closePeform(Peform peforeWindows) {
 		peforeWindows.closeWindow();

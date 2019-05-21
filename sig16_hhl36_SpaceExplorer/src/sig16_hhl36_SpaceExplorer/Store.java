@@ -46,6 +46,7 @@ public class Store {
 	
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public Store() {
 		initialize();
