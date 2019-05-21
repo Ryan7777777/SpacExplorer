@@ -75,30 +75,29 @@ public class GameManager {
 			int lengthindex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
-<<<<<<< HEAD
 					getteditem = food.getFoodName();
 					if(crew_food.size() == 0) {
 						food.addQuantity();
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
 						for(Food_Item myfood: crew_food) {
-=======
-					for(Food_Item myfood: crew_food) {
-						lengthindex += 1;
-						if (lengthindex <= length) {
->>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
-							if(myfood.getFoodName() == food.getFoodName()) {
-								myfood.addQuantity();
+							for(Food_Item myfood: crew_food) {
+								lengthindex += 1;
+								if (lengthindex <= length) {
+									if(myfood.getFoodName() == food.getFoodName()) {
+										myfood.addQuantity();
+									}
+								}
 							}
 						}
-					}else {
-						food.addQuantity();
-						crew_food.add(food);
-				}
-				}
+							} else {
+								food.addQuantity();
+								crew_food.add(food);
+							}
+						}
 				index += 1;
 			} 
-	} else if (type == 1) {
+		} else if (type == 1) {
 		int random_index = rand.nextInt(3);
 		int index = 0;
 		int length = crew_medical.size();
@@ -109,27 +108,27 @@ public class GameManager {
 				if(crew_medical.size() == 0) {
 					med.addQuantity();
 					crew_medical.add(med);
-				} else if (crew_medical.contains(med)){
+				} else if (crew_medical.contains(med)) {
 					for(Medical_Item mymed: crew_medical) {
 						if(mymed.getMedName() == med.getMedName()) {
 							mymed.addQuantity();
 						}
 					}
-				}else {
+				} else {
 					med.addQuantity();
 					crew_medical.add(med);
-			}
+				}
 			}
 			index += 1;
 		}
 	} else if(type == 2){
 		getteditem = "nothing";
-	}else {
-		getteditem = "transporter parts"+type;
+	} else {
+		getteditem = "transporter parts" + type;
 		pieces -=1;
 		shipParts = true;
 	}
-	}
+			}	
 	public void newday() {
 		int index = -1;
 		int remove = -1;
