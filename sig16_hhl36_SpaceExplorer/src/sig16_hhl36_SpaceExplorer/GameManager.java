@@ -74,8 +74,6 @@ public class GameManager {
 			int lengthindex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
-					System.out.println("JFKJFBKSJBD");
-					System.out.println(food.getFoodName());
 					for(Food_Item myfood: crew_food) {
 						lengthindex += 1;
 						if (lengthindex <= length) {
