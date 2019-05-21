@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextPane;
 import java.awt.SystemColor;
@@ -15,6 +17,7 @@ public class Store {
 
 	private JFrame frame;
 	private GameManager manager;
+	JFrame parent = new JFrame();
 	private double price;
 	Food_Item banana = new Banana();
 	Food_Item butterchicken = new ButterChicken();
@@ -74,7 +77,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -89,7 +92,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -104,7 +107,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -119,7 +122,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -135,7 +138,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -150,7 +153,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -165,7 +168,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -180,7 +183,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});
@@ -195,7 +198,7 @@ public class Store {
 				price = manager.getmoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
-				lblError.setText("No enought money!");
+				JOptionPane.showMessageDialog(parent, "Not enough money");
 			}
 		}
 		});

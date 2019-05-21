@@ -1,6 +1,7 @@
 package sig16_hhl36_SpaceExplorer;
 
 import java.awt.EventQueue;
+import javax.swing.JOptionPane;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -14,6 +15,7 @@ import javax.swing.SwingConstants;
 public class Peform {
 
 	private JFrame frame;
+	JFrame parent = new JFrame();
 	private GameManager manager;
 	/**
 	 * Launch the application.
@@ -63,7 +65,9 @@ public class Peform {
 		btnEat.setFont(new Font("Tahoma", Font.PLAIN, 11));
 		btnEat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew != null) {
+				if(manager.crew_food.size() == 0 && manager.crew_medical.size() == 0) {
+					JOptionPane.showMessageDialog(parent, "No item in your ship!");
+				}else {
 					goUseItem();
 				}
 			} 
@@ -72,14 +76,43 @@ public class Peform {
 		frame.getContentPane().add(btnEat);
 		
 		JButton btnSleep = new JButton("Sleep");
+		btnSleep.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.selectcrew.getaction() > 0) {
+					manager.crewasleep(manager.selectcrew);
+					finishedWindow();
+				}
+			} 
+		});
 		btnSleep.setBounds(195, 112, 139, 46);
 		frame.getContentPane().add(btnSleep);
 		
 		JButton btnRepair = new JButton("Repair");
+		btnRepair.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.selectcrew.getaction() > 0) {
+					manager.repair(manager.selectcrew);
+					finishedWindow();
+				}
+			} 
+		});
 		btnRepair.setBounds(345, 112, 139, 46);
 		frame.getContentPane().add(btnRepair);
 		
 		JButton btnSearch = new JButton("Search");
+		btnSearch.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.selectcrew.getaction() > 0) {
+					manager.searchParts(manager.selectcrew);
+					if(manager.getteditem != "") {
+						JOptionPane.showMessageDialog(parent, "Congratulation you get "+manager.getteditem);
+						finishedWindow();
+					} else {
+						finishedWindow();
+					}
+				}
+			} 
+		});
 		btnSearch.setBounds(44, 178, 139, 46);
 		frame.getContentPane().add(btnSearch);
 		

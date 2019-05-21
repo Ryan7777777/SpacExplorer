@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JTextPane;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JTextArea;
 import java.awt.Color;
 import java.awt.SystemColor;
@@ -20,6 +21,7 @@ import java.awt.SystemColor;
 public class mainGame {
 
 	private JFrame frame;
+	JFrame parent = new JFrame();
 	private GameManager manager;
 	private String btn1;
 	private String btn2;
@@ -34,6 +36,7 @@ public class mainGame {
 	 */
 	public mainGame(GameManager incomingManager) {
 		manager = incomingManager;
+		setStringButton();
 		initialize();
 		frame.setVisible(true);
 	}
@@ -50,7 +53,7 @@ public class mainGame {
 		manager.closeMainScreen(this);
 	}
 	public void setStringButton() {
-		if(manager.getcrewsize() == 0) {
+		if(manager.crew_members.size() == 0) {
 			btn1 = "";
 			btn2 = "";
 			btn3 = "";
@@ -142,10 +145,16 @@ public class mainGame {
 		btnPeform.setBounds(12, 412, 97, 25);
 		btnPeform.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew != null) {
-				goPeform();
+				if(manager.selectcrew == null) {
+					JOptionPane.showMessageDialog(parent, "Please select a crew by clicking their name");
+				} else {
+					if (manager.selectcrew.getaction() <= 0) {
+					JOptionPane.showMessageDialog(parent, "No action left for this crew!");
+				} else {
+					goPeform();
 				}
-			} 
+			}
+		}
 		});
 		frame.getContentPane().add(btnPeform);
 		

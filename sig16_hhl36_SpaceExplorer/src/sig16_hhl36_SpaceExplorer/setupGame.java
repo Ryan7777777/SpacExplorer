@@ -2,6 +2,8 @@ package sig16_hhl36_SpaceExplorer;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +23,7 @@ import javax.swing.JTable;
 public class setupGame {
 
 	private JFrame frame;
+	JFrame parent = new JFrame();
 	private JTextField tfshipname;
 	private JTextField tfcrewname;
 	private GameManager manager;
@@ -423,7 +426,11 @@ public class setupGame {
 				manager.setshipname(tfshipname.getText());
 				namecrew();
 				finishedWindow();
+					}else {
+						JOptionPane.showMessageDialog(parent, "You have setup "+manager.crewsize()+" menbers but only selected"+manager.crew_members.size()+" menbers");
 					}
+			}else {
+				JOptionPane.showMessageDialog(parent, "Please select at least 2 crews");
 			}
 			}
 		});
