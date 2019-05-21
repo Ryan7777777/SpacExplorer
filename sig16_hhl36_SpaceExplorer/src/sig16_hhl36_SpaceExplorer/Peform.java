@@ -29,7 +29,9 @@ public class Peform {
 	public void finishedWindow() {
 		manager.closePeform(this);
 	}
-	
+	public void goUseItem() {
+		manager.gotoUseItem(this);
+	}
 
 
 	/**
@@ -59,6 +61,13 @@ public class Peform {
 		
 		JButton btnEat = new JButton("Eat/Use Medical Item ");
 		btnEat.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnEat.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.selectcrew != null) {
+					goUseItem();
+				}
+			} 
+		});
 		btnEat.setBounds(44, 112, 139, 46);
 		frame.getContentPane().add(btnEat);
 		

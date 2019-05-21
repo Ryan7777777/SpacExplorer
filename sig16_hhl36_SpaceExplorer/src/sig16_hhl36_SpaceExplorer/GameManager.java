@@ -464,6 +464,17 @@ public class GameManager {
 		peforeWindows.closeWindow();
 		launchMainScreen();
 	}
+	public void gotoUseItem(Peform peforeWindows) {
+		peforeWindows.closeWindow();
+		launchUseItem();
+	}
+	public void launchUseItem() {
+		UseItem itemWindows = new UseItem(this);
+	}
+	public void closeUseItem(UseItem itemWindows) {
+		itemWindows.closeWindow();
+		launchMainScreen();
+	}
 	public static void main(String arg[]) {
 		GameManager manager = new GameManager();
 		manager.launchSetupScreen();
