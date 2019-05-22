@@ -313,22 +313,13 @@ public class GameManager {
 		crew_members.add(crew);
 		
 	}
-	/*public void printAllCrewMembers() {
-		for (CrewMember crewmember: crew_members) {
-			System.out.println(crewmember.viewtype() + "\n");
-		}
-	}
-	*/
+	
 	public void printStatus() {
 		for (CrewMember crewmember: crew_members) {
 			System.out.println(crewmember.viewStatus() + "\n");
 		}
 	}
-	/*
-	public void spaceshipStatus() {
-		System.out.println("The " + getShipname() + "has a shield health of " + getShieldhealth());
-	}
-	*/
+	
 	public double Calaulatescore() {
 		double gamescore = 0;
 		gamescore += shieldHealth *10;
