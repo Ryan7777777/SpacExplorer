@@ -13,7 +13,6 @@ public class GameManager {
 	private double crewMoney = 200;
 	private int shieldHealth = 100;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
-	//private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
@@ -408,9 +407,9 @@ public class GameManager {
 	}
 	}
 	}
-	public void newPlannet(CrewMember menber1, CrewMember menber2) {
-		menber2.action -=1;
-		menber1.action -=1;
+	public void newPlanet(CrewMember member1, CrewMember member2) {
+		member2.action -=1;
+		member1.action -=1;
 		randomEvent();
 	}
 	
@@ -546,6 +545,7 @@ public class GameManager {
 		Medical_Item bigmedpack = new LargeMedPack();
 		manager.setFoodstore();
 		manager.setMedicalstore();
+		manager.launchSetupScreen();
 		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember lazyslepper = new LazySleeper();
 		manager.newPlannet(hungryboy, lazyslepper);
@@ -563,8 +563,6 @@ public class GameManager {
 		manager.searchParts(hungryboy);
 		manager.searchParts(lazyslepper);
 		manager.searchParts(lazyslepper);
-		*/
-		manager.launchSetupScreen();
 		/*Food_Item banana = new Banana();
 		Food_Item butterchicken = new ButterChicken();
 		Food_Item hamsandwihes = new HamSandwiches();

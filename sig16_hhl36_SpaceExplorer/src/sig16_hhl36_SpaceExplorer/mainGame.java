@@ -136,14 +136,19 @@ public class mainGame {
 		lblDays.setBounds(112, 71, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblDays);
 		
+		JLabel lblShipHealth = new JLabel(Integer.toString(manager.getShieldhealth()));
+		lblShipHealth.setBounds(112, 129, 159, 16);
+		frmSpaceExplorer.getContentPane().add(lblShipHealth);
+		
 		JButton btnNextDay = new JButton("Next Day");
 		btnNextDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.day > 1) {
 				manager.newday();
 				lblDays.setText(manager.getdays());
-				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
-			}else {
+				lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
+				JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
+			} else {
 				finishedWindow();
 			}
 			}
@@ -205,10 +210,6 @@ public class mainGame {
 		JLabel lblLostPices = new JLabel(Integer.toString(manager.getpices()));
 		lblLostPices.setBounds(112, 100, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblLostPices);
-		
-		JLabel lblShipHealth = new JLabel(Integer.toString(manager.getShieldhealth()));
-		lblShipHealth.setBounds(112, 129, 159, 16);
-		frmSpaceExplorer.getContentPane().add(lblShipHealth);
 		
 		JLabel lblCrewMoney = new JLabel(Double.toString(manager.getmoney()));
 		lblCrewMoney.setBounds(112, 158, 159, 16);

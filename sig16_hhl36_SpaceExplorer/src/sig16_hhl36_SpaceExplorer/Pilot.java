@@ -92,7 +92,7 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member2 == null) {}else {
 				if(member2.action>0) {
-				manager.newPlannet(manager.selectcrew,member2);
+				manager.newPlanet(manager.selectcrew,member2);
 				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
 				finishedWindow();
 			}
@@ -108,7 +108,7 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member3 == null) {}else {
 				if(member3.action>0) {
-				manager.newPlannet(manager.selectcrew, member3);
+				manager.newPlanet(manager.selectcrew, member3);
 				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
 				finishedWindow();
 			}
@@ -123,7 +123,7 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member4 == null) {}else {
 					if(member4.action>0 ) {
-				manager.newPlannet(manager.selectcrew, member4);
+				manager.newPlanet(manager.selectcrew, member4);
 				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
 				finishedWindow();
 			}
