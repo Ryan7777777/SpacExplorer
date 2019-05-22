@@ -64,7 +64,7 @@ public class GameManager {
 		crewName = name;
 	}
 	public void searchParts(CrewMember currentcrew) {
-		currentcrew.subtractaction();
+		//currentcrew.subtractaction();
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(5);

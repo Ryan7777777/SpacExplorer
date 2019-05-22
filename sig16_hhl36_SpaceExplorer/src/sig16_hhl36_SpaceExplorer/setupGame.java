@@ -120,6 +120,7 @@ public class setupGame {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public setupGame() {
 		initialize();
@@ -427,7 +428,7 @@ public class setupGame {
 				namecrew();
 				finishedWindow();
 					}else {
-						JOptionPane.showMessageDialog(parent, "You have setup "+manager.crewsize()+" menbers but only selected"+manager.crew_members.size()+" menbers");
+						JOptionPane.showMessageDialog(parent, "You have setup "+manager.crewsize()+" members but only selected"+manager.crew_members.size()+" members");
 					}
 			}else {
 				JOptionPane.showMessageDialog(parent, "Please select at least 2 crews");

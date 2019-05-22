@@ -83,6 +83,7 @@ public class mainGame {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 
 	public mainGame() {
@@ -143,6 +144,7 @@ public class mainGame {
 			}else {
 				finishedWindow();
 			}
+				goStore();
 			}
 		});
 		btnNextDay.setBounds(12, 483, 97, 25);
