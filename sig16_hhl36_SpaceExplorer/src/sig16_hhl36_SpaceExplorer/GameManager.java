@@ -23,7 +23,6 @@ public class GameManager {
 	private int pieces;
 	private boolean shipParts;
 	public CrewMember selectcrew; 
-	public CrewMember secondpilot;
 	public String getteditem;
 	public String randomevent;
 	Random rand = new Random();
@@ -310,28 +309,26 @@ public class GameManager {
 		return shieldHealth;
 	}
 	
-	public void setShieldhealth(int shield_health) {
-		shieldHealth = shield_health;
-	}
-	
 	public void addCrew(CrewMember crew) {
 		crew_members.add(crew);
 		
 	}
-	
-	public void printAllCrewMembers() {
+	/*public void printAllCrewMembers() {
 		for (CrewMember crewmember: crew_members) {
 			System.out.println(crewmember.viewtype() + "\n");
 		}
 	}
+	*/
 	public void printStatus() {
 		for (CrewMember crewmember: crew_members) {
 			System.out.println(crewmember.viewStatus() + "\n");
 		}
 	}
+	/*
 	public void spaceshipStatus() {
 		System.out.println("The " + getShipname() + "has a shield health of " + getShieldhealth());
 	}
+	*/
 	public double Calaulatescore() {
 		double gamescore = 0;
 		gamescore += shieldHealth *10;
@@ -402,27 +399,27 @@ public class GameManager {
 		randomevent ="Asteroid belt";
 		int shield_health = getShieldhealth();
 		shield_health -= (shield_health * 0.2);
-		setShieldhealth(shield_health);
+		//setShieldhealth(shield_health);
 	}
 	public void randomEvent() {
 		if(crew_food.size() > 0 || crew_medical.size()>0) {
-		int randint = new Random().nextInt(3);
-        switch (randint) {
+		int randint1 = new Random().nextInt(3);
+        switch (randint1) {
            case 0: spaceplague();
            case 1: alienparty();
            case 2: asteroidBelt();
         }		
 	}else {
-		int randint = new Random().nextInt(2);
-        switch (randint) {
+		int randint2 = new Random().nextInt(2);
+        switch (randint2) {
            case 0: spaceplague();
            case 1: asteroidBelt();
 	}
 	}
 	}
-	public void newPlannet(CrewMember menber1,CrewMember menber2) {
-		menber2.action -=1;
-		menber1.action -=1;
+	public void newPlannet(CrewMember member1,CrewMember member2) {
+		member2.action -=1;
+		member1.action -=1;
 		
 		randomEvent();
 	}
