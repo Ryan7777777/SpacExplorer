@@ -49,6 +49,7 @@ public class mainGame {
 	public void goPeform() {
 		manager.gotoPeform(this);
 	}
+	
 	public void finishedWindow() {
 		manager.closeMainScreen(this);
 	}
@@ -138,14 +139,13 @@ public class mainGame {
 		JButton btnNextDay = new JButton("Next Day");
 		btnNextDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.day > 0) {
+				if(manager.day > 1) {
 				manager.newday();
 				lblDays.setText(manager.getdays());
 				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
 			}else {
 				finishedWindow();
 			}
-				goStore();
 			}
 		});
 		btnNextDay.setBounds(12, 483, 97, 25);
