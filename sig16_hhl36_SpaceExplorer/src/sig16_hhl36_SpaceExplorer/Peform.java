@@ -34,8 +34,12 @@ public class Peform {
 	public void goUseItem() {
 		manager.gotoUseItem(this);
 	}
-
-
+	public void toScore() {
+		manager.gotoScore(this);
+	}
+	public void toPilot() {
+		manager.gotoPilot(this);
+	}
 	/**
 	 * Create the application.
 	 */
@@ -106,7 +110,11 @@ public class Peform {
 					manager.searchParts(manager.selectcrew);
 					if(manager.getteditem != "") {
 						JOptionPane.showMessageDialog(parent, "Congratulation you get "+manager.getteditem);
+						if(manager.getpices() == 0) {
+							toScore();
+						}else {
 						finishedWindow();
+						}
 					} else {
 						finishedWindow();
 					}
@@ -126,6 +134,11 @@ public class Peform {
 		frame.getContentPane().add(btnExit);
 		
 		JButton btnNewButton = new JButton("Go to new planet ");
+		btnNewButton.addActionListener(new ActionListener(){
+			public void actionPerformed(ActionEvent e) {
+				toPilot();
+			}
+		});
 		btnNewButton.setBounds(195, 178, 139, 46);
 		frame.getContentPane().add(btnNewButton);
 	}

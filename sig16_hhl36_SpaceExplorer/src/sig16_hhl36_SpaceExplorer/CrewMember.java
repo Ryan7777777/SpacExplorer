@@ -5,7 +5,7 @@ public class CrewMember {
 	private String name;
 	private int health;
 	private String type;
-	private int action;
+	public int action;
 	private int healthdroprate;
 	private int hungerrate;
 	private int tirednessrate;

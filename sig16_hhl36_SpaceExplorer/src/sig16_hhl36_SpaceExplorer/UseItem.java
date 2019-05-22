@@ -184,7 +184,6 @@ public class UseItem {
 			index = 1;
 			for (Food_Item food: manager.crew_food) {
 				if(index == 2) {
-				System.out.println(food);
 				manager.eat(manager.selectcrew, food);
 				setFoodButton();
 				txtStatus.setText(manager.selectcrew.viewStatus());
@@ -216,7 +215,6 @@ public class UseItem {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 3) {
-					System.out.println(food);
 					manager.eat(manager.selectcrew, food);
 					setFoodButton();
 					txtStatus.setText(manager.selectcrew.viewStatus());
@@ -248,7 +246,6 @@ public class UseItem {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 4) {
-					System.out.println(food);
 					manager.eat(manager.selectcrew, food);
 					setFoodButton();
 					txtStatus.setText(manager.selectcrew.viewStatus());
@@ -280,7 +277,6 @@ public class UseItem {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 5) {
-					System.out.println(food);
 					manager.eat(manager.selectcrew, food);
 					setFoodButton();
 					txtStatus.setText(manager.selectcrew.viewStatus());
@@ -312,7 +308,6 @@ public class UseItem {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 6) {
-					System.out.println(food);
 					manager.eat(manager.selectcrew, food);
 					setFoodButton();
 					txtStatus.setText(manager.selectcrew.viewStatus());

@@ -80,6 +80,7 @@ public class mainGame {
 		}
 		}
 	}
+
 	/**
 	 * Create the application.
 	 */
@@ -128,7 +129,22 @@ public class mainGame {
 		lblMedical.setBounds(570, 178, 150, 22);
 		frame.getContentPane().add(lblMedical);
 		
+		JLabel lblDays = new JLabel(manager.getdays());
+		lblDays.setBounds(112, 71, 159, 16);
+		frame.getContentPane().add(lblDays);
+		
 		JButton btnNextDay = new JButton("Next Day");
+		btnNextDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(manager.day > 0) {
+				manager.newday();
+				lblDays.setText(manager.getdays());
+				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
+			}else {
+				finishedWindow();
+			}
+			}
+		});
 		btnNextDay.setBounds(12, 483, 97, 25);
 		frame.getContentPane().add(btnNextDay);
 		
@@ -182,10 +198,6 @@ public class mainGame {
 		JLabel lblShipName = new JLabel(manager.getShipname());
 		lblShipName.setBounds(112, 42, 159, 16);
 		frame.getContentPane().add(lblShipName);
-		
-		JLabel lblDays = new JLabel(manager.getdays());
-		lblDays.setBounds(112, 71, 159, 16);
-		frame.getContentPane().add(lblDays);
 		
 		JLabel lblLostPices = new JLabel(Integer.toString(manager.getpices()));
 		lblLostPices.setBounds(112, 100, 159, 16);
@@ -278,6 +290,10 @@ public class mainGame {
 		JSeparator separator = new JSeparator();
 		separator.setBounds(466, 245, -136, 140);
 		frame.getContentPane().add(separator);
+		
+		JButton btnNewPlanet = new JButton("New Planet");
+		btnNewPlanet.setBounds(174, 483, 97, 25);
+		frame.getContentPane().add(btnNewPlanet);
 		
 		
 	}

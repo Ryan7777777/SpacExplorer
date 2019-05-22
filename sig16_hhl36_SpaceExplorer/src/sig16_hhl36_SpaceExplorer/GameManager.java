@@ -19,12 +19,15 @@ public class GameManager {
 	ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
 	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
-	private int day = 10;
+	public int day = 10;
 	private int pieces;
 	private boolean shipParts;
 	public CrewMember selectcrew; 
+	public CrewMember secondpilot;
 	public String getteditem;
+	public String randomevent;
 	Random rand = new Random();
+	
 	public String getdays() {
 		return Integer.toString(day);
 	}
@@ -61,7 +64,7 @@ public class GameManager {
 		crewName = name;
 	}
 	public void searchParts(CrewMember currentcrew) {
-		//currentcrew.subtractaction();
+		currentcrew.subtractaction();
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(5);
@@ -75,22 +78,19 @@ public class GameManager {
 			int lengthindex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
-<<<<<<< HEAD
 					getteditem = food.getFoodName();
 					if(crew_food.size() == 0) {
 						food.addQuantity();
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
-						for(Food_Item myfood: crew_food) {
-=======
 					for(Food_Item myfood: crew_food) {
 						lengthindex += 1;
 						if (lengthindex <= length) {
->>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
 							if(myfood.getFoodName() == food.getFoodName()) {
 								myfood.addQuantity();
 							}
 						}
+					}
 					}else {
 						food.addQuantity();
 						crew_food.add(food);
@@ -133,6 +133,7 @@ public class GameManager {
 	public void newday() {
 		int index = -1;
 		int remove = -1;
+		day -=1;
 		for (CrewMember crew: crew_members) {
 			index += 1;
 			crew.resetaction();
@@ -147,6 +148,7 @@ public class GameManager {
 		if(remove >-1) {
 			crew_members.remove(index);
 		}
+		randomEvent();
 	}
 	public void setFoodstore() {
 		Food_Item peach = new Peaches();
@@ -330,12 +332,25 @@ public class GameManager {
 	public void spaceshipStatus() {
 		System.out.println("The " + getShipname() + "has a shield health of " + getShieldhealth());
 	}
+	public double Calaulatescore() {
+		double gamescore = 0;
+		gamescore += shieldHealth *10;
+		gamescore -= pieces * 200;
+		gamescore -= crewSize - crew_members.size() * 40;
+		gamescore += crewMoney *10;
+		if(pieces == 0) {
+			gamescore +=1000;
+		}
+		return gamescore;
+	}
 	public void alienparty() {
+		randomevent = "Alien pirates";
 		boolean remove = false;
 		int remove_index = -1;
 		while (remove == false) {
 			int item_type = rand.nextInt(2);
 			if(item_type == 0) {
+				if(crew_food.size() > 0) {
 				int i = rand.nextInt(crew_food.size());
 				int index  = -1;
 			    for(Food_Item myfood: crew_food) {
@@ -351,7 +366,9 @@ public class GameManager {
 			    if(remove_index > -1) {
 			    	crew_food.remove(remove_index);
 			    }
+				}
 			  } else {
+				  if(crew_medical.size() > 0) {
 				  int i = rand.nextInt(crew_medical.size());
 				  int index  = -1;
 				  for(Medical_Item mymed: crew_medical) {
@@ -368,9 +385,11 @@ public class GameManager {
 					  crew_medical.remove(remove_index);
 				  }
 			  }
+			  }
 		}
 	}
 	public void spaceplague() {
+		randomevent = "Space plague";
 		for(CrewMember crew :crew_members) {
 			boolean bool =  rand.nextBoolean();
 			if(bool == true) {
@@ -380,19 +399,34 @@ public class GameManager {
 	}
 	
 	public void asteroidBelt() {
+		randomevent ="Asteroid belt";
 		int shield_health = getShieldhealth();
 		shield_health -= (shield_health * 0.2);
 		setShieldhealth(shield_health);
 	}
 	public void randomEvent() {
+		if(crew_food.size() > 0 || crew_medical.size()>0) {
 		int randint = new Random().nextInt(3);
         switch (randint) {
            case 0: spaceplague();
            case 1: alienparty();
            case 2: asteroidBelt();
         }		
+	}else {
+		int randint = new Random().nextInt(2);
+        switch (randint) {
+           case 0: spaceplague();
+           case 1: asteroidBelt();
 	}
-	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
+	}
+	}
+	public void newPlannet(CrewMember menber1,CrewMember menber2) {
+		menber2.action -=1;
+		menber1.action -=1;	
+		randomEvent();
+	}
+	
+	/*public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
 		String print = "Crew members availabe to be a pilot for the spaceship: ";
 		if (pilot_candidate.size() < 2) {
 			throw new PilotCrewException("Need at least two Crew Members to pilot a ship");
@@ -442,11 +476,13 @@ public class GameManager {
 		setPilot(pilot_candidate);
 		randomEvent();
 	}
+	*/
 	public void launchMainScreen () {
 		mainGame mainWindow = new mainGame(this);
 	}
 	public void closeMainScreen(mainGame mainWindow) {
 		mainWindow.closeWindow();
+		launchScore();
 	}
 	public void gotoStore(mainGame mainWindow) {
 		mainWindow.closeWindow();
@@ -489,6 +525,27 @@ public class GameManager {
 		itemWindows.closeWindow();
 		launchMainScreen();
 	}
+	public void gotoScore(Peform peforeWindows) {
+		peforeWindows.closeWindow();
+		launchScore();
+	}
+	public void launchScore() {
+		Score scoreWindows = new Score(this);
+	}
+	public void closeScore(Score scoreWindows) {
+		scoreWindows.closeWindow();
+	}
+	public void launchPilot() {
+		Pilot pilotWindows = new Pilot(this);
+	}
+	public void closePilot(Pilot pilotWindows) {
+		pilotWindows.closeWindow();
+		launchMainScreen();
+	}
+	public void gotoPilot(Peform peforeWindows) {
+		peforeWindows.closeWindow();
+		launchPilot();
+	}
 	public static void main(String arg[]) {
 		GameManager manager = new GameManager();
 		Food_Item banana = new Banana();
@@ -504,8 +561,11 @@ public class GameManager {
 		manager.setMedicalstore();
 		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember lazyslepper = new LazySleeper();
-		manager.setDay(7);
-		Food_Item butterchicken = new ButterChicken();
+		manager.newPlannet(hungryboy, lazyslepper);
+		System.out.println(hungryboy.viewStatus());
+		System.out.println(lazyslepper.viewStatus());
+		manager.setDay(7);*/
+		/*Food_Item butterchicken = new ButterChicken();
 		Food_Item hamsandwihes = new HamSandwiches();
 		Food_Item peaches = new Peaches();
 		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
