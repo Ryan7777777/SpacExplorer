@@ -114,8 +114,8 @@ public class Peform {
 				if(manager.selectcrew.getaction() > 0) {
 					manager.searchParts(manager.selectcrew);
 					if(manager.getteditem != "") {
-						JOptionPane.showMessageDialog(parent, "Congratulation you get "+manager.getteditem);
 						if(manager.getpices() == 0) {
+							JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.getteditem);
 							toScore();
 						}else {
 						JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.getteditem);

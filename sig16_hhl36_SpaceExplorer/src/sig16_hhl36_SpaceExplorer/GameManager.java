@@ -10,7 +10,7 @@ public class GameManager {
 	private String shipName;
 	private String crewName;
 	private int crewSize = 4;
-	private double crewMoney = 100;
+	private double crewMoney = 200;
 	private int shieldHealth = 100;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	//private ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
@@ -422,11 +422,12 @@ public class GameManager {
 	}
 	public void newPlannet(CrewMember menber1,CrewMember menber2) {
 		menber2.action -=1;
-		menber1.action -=1;	
+		menber1.action -=1;
+		
 		randomEvent();
 	}
 	
-	/*public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
+	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
 		String print = "Crew members availabe to be a pilot for the spaceship: ";
 		if (pilot_candidate.size() < 2) {
 			throw new PilotCrewException("Need at least two Crew Members to pilot a ship");
@@ -476,7 +477,6 @@ public class GameManager {
 		setPilot(pilot_candidate);
 		randomEvent();
 	}
-	*/
 	public void launchMainScreen () {
 		mainGame mainWindow = new mainGame(this);
 	}

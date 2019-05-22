@@ -293,10 +293,6 @@ public class mainGame {
 		separator.setBounds(466, 245, -136, 140);
 		frame.getContentPane().add(separator);
 		
-		JButton btnNewPlanet = new JButton("New Planet");
-		btnNewPlanet.setBounds(174, 483, 97, 25);
-		frame.getContentPane().add(btnNewPlanet);
-		
 		
 	}
 }

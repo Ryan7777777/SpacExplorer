@@ -60,9 +60,9 @@ public class Pilot {
 		}
 		}
 	}
-
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public Pilot() {
 		initialize();
@@ -74,7 +74,7 @@ public class Pilot {
 	private void initialize() {
 		frame = new JFrame();
 		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
-		frame.setBounds(100, 100, 450, 300);
+		frame.setBounds(100, 100, 517, 345);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.getContentPane().setLayout(null);
 		
@@ -137,7 +137,7 @@ public class Pilot {
 				finishedWindow();
 			}
 		});
-		btnToMainScreen.setBounds(323, 215, 97, 25);
+		btnToMainScreen.setBounds(347, 243, 140, 42);
 		frame.getContentPane().add(btnToMainScreen);
 
 }

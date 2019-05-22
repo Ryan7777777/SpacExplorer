@@ -31,6 +31,7 @@ public class Score {
 
 	/**
 	 * Create the application.
+	 * @wbp.parser.constructor
 	 */
 	public Score() {
 		initialize();
