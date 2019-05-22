@@ -130,6 +130,11 @@ public class mainGame {
 		frame.getContentPane().add(lblMedical);
 		
 		JButton btnNextDay = new JButton("Next Day");
+		btnNextDay.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				goStore();
+			}
+		});
 		btnNextDay.setBounds(12, 483, 97, 25);
 		frame.getContentPane().add(btnNextDay);
 		

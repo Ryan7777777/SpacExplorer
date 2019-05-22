@@ -92,8 +92,12 @@ public class Peform {
 		btnRepair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.selectcrew.getaction() > 0) {
-					manager.repair(manager.selectcrew);
-					finishedWindow();
+					if (manager.getShieldhealth() < 100) {
+						manager.repair(manager.selectcrew);
+						finishedWindow();
+					} else {
+						JOptionPane.showMessageDialog(parent, "Spaceship shield already at 100%");
+					}
 				}
 			} 
 		});
