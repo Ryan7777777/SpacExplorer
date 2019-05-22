@@ -1,5 +1,11 @@
 package sig16_hhl36_SpaceExplorer;
 
+/**
+ * Implements a crew member class, each crew member will have their own custom name, health
+ * type, action limit, hunger rate, hunger level, ability. Methods implemented to allow
+ * the player to check status, add health and check if they're sick. 
+ * 
+ */
 public class CrewMember {
 	
 	private String name;
@@ -14,6 +20,15 @@ public class CrewMember {
 	private String ability;
 	private boolean sick;
 	
+    /**
+     * Creates a Crew Member.
+     * @param memberName - Given name of crew member.
+     * @param crewType - The type of crew member. For example, technician, superman, hungryboy.
+     * @param crewHealthdroprate - The rate at which the health drops.
+     * @param crewHungerrate - The rate at which a crew member becomes hungry.
+     * @param crewTirednessrate - The rate at which the crew member starts to become tired.
+     * @param crewAbility - The specific ability given to a crew member. For example, part seeker and technician.
+     */
 	public CrewMember(String memberName, String crewType, int crewHealthdroprate, int crewHungerrate, int crewTirednessrate, String crewAbility) {
 		name = memberName;
 		health = 100;
@@ -27,12 +42,23 @@ public class CrewMember {
 		ability = crewAbility;
 		sick = false;
 	}
+	
+    /**
+     * Sets name of the crew member to a new user defined name.
+     * @param newName - Given name of crew member.
+     */
 	public void setname(String newName) {
 		name = newName;
 	}
+	
+    /**
+     * Sets name of the crew member to a new user defined name.
+     * @return name - Given name of 
+     */
 	public String getName() {
 		return name;
 	}
+	
 	public int getaction() {
 		return action;
 	}
