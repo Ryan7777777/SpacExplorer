@@ -53,12 +53,16 @@ public class CrewMember {
 	
     /**
      * Sets name of the crew member to a new user defined name.
-     * @return name - Given name of 
+     * @return name - Given name of crew member.
      */
 	public String getName() {
 		return name;
 	}
 	
+    /**
+     * Sets name of the crew member to a new user defined name.
+     * @return name - Given name of crew member.
+     */
 	public int getaction() {
 		return action;
 	}
