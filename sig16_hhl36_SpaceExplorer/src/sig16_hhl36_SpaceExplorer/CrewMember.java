@@ -90,6 +90,7 @@ public class CrewMember {
 	public void resetaction() {
 		action = 2;
 	}
+	
     /**
      * Subtracts action of the crew member by 1 each time this method is called.
      */
@@ -105,12 +106,14 @@ public class CrewMember {
 	public boolean issick() {
 		return sick;
 	}
+	
     /**
      * Sets sick to false for the crew member.
      */
 	public void recovery() {
 		sick = false;
 	}
+	
     /**
      * Sets sick to true for the crew member.
      */
@@ -143,6 +146,7 @@ public class CrewMember {
 			health = 100;
 		}
 	}
+	
     /**
      * Decreases current health by lost health from the crew member while sick.
      * @param losthealth - Lost health from the crew member being sick.
@@ -152,14 +156,21 @@ public class CrewMember {
 	}
 	
     /**
-     * Sets health, vitality and hungerlevel
-     * @return action - number of actions left.
+     * Sets health, vitality and hunger level of the crew member
+     * after the main game moves to the next day.
      */
 	public void newday() {
 		health *= ((100 - healthdroprate) / 100);
 		vitality *= ((100 - tirednessrate) / 100);
 		hungerLevel *= ((100 - hungerrate) / 100);
 	}
+	
+    /**
+     * Adds a specified amount of nutrition for the crew member if hunger level is 
+     * less than 100, otherwise, sets hunger level to 100.
+     * @param nutritionamount - The amount of nutrition to add to the remaining hunger
+     * level of the crew member.
+     */
 	public void addnutrition(int nutritionamount) {
 		if (hungerLevel + nutritionamount < 100) {
 			hungerLevel += nutritionamount;
@@ -168,9 +179,18 @@ public class CrewMember {
 		}
 	}
 	
+    /**
+     * Returns specific type of crew member.
+     * @return type - Type of the crew member.
+     */	
 	public String viewtype() {
 		return type;
 	}
+	
+    /**
+     * Returns current status of crew member.
+     * @return status - The current status of the crew member.
+     */
 	public String viewStatus() {
 		String status = "Current status for " + name +":\n" +"Type: " + type + "\nHunger: " + hungerLevel +"\nVitality: " + vitality + "\nHealth: " + health +
 				"\nAction left:"+ action+"\nSick: " +sick;

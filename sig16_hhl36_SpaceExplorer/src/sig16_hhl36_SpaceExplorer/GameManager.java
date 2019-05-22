@@ -5,7 +5,13 @@ import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner;
 
-
+/**
+ * Implements a game manager class. Making the game playable from here.
+ * Most of the environment of the game is contained here.
+ * With some of the methods implemented usable by the player,
+ * and methods for dealing with crew members, ship pilots, random events
+ * planet outposts and others.
+ */
 public class GameManager {
 	private String shipName;
 	private String crewName;
@@ -26,21 +32,50 @@ public class GameManager {
 	public String randomevent;
 	Random rand = new Random();
 	
+	/**
+     * Get string representation of current day, for use with gui label.
+     * @return Integer.toString(day) - String representation of current day.
+     */
 	public String getdays() {
 		return Integer.toString(day);
 	}
+	
+	/**
+     * Gets size of array crew_members.
+     * @return crew_members.size() - Size of array crew_members.
+     */
 	public int getcrewsize() {
 		return crew_members.size();
 	}
+	
+	/**
+     * Sets number of crew(team) that player has chosen.
+     * @return crewSize - Amount of crew selected.
+     */
 	public int crewsize() {
 		return crewSize;
 	}
+	
+	/**
+     * Sets name of crew(team) that player has chosen.
+     * @param name - Name given to crew(team).
+     */
 	public void setcrewname(String name) {
 		crewName = name;
 	}
-	public void setshipname(String name) {
-		shipName = name;
+	
+	/**
+     * Sets name of spaceship as chosen by player.
+     * @param nameShip - Name of spaceship.
+     */
+	public void setshipname(String nameShip) {
+		shipName = nameShip;
 	}
+	
+	/**
+     * Sets money of crew(team).
+     * @param money - Current amount of money that the crew(team) holds.
+     */
 	public void setMoney(int money) {
 		crewMoney = money;
 	}
