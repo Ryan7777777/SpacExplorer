@@ -400,7 +400,7 @@ public class GameManager {
 	
 	public void asteroidBelt() {
 		randomevent = "Asteroid belt";
-		int shield_health = (int) (getShieldhealth() - (100 * 0.4));
+		int shield_health = (int) (getShieldhealth() - (100 * 0.3));
 		setShieldhealth(shield_health);
 	}
 	public void randomEvent() {
