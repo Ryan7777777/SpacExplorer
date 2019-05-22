@@ -20,7 +20,7 @@ import java.awt.SystemColor;
 
 public class mainGame {
 
-	private JFrame frame;
+	private JFrame frmSpaceExplorer;
 	JFrame parent = new JFrame();
 	private GameManager manager;
 	private String btn1;
@@ -38,10 +38,10 @@ public class mainGame {
 		manager = incomingManager;
 		setStringButton();
 		initialize();
-		frame.setVisible(true);
+		frmSpaceExplorer.setVisible(true);
 	}
 	public void closeWindow() {
-		frame.dispose();
+		frmSpaceExplorer.dispose();
 	}
 	public void goStore() {
 		manager.gotoStore(this);
@@ -93,46 +93,47 @@ public class mainGame {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 825, 605);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmSpaceExplorer = new JFrame();
+		frmSpaceExplorer.setTitle("Space Explorer");
+		frmSpaceExplorer.setBounds(100, 100, 825, 605);
+		frmSpaceExplorer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSpaceExplorer.getContentPane().setLayout(null);
 		setStringButton();
 		JLabel lblDay = new JLabel("Day:");
 		lblDay.setBounds(12, 71, 56, 16);
-		frame.getContentPane().add(lblDay);
+		frmSpaceExplorer.getContentPane().add(lblDay);
 		
 		JLabel lblCrewname = new JLabel("Crew name:");
 		lblCrewname.setBounds(12, 13, 115, 16);
-		frame.getContentPane().add(lblCrewname);
+		frmSpaceExplorer.getContentPane().add(lblCrewname);
 		
 		JLabel lblShipname = new JLabel("Ship name:");
 		lblShipname.setBounds(12, 42, 83, 16);
-		frame.getContentPane().add(lblShipname);
+		frmSpaceExplorer.getContentPane().add(lblShipname);
 		
 		JLabel lblLostDebris = new JLabel("Lost debris:");
 		lblLostDebris.setBounds(12, 100, 83, 16);
-		frame.getContentPane().add(lblLostDebris);
+		frmSpaceExplorer.getContentPane().add(lblLostDebris);
 		
 		JLabel lblShip = new JLabel("Shield Health:");
 		lblShip.setBounds(12, 129, 83, 16);
-		frame.getContentPane().add(lblShip);
+		frmSpaceExplorer.getContentPane().add(lblShip);
 		
 		JLabel lblMoney = new JLabel("Money:");
 		lblMoney.setBounds(12, 158, 56, 16);
-		frame.getContentPane().add(lblMoney);
+		frmSpaceExplorer.getContentPane().add(lblMoney);
 		
 		JLabel lblFood = new JLabel("Crew's Food");
 		lblFood.setBounds(347, 10, 104, 22);
-		frame.getContentPane().add(lblFood);
+		frmSpaceExplorer.getContentPane().add(lblFood);
 		
 		JLabel lblMedical = new JLabel("Crew's Medical Item");
 		lblMedical.setBounds(570, 178, 150, 22);
-		frame.getContentPane().add(lblMedical);
+		frmSpaceExplorer.getContentPane().add(lblMedical);
 		
 		JLabel lblDays = new JLabel(manager.getdays());
 		lblDays.setBounds(112, 71, 159, 16);
-		frame.getContentPane().add(lblDays);
+		frmSpaceExplorer.getContentPane().add(lblDays);
 		
 		JButton btnNextDay = new JButton("Next Day");
 		btnNextDay.addActionListener(new ActionListener() {
@@ -148,7 +149,7 @@ public class mainGame {
 			}
 		});
 		btnNextDay.setBounds(12, 483, 97, 25);
-		frame.getContentPane().add(btnNextDay);
+		frmSpaceExplorer.getContentPane().add(btnNextDay);
 		
 		JButton btnStore = new JButton("Store");
 		btnStore.addActionListener(new ActionListener() {
@@ -157,7 +158,7 @@ public class mainGame {
 			}
 		});
 		btnStore.setBounds(174, 412, 97, 25);
-		frame.getContentPane().add(btnStore);
+		frmSpaceExplorer.getContentPane().add(btnStore);
 		
 		JButton btnPeform = new JButton("action");
 		btnPeform.setBounds(12, 412, 97, 25);
@@ -174,48 +175,48 @@ public class mainGame {
 			}
 		}
 		});
-		frame.getContentPane().add(btnPeform);
+		frmSpaceExplorer.getContentPane().add(btnPeform);
 		
 		JTextArea textStstus = new JTextArea();
 		textStstus.setBackground(SystemColor.menu);
 		textStstus.setBounds(570, 39, 206, 135);
-		frame.getContentPane().add(textStstus);
+		frmSpaceExplorer.getContentPane().add(textStstus);
 		
 		JTextArea txtFood = new JTextArea();
 		txtFood.setBackground(SystemColor.menu);
 		txtFood.setBounds(317, 42, 227, 503);
 		txtFood.setText(manager.getFood());
-		frame.getContentPane().add(txtFood);
+		frmSpaceExplorer.getContentPane().add(txtFood);
 		
 		JTextPane txtMedicial = new JTextPane();
 		txtMedicial.setBackground(SystemColor.menu);
 		txtMedicial.setBounds(570, 213, 242, 315);
 		txtMedicial.setText(manager.getMedical());
-		frame.getContentPane().add(txtMedicial);
+		frmSpaceExplorer.getContentPane().add(txtMedicial);
 		
 		JLabel lblCrewName = new JLabel(manager.getCrewname());
 		lblCrewName.setBounds(112, 13, 159, 16);
-		frame.getContentPane().add(lblCrewName);
+		frmSpaceExplorer.getContentPane().add(lblCrewName);
 		
 		JLabel lblShipName = new JLabel(manager.getShipname());
 		lblShipName.setBounds(112, 42, 159, 16);
-		frame.getContentPane().add(lblShipName);
+		frmSpaceExplorer.getContentPane().add(lblShipName);
 		
 		JLabel lblLostPices = new JLabel(Integer.toString(manager.getpices()));
 		lblLostPices.setBounds(112, 100, 159, 16);
-		frame.getContentPane().add(lblLostPices);
+		frmSpaceExplorer.getContentPane().add(lblLostPices);
 		
 		JLabel lblShipHealth = new JLabel(Integer.toString(manager.getShieldhealth()));
 		lblShipHealth.setBounds(112, 129, 159, 16);
-		frame.getContentPane().add(lblShipHealth);
+		frmSpaceExplorer.getContentPane().add(lblShipHealth);
 		
 		JLabel lblCrewMoney = new JLabel(Double.toString(manager.getmoney()));
 		lblCrewMoney.setBounds(112, 158, 159, 16);
-		frame.getContentPane().add(lblCrewMoney);
+		frmSpaceExplorer.getContentPane().add(lblCrewMoney);
 		
 		JLabel lblCrewStatus = new JLabel("Crew Status");
 		lblCrewStatus.setBounds(570, 13, 97, 16);
-		frame.getContentPane().add(lblCrewStatus);
+		frmSpaceExplorer.getContentPane().add(lblCrewStatus);
 		
 		JButton btnCrew1 = new JButton(btn1);
 		btnCrew1.setHorizontalAlignment(SwingConstants.LEFT);
@@ -233,7 +234,7 @@ public class mainGame {
 		}
 		});
 		btnCrew1.setBounds(12, 245, 130, 25);
-		frame.getContentPane().add(btnCrew1);
+		frmSpaceExplorer.getContentPane().add(btnCrew1);
 		
 		JButton btnCrew3 = new JButton(btn3);
 		btnCrew3.setHorizontalAlignment(SwingConstants.LEFT);
@@ -251,7 +252,7 @@ public class mainGame {
 		}
 		});
 		btnCrew3.setBounds(12, 311, 130, 25);
-		frame.getContentPane().add(btnCrew3);
+		frmSpaceExplorer.getContentPane().add(btnCrew3);
 		
 		JButton btnCrew2 = new JButton(btn2);
 		btnCrew2.setHorizontalAlignment(SwingConstants.LEFT);
@@ -269,7 +270,7 @@ public class mainGame {
 		}
 		});
 		btnCrew2.setBounds(174, 245, 131, 25);
-		frame.getContentPane().add(btnCrew2);
+		frmSpaceExplorer.getContentPane().add(btnCrew2);
 		
 		JButton btnCrew4 = new JButton(btn4);
 		btnCrew4.setHorizontalAlignment(SwingConstants.LEFT);
@@ -287,11 +288,11 @@ public class mainGame {
 		}
 		});
 		btnCrew4.setBounds(174, 311, 131, 25);
-		frame.getContentPane().add(btnCrew4);
+		frmSpaceExplorer.getContentPane().add(btnCrew4);
 		
 		JSeparator separator = new JSeparator();
 		separator.setBounds(466, 245, -136, 140);
-		frame.getContentPane().add(separator);
+		frmSpaceExplorer.getContentPane().add(separator);
 		
 		
 	}

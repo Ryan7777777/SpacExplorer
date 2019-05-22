@@ -15,7 +15,7 @@ import javax.swing.JButton;
 
 public class Pilot {
 
-	private JFrame frame;
+	private JFrame frmPilo;
 	private GameManager manager;
 	public CrewMember member2;
 	public CrewMember member3;
@@ -32,10 +32,10 @@ public class Pilot {
 		manager = incomingManager;
 		setup();
 		initialize();
-		frame.setVisible(true);
+		frmPilo.setVisible(true);
 	}
 	public void closeWindow() {
-		frame.dispose();
+		frmPilo.dispose();
 	}
 	public void finishedWindow() {
 		manager.closePilot(this);
@@ -72,19 +72,20 @@ public class Pilot {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
-		frame.setBounds(100, 100, 517, 345);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmPilo = new JFrame();
+		frmPilo.setTitle("Select Spaceship Pilots");
+		frmPilo.getContentPane().setFont(new Font("Tahoma", Font.PLAIN, 16));
+		frmPilo.setBounds(100, 100, 517, 345);
+		frmPilo.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmPilo.getContentPane().setLayout(null);
 		
-		JLabel lblChooseOneMore = new JLabel("Choose one more to drive with ");
-		lblChooseOneMore.setBounds(28, 27, 185, 16);
-		frame.getContentPane().add(lblChooseOneMore);
+		JLabel lblChooseOneMore = new JLabel("Choose one more crew member to pilot spaceship: ");
+		lblChooseOneMore.setBounds(28, 27, 255, 16);
+		frmPilo.getContentPane().add(lblChooseOneMore);
 		
 		JLabel lblCrew1 = new JLabel(manager.selectcrew.getName());
-		lblCrew1.setBounds(225, 27, 56, 16);
-		frame.getContentPane().add(lblCrew1);
+		lblCrew1.setBounds(302, 27, 56, 16);
+		frmPilo.getContentPane().add(lblCrew1);
 		
 		JButton btnCrew2 = new JButton(btn1);
 		btnCrew2.addActionListener(new ActionListener(){
@@ -99,7 +100,7 @@ public class Pilot {
 			}
 		});
 		btnCrew2.setBounds(27, 94, 97, 25);
-		frame.getContentPane().add(btnCrew2);
+		frmPilo.getContentPane().add(btnCrew2);
 		
 		JButton btnCrew3 = new JButton(btn2);
 		btnCrew3.setBounds(156, 94, 97, 25);
@@ -114,7 +115,7 @@ public class Pilot {
 			}
 			}
 		});
-		frame.getContentPane().add(btnCrew3);
+		frmPilo.getContentPane().add(btnCrew3);
 		
 		JButton btnCrew4 = new JButton(btn3);
 		btnCrew4.setBounds(281, 94, 97, 25);
@@ -129,7 +130,7 @@ public class Pilot {
 			}
 			}
 		});
-		frame.getContentPane().add(btnCrew4);
+		frmPilo.getContentPane().add(btnCrew4);
 		
 		JButton btnToMainScreen = new JButton("To Main Screen");
 		btnToMainScreen.addActionListener(new ActionListener(){
@@ -138,7 +139,7 @@ public class Pilot {
 			}
 		});
 		btnToMainScreen.setBounds(347, 243, 140, 42);
-		frame.getContentPane().add(btnToMainScreen);
+		frmPilo.getContentPane().add(btnToMainScreen);
 
 }
 }
