@@ -16,7 +16,7 @@ public class CrewMember {
 	private int hungerrate;
 	private int tirednessrate;
 	private int vitality;
-	private int hungrylevel;
+	private int hungerLevel;
 	private String ability;
 	private boolean sick;
 	
@@ -35,7 +35,7 @@ public class CrewMember {
 		type = crewType;
 		action = 2;
 		vitality = 100;
-		hungrylevel = 100;
+		hungerLevel = 100;
 		healthdroprate = crewHealthdroprate;
 		hungerrate = crewHungerrate;
 		tirednessrate = crewTirednessrate;
@@ -60,33 +60,68 @@ public class CrewMember {
 	}
 	
     /**
-     * Sets name of the crew member to a new user defined name.
-     * @return name - Given name of crew member.
+     * Gets current amount of actions of the crew member.
+     * @return action - number of actions left.
      */
 	public int getaction() {
 		return action;
 	}
+	
+    /**
+     * Gets current amount of health of the crew member.
+     * @return health - Amount of health remaining.
+     */
 	public int gethealth() {
 		return health;
 	}
+	
+    /**
+     * Gets the ability of the crew member.
+     * @return ability - ability of the crew member.
+     */
 	public String getAbility() {
 		return ability;
 	}
+	
+    /**
+     * Resets amount of actions back to 
+     * default value of 2 for the crew member.
+     */
 	public void resetaction() {
 		action = 2;
 	}
+    /**
+     * Subtracts action of the crew member by 1 each time this method is called.
+     */
 	public void subtractaction() {
 		action -= 1;
 	}
+	
+    /**
+     * Returns a boolean value if the crew member is sick.
+     * @return sick - If crew member is sick, returns true. If crew member
+     * is not sick, returns false.
+     */
 	public boolean issick() {
 		return sick;
 	}
+    /**
+     * Sets sick to false for the crew member.
+     */
 	public void recovery() {
 		sick = false;
 	}
+    /**
+     * Sets sick to true for the crew member.
+     */
 	public void sick() {
 		sick = true;
 	}
+	
+    /**
+     * Allows the crew member to sleep while increasing vitality by 20 if
+     * below 100, otherwise, sets vitality to 100.
+     */
 	public void sleep() {
 		if ((vitality + 20) < 100) {
 			vitality += 20;
@@ -95,6 +130,12 @@ public class CrewMember {
 		}
 	}
 	
+    /**
+     * Adds a specified amount of health for the crew member if less than 100,
+     * otherwise, sets health to 100.
+     * @param addedamount - The amount of health to add to the remaining health
+     * of the crew member.
+     */
 	public void addhealth(int addedamount) {
 		if (health + addedamount < 100) {
 			health += addedamount;
@@ -102,19 +143,28 @@ public class CrewMember {
 			health = 100;
 		}
 	}
+    /**
+     * Decreases current health by lost health from the crew member while sick.
+     * @param losthealth - Lost health from the crew member being sick.
+     */
 	public void sicklost(int losthealth) {
 		health -= losthealth;
 	}
+	
+    /**
+     * Sets health, vitality and hungerlevel
+     * @return action - number of actions left.
+     */
 	public void newday() {
-		health = health *(100-healthdroprate)/100;
-		vitality = vitality *(100-tirednessrate)/100;
-		hungrylevel = hungrylevel*(100-hungerrate)/100;
+		health *= ((100 - healthdroprate) / 100);
+		vitality *= ((100 - tirednessrate) / 100);
+		hungerLevel *= ((100 - hungerrate) / 100);
 	}
 	public void addnutrition(int nutritionamount) {
-		if (hungrylevel + nutritionamount < 100) {
-			hungrylevel += nutritionamount;
+		if (hungerLevel + nutritionamount < 100) {
+			hungerLevel += nutritionamount;
 		} else {
-			hungrylevel = 100;
+			hungerLevel = 100;
 		}
 	}
 	
@@ -122,7 +172,7 @@ public class CrewMember {
 		return type;
 	}
 	public String viewStatus() {
-		String status = "Current status for " + name +":\n" +"Type: " + type + "\nHunger: " + hungrylevel +"\nVitality: " + vitality + "\nHealth: " + health +
+		String status = "Current status for " + name +":\n" +"Type: " + type + "\nHunger: " + hungerLevel +"\nVitality: " + vitality + "\nHealth: " + health +
 				"\nAction left:"+ action+"\nSick: " +sick;
 		return status;
 	}
