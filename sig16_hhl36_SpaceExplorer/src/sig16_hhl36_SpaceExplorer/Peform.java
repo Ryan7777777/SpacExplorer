@@ -14,7 +14,7 @@ import javax.swing.SwingConstants;
 
 public class Peform {
 
-	private JFrame frame;
+	private JFrame frmPerformAnAction;
 	JFrame parent = new JFrame();
 	private GameManager manager;
 	/**
@@ -23,10 +23,10 @@ public class Peform {
 	public Peform(GameManager incomingManager){
 		manager = incomingManager;
 		initialize();
-		frame.setVisible(true);
+		frmPerformAnAction.setVisible(true);
 	}
 	public void closeWindow() {
-		frame.dispose();
+		frmPerformAnAction.dispose();
 	}
 	public void finishedWindow() {
 		manager.closePeform(this);
@@ -52,19 +52,20 @@ public class Peform {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 564, 432);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmPerformAnAction = new JFrame();
+		frmPerformAnAction.setTitle("Perform an action");
+		frmPerformAnAction.setBounds(100, 100, 564, 432);
+		frmPerformAnAction.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmPerformAnAction.getContentPane().setLayout(null);
 		
 		JLabel lblSelectedCrew = new JLabel("Selected Crew:");
 		lblSelectedCrew.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSelectedCrew.setBounds(60, 26, 174, 16);
-		frame.getContentPane().add(lblSelectedCrew);
+		frmPerformAnAction.getContentPane().add(lblSelectedCrew);
 		
 		JLabel lblCrewname = new JLabel(manager.selectcrew.getName());
 		lblCrewname.setBounds(280, 27, 204, 16);
-		frame.getContentPane().add(lblCrewname);
+		frmPerformAnAction.getContentPane().add(lblCrewname);
 		
 		JButton btnEat = new JButton("Eat/Use Medical Item ");
 		btnEat.setFont(new Font("Tahoma", Font.PLAIN, 11));
@@ -78,7 +79,7 @@ public class Peform {
 			} 
 		});
 		btnEat.setBounds(44, 112, 139, 46);
-		frame.getContentPane().add(btnEat);
+		frmPerformAnAction.getContentPane().add(btnEat);
 		
 		JButton btnSleep = new JButton("Sleep");
 		btnSleep.addActionListener(new ActionListener() {
@@ -90,7 +91,7 @@ public class Peform {
 			} 
 		});
 		btnSleep.setBounds(195, 112, 139, 46);
-		frame.getContentPane().add(btnSleep);
+		frmPerformAnAction.getContentPane().add(btnSleep);
 		
 		JButton btnRepair = new JButton("Repair");
 		btnRepair.addActionListener(new ActionListener() {
@@ -106,7 +107,7 @@ public class Peform {
 			} 
 		});
 		btnRepair.setBounds(345, 112, 139, 46);
-		frame.getContentPane().add(btnRepair);
+		frmPerformAnAction.getContentPane().add(btnRepair);
 		
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
@@ -128,25 +129,25 @@ public class Peform {
 			} 
 		});
 		btnSearch.setBounds(44, 178, 139, 46);
-		frame.getContentPane().add(btnSearch);
+		frmPerformAnAction.getContentPane().add(btnSearch);
 		
-		JButton btnExit = new JButton("Exit");
+		JButton btnExit = new JButton("Return");
 		btnExit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				finishedWindow();
 			}
 		});
 		btnExit.setBounds(401, 318, 97, 25);
-		frame.getContentPane().add(btnExit);
+		frmPerformAnAction.getContentPane().add(btnExit);
 		
-		JButton btnNewButton = new JButton("Go to new planet ");
+		JButton btnNewButton = new JButton("Go to a new planet");
 		btnNewButton.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				toPilot();
 			}
 		});
 		btnNewButton.setBounds(195, 178, 139, 46);
-		frame.getContentPane().add(btnNewButton);
+		frmPerformAnAction.getContentPane().add(btnNewButton);
 	}
 
 }

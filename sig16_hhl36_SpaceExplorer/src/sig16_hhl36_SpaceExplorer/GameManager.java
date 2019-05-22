@@ -397,9 +397,9 @@ public class GameManager {
 	
 	public void asteroidBelt() {
 		randomevent ="Asteroid belt";
-		int shield_health = getShieldhealth();
-		shield_health -= (shield_health * 0.2);
+		shieldHealth = (int) (getShieldhealth() - (100 * 0.3));
 		//setShieldhealth(shield_health);
+
 	}
 	public void randomEvent() {
 		if(crew_food.size() > 0 || crew_medical.size()>0) {
@@ -417,10 +417,9 @@ public class GameManager {
 	}
 	}
 	}
-	public void newPlannet(CrewMember member1,CrewMember member2) {
-		member2.action -=1;
-		member1.action -=1;
-		
+	public void newPlannet(CrewMember menber1, CrewMember menber2) {
+		menber2.action -=1;
+		menber1.action -=1;
 		randomEvent();
 	}
 	
