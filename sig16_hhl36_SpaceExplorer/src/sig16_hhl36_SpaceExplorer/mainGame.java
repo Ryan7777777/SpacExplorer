@@ -100,6 +100,12 @@ public class mainGame {
 		frmSpaceExplorer.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmSpaceExplorer.getContentPane().setLayout(null);
 		setStringButton();
+		JButton btnCrew4 = new JButton(btn4);
+		JButton btnCrew1 = new JButton(btn1);
+		JButton btnCrew2 = new JButton(btn2);
+		JButton btnCrew3 = new JButton(btn3);
+		JTextArea txtFood = new JTextArea();
+		JTextPane txtMedicial = new JTextPane();
 		JLabel lblDay = new JLabel("Day:");
 		lblDay.setBounds(12, 71, 56, 16);
 		frmSpaceExplorer.getContentPane().add(lblDay);
@@ -146,6 +152,13 @@ public class mainGame {
 				if(manager.day > 1) {
 					manager.newday();
 					lblDays.setText(manager.getdays());
+					setStringButton();
+					btnCrew1.setText(btn1);
+					btnCrew2.setText(btn2);
+					btnCrew3.setText(btn3);
+					btnCrew4.setText(btn4);
+					txtMedicial.setText(manager.getMedical());
+					txtFood.setText(manager.getFood());
 					lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
 					JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
 					if(manager.getShieldhealth()<1) {
@@ -190,13 +203,12 @@ public class mainGame {
 		textStstus.setBounds(570, 39, 206, 135);
 		frmSpaceExplorer.getContentPane().add(textStstus);
 		
-		JTextArea txtFood = new JTextArea();
 		txtFood.setBackground(SystemColor.menu);
 		txtFood.setBounds(317, 42, 227, 503);
 		txtFood.setText(manager.getFood());
 		frmSpaceExplorer.getContentPane().add(txtFood);
 		
-		JTextPane txtMedicial = new JTextPane();
+
 		txtMedicial.setBackground(SystemColor.menu);
 		txtMedicial.setBounds(570, 213, 242, 315);
 		txtMedicial.setText(manager.getMedical());
@@ -222,7 +234,7 @@ public class mainGame {
 		lblCrewStatus.setBounds(570, 13, 97, 16);
 		frmSpaceExplorer.getContentPane().add(lblCrewStatus);
 		
-		JButton btnCrew1 = new JButton(btn1);
+		
 		btnCrew1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew1.setVerticalAlignment(SwingConstants.TOP);
 		btnCrew1.addActionListener(new ActionListener(){
@@ -240,7 +252,7 @@ public class mainGame {
 		btnCrew1.setBounds(12, 245, 130, 25);
 		frmSpaceExplorer.getContentPane().add(btnCrew1);
 		
-		JButton btnCrew3 = new JButton(btn3);
+		
 		btnCrew3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew3.setVerticalAlignment(SwingConstants.TOP);
 		btnCrew3.addActionListener(new ActionListener(){
@@ -258,7 +270,7 @@ public class mainGame {
 		btnCrew3.setBounds(12, 311, 130, 25);
 		frmSpaceExplorer.getContentPane().add(btnCrew3);
 		
-		JButton btnCrew2 = new JButton(btn2);
+		
 		btnCrew2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew2.setVerticalAlignment(SwingConstants.TOP);
 		btnCrew2.addActionListener(new ActionListener(){
@@ -276,7 +288,7 @@ public class mainGame {
 		btnCrew2.setBounds(174, 245, 131, 25);
 		frmSpaceExplorer.getContentPane().add(btnCrew2);
 		
-		JButton btnCrew4 = new JButton(btn4);
+		
 		btnCrew4.setHorizontalAlignment(SwingConstants.LEFT);
 		btnCrew4.setVerticalAlignment(SwingConstants.TOP);
 		btnCrew4.addActionListener(new ActionListener(){

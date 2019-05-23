@@ -384,6 +384,7 @@ public class UseItem {
 					}
 					break;
 				}
+					index+=1;
 			}
 			}
 			}
@@ -410,6 +411,7 @@ public class UseItem {
 					}
 					break;
 				}
+					index+=1;
 			}
 			}
 			}

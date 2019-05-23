@@ -31,7 +31,7 @@ public class CrewMember {
      */
 	public CrewMember(String memberName, String crewType, int crewHealthdroprate, int crewHungerrate, int crewTirednessrate, String crewAbility) {
 		name = memberName;
-		health = 100;
+		health = 10;
 		type = crewType;
 		action = 2;
 		vitality = 100;
