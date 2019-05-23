@@ -17,7 +17,7 @@ public class GameManager {
 	private String crewName;
 	private int crewSize = 4;
 	private double crewMoney = 200;
-	private int shieldHealth = 100;
+	private int shieldHealth = 2000;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
@@ -204,8 +204,8 @@ public class GameManager {
 	 * to make sure a random event occurs when moving on to the new day.
      */	
 	public void newday() {
+		ArrayList<CrewMember> toRemove= new ArrayList<CrewMember>();
 		int index = -1;
-		int remove = -1;
 		day -= 1;
 		for (CrewMember crew: crew_members) {
 			index += 1;
@@ -215,12 +215,11 @@ public class GameManager {
 			}
 			crew.newday();
 			if(crew.gethealth() <=0) {
-				remove = index;
-			}
+				toRemove.add(crew);
 		}
-		if(remove >-1) {
-			crew_members.remove(index);
 		}
+		crew_members.removeAll(toRemove);
+		System.out.println(crew_members);
 		randomEvent();
 	}
 	
