@@ -516,6 +516,34 @@ public class GameManager {
 	 * spaceship while having a random possibility of stealing a medical item or
 	 * food item.
      */
+//	public void alienparty() {
+//		randomevent = "Alien pirates";
+//		int item_type = rand.nextInt(2);
+//		boolean remove = false;
+//		if (remove == false) {
+//			switch(item_type) {
+//			case 0:
+//				if(crew_food.size() > 0) {
+//					int i = rand.nextInt(crew_food.size());
+//					int index  = -1;
+//				    for(Food_Item myfood: crew_food) {
+//					    index += 1;
+//						if(index == i) {
+//							myfood.subtractQuantity();
+//							remove = true;
+//							if(myfood.getQuantity() == 0) {
+//								remove_index = index;
+//							}
+//						}
+//				    }
+//				    if(remove_index > -1) {
+//				    	crew_food.remove(remove_index);
+//				    }
+//				}
+//				
+//			}
+//		}
+//	}
 	public void alienparty() {
 		randomevent = "Alien pirates";
 		boolean remove = false;

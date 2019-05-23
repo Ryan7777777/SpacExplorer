@@ -144,13 +144,13 @@ public class mainGame {
 		btnNextDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.day > 1) {
-				manager.newday();
-				lblDays.setText(manager.getdays());
-				lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
-				JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
-			} else {
-				finishedWindow();
-			}
+					manager.newday();
+					lblDays.setText(manager.getdays());
+					lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
+					JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
+				} else {
+					finishedWindow();
+				}
 			}
 		});
 		btnNextDay.setBounds(12, 483, 97, 25);
