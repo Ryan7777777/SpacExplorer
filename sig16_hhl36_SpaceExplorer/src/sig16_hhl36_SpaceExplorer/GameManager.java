@@ -516,34 +516,7 @@ public class GameManager {
 	 * spaceship while having a random possibility of stealing a medical item or
 	 * food item.
      */
-//	public void alienparty() {
-//		randomevent = "Alien pirates";
-//		int item_type = rand.nextInt(2);
-//		boolean remove = false;
-//		if (remove == false) {
-//			switch(item_type) {
-//			case 0:
-//				if(crew_food.size() > 0) {
-//					int i = rand.nextInt(crew_food.size());
-//					int index  = -1;
-//				    for(Food_Item myfood: crew_food) {
-//					    index += 1;
-//						if(index == i) {
-//							myfood.subtractQuantity();
-//							remove = true;
-//							if(myfood.getQuantity() == 0) {
-//								remove_index = index;
-//							}
-//						}
-//				    }
-//				    if(remove_index > -1) {
-//				    	crew_food.remove(remove_index);
-//				    }
-//				}
-//				
-//			}
-//		}
-//	}
+
 	public void alienparty() {
 		randomevent = "Alien pirates";
 		boolean remove = false;
@@ -590,6 +563,7 @@ public class GameManager {
 		}
 	}
 	
+
 	/**
 	 * This method is in charge of the random event space plague that occurs
 	 * when moving to a new planet or new day. When the space plague occurs
@@ -635,90 +609,24 @@ public class GameManager {
 					break;
 			}
 		} else {
+			randint = new Random().nextInt(2);
 			switch (randint) {
 				case 0: 
 					spaceplague();
 					break;
-				case 1: 
-					alienparty();
-					break;
-				case 2:
+				case 1:
 					asteroidBelt();
 					break;
 			}
 		}
 	}
-		//if(crew_food.size() > 0 || crew_medical.size() > 0) {
-			//int randint1 = new Random().nextInt(3);
-	        //switch (randint1) {
-	           //case 0: spaceplague();
-	           //case 1: alienparty();
-	           //case 2: asteroidBelt();
-	        //}		
-		//} //else {
-			//int randint2 = new Random().nextInt(2);
-	        //switch (randint2) {
-	           //case 0: spaceplague();
-	           //case 1: asteroidBelt();
-	        //}
-		//}
-	//}
+		
 	public void newPlanet(CrewMember member1, CrewMember member2) {
 		member2.action -=1;
 		member1.action -=1;
 		randomEvent();
 	}
-	
-	public void setPilot(ArrayList<CrewMember> pilot_candidate) throws PilotCrewException {
-		String print = "Crew members availabe to be a pilot for the spaceship: ";
-		if (pilot_candidate.size() < 2) {
-			throw new PilotCrewException("Need at least two Crew Members to pilot a ship");
-		} else {
-			for (CrewMember pilot: pilot_candidate) {
-				print += ", " + pilot_candidate.indexOf(pilot) + ": " + pilot.getName();
-			}
-			System.out.println(print);
-			Scanner input = new Scanner(System.in);
-			while (pilots.size() < 2) {
-			    try { // checks code for exceptions
-			        System.out.println("Please select the number beside the possible Crew Member pilot: ");
-			        int index = input.nextInt();
-			        pilots.add(pilot_candidate.get(index));
-				} catch (InputMismatchException e) { //if an exception appears prints message below
-				    System.err.println("Please enter a number! " + e.getMessage());
-				    input.next(); 
-				    continue;
-				}
-			}
-			input.close();
-		}
-		System.out.println(getPilot());
-	}
-	public String getPilot() {
-		String print = "Your pilots are: \n";
-		
-		for (CrewMember pilot: pilots) {
-			print += pilot.getName() + "\n";
-		}
-		return print;
-	}
-	public void newPlanet() throws PilotCrewException {
-		ArrayList<CrewMember> pilot_candidate = new ArrayList<CrewMember>();
 
-		if (getcrewsize() >= 2) {
-				for (CrewMember crewmember: crew_members) {
-					if (crewmember.getaction() >= 1) {
-						pilot_candidate.add(crewmember);
-					} else {
-						System.out.println("Crew Member: " + crewmember + " is out of actions!");
-					}
-				}
-		} else {
-				throw new PilotCrewException("Don't have enough Crew Members for this action!");
-		}
-		setPilot(pilot_candidate);
-		randomEvent();
-	}
 	public void launchMainScreen () {
 		mainGame mainWindow = new mainGame(this);
 	}

@@ -148,6 +148,7 @@ public class mainGame {
 					lblDays.setText(manager.getdays());
 					lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
 					JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
+					
 				} else {
 					finishedWindow();
 				}
