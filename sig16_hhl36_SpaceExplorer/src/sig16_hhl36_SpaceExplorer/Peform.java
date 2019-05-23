@@ -54,7 +54,7 @@ public class Peform {
 	private void initialize() {
 		frmPerformAnAction = new JFrame();
 		frmPerformAnAction.setTitle("Perform an action");
-		frmPerformAnAction.setBounds(100, 100, 564, 432);
+		frmPerformAnAction.setBounds(100, 100, 697, 436);
 		frmPerformAnAction.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPerformAnAction.getContentPane().setLayout(null);
 		
@@ -68,7 +68,7 @@ public class Peform {
 		frmPerformAnAction.getContentPane().add(lblCrewname);
 		
 		JButton btnEat = new JButton("Eat/Use Medical Item ");
-		btnEat.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		btnEat.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		btnEat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_food.size() == 0 && manager.crew_medical.size() == 0) {
@@ -78,7 +78,7 @@ public class Peform {
 				}
 			} 
 		});
-		btnEat.setBounds(44, 112, 139, 46);
+		btnEat.setBounds(44, 112, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnEat);
 		
 		JButton btnSleep = new JButton("Sleep");
@@ -90,7 +90,7 @@ public class Peform {
 				}
 			} 
 		});
-		btnSleep.setBounds(195, 112, 139, 46);
+		btnSleep.setBounds(230, 111, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnSleep);
 		
 		JButton btnRepair = new JButton("Repair");
@@ -106,7 +106,7 @@ public class Peform {
 				}
 			} 
 		});
-		btnRepair.setBounds(345, 112, 139, 46);
+		btnRepair.setBounds(420, 111, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnRepair);
 		
 		JButton btnSearch = new JButton("Search");
@@ -128,7 +128,7 @@ public class Peform {
 				}
 			} 
 		});
-		btnSearch.setBounds(44, 178, 139, 46);
+		btnSearch.setBounds(44, 178, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnSearch);
 		
 		JButton btnExit = new JButton("Return");
@@ -137,7 +137,7 @@ public class Peform {
 				finishedWindow();
 			}
 		});
-		btnExit.setBounds(401, 318, 97, 25);
+		btnExit.setBounds(455, 289, 139, 46);
 		frmPerformAnAction.getContentPane().add(btnExit);
 		
 		JButton btnNewButton = new JButton("Go to a new planet");
@@ -146,7 +146,7 @@ public class Peform {
 				toPilot();
 			}
 		});
-		btnNewButton.setBounds(195, 178, 139, 46);
+		btnNewButton.setBounds(230, 178, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnNewButton);
 	}
 

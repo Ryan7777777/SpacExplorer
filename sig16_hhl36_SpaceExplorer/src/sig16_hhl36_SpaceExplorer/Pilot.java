@@ -80,11 +80,11 @@ public class Pilot {
 		frmPilo.getContentPane().setLayout(null);
 		
 		JLabel lblChooseOneMore = new JLabel("Choose one more crew member to pilot spaceship: ");
-		lblChooseOneMore.setBounds(28, 27, 255, 16);
+		lblChooseOneMore.setBounds(28, 27, 307, 25);
 		frmPilo.getContentPane().add(lblChooseOneMore);
 		
 		JLabel lblCrew1 = new JLabel(manager.selectcrew.getName());
-		lblCrew1.setBounds(302, 27, 56, 16);
+		lblCrew1.setBounds(352, 31, 76, 16);
 		frmPilo.getContentPane().add(lblCrew1);
 		
 		JButton btnCrew2 = new JButton(btn1);
@@ -99,11 +99,11 @@ public class Pilot {
 				}
 			}
 		});
-		btnCrew2.setBounds(27, 94, 97, 25);
+		btnCrew2.setBounds(27, 94, 97, 35);
 		frmPilo.getContentPane().add(btnCrew2);
 		
 		JButton btnCrew3 = new JButton(btn2);
-		btnCrew3.setBounds(156, 94, 97, 25);
+		btnCrew3.setBounds(166, 94, 97, 35);
 		btnCrew3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				if(member3 == null) {}else {
@@ -118,7 +118,7 @@ public class Pilot {
 		frmPilo.getContentPane().add(btnCrew3);
 		
 		JButton btnCrew4 = new JButton(btn3);
-		btnCrew4.setBounds(281, 94, 97, 25);
+		btnCrew4.setBounds(304, 94, 97, 35);
 		btnCrew4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				if(member4 == null) {}else {

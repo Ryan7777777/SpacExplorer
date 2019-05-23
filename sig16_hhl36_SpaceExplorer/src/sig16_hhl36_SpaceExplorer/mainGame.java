@@ -124,11 +124,11 @@ public class mainGame {
 		lblMoney.setBounds(12, 158, 56, 16);
 		frmSpaceExplorer.getContentPane().add(lblMoney);
 		
-		JLabel lblFood = new JLabel("Crew's Food");
+		JLabel lblFood = new JLabel("Crew's Food:");
 		lblFood.setBounds(347, 10, 104, 22);
 		frmSpaceExplorer.getContentPane().add(lblFood);
 		
-		JLabel lblMedical = new JLabel("Crew's Medical Item");
+		JLabel lblMedical = new JLabel("Crew's Medical Item:");
 		lblMedical.setBounds(570, 178, 150, 22);
 		frmSpaceExplorer.getContentPane().add(lblMedical);
 		
@@ -165,7 +165,7 @@ public class mainGame {
 		btnStore.setBounds(174, 412, 97, 25);
 		frmSpaceExplorer.getContentPane().add(btnStore);
 		
-		JButton btnPeform = new JButton("action");
+		JButton btnPeform = new JButton("Action");
 		btnPeform.setBounds(12, 412, 97, 25);
 		btnPeform.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -215,8 +215,8 @@ public class mainGame {
 		lblCrewMoney.setBounds(112, 158, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblCrewMoney);
 		
-		JLabel lblCrewStatus = new JLabel("Crew Status");
-		lblCrewStatus.setBounds(570, 13, 97, 16);
+		JLabel lblCrewStatus = new JLabel("Crew Member Status:");
+		lblCrewStatus.setBounds(570, 13, 130, 16);
 		frmSpaceExplorer.getContentPane().add(lblCrewStatus);
 		
 		JButton btnCrew1 = new JButton(btn1);
