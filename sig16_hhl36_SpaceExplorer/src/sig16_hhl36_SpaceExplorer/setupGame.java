@@ -69,19 +69,19 @@ public class setupGame {
 			for (CrewMember member: manager.crew_members) {
 				index += 1;
 				if(index == 0) {
-					btn1 = member.viewtype();
+					btn1 = member.viewType();
 					btn2 = "";
 					btn3 = "";
 					btn4 = "";		
 				}
 				else if (index == 1) {
-					btn2 = member.viewtype();
+					btn2 = member.viewType();
 					btn3 = "";
 					btn4 = "";	
 				} else if(index == 2) {
-					btn3 = member.viewtype();
+					btn3 = member.viewType();
 				} else {
-					btn4 = member.viewtype();
+					btn4 = member.viewType();
 				}
 		}
 		}
@@ -92,27 +92,27 @@ public class setupGame {
 			index += 1;
 			if(index == 0) {
 				if(txtName1.getText().length() == 0) {
-					member.setname("Crew1");
+					member.setName("Crew1");
 				}else {
-				member.setname(txtName1.getText());
+				member.setName(txtName1.getText());
 				}
 			} else if(index == 1) {
 				if(txtName2.getText().length() == 0) {
-					member.setname("Crew2");
+					member.setName("Crew2");
 				}else {
-				member.setname(txtName2.getText());
+				member.setName(txtName2.getText());
 				}
 			} else if(index == 2) {
 				if(txtName3.getText().length() == 0) {
-					member.setname("Crew3");
+					member.setName("Crew3");
 				}else {
-				member.setname(txtName3.getText());
+				member.setName(txtName3.getText());
 				}
 			} else if(index == 3) {
 				if(txtName4.getText().length() == 0) {
-					member.setname("Crew4");
+					member.setName("Crew4");
 				}else {
-				member.setname(txtName4.getText());
+				member.setName(txtName4.getText());
 				}
 			}
 		}
@@ -137,29 +137,29 @@ public class setupGame {
 		frame.getContentPane().setLayout(null);
 		
 		JLabel lblWelcomeToSpace = new JLabel("Welcome to Space Explorer!");
-		lblWelcomeToSpace.setBounds(30, 23, 210, 38);
-		lblWelcomeToSpace.setFont(new Font("Tahoma", Font.PLAIN, 15));
+		lblWelcomeToSpace.setBounds(30, 13, 263, 38);
+		lblWelcomeToSpace.setFont(new Font("Tahoma", Font.BOLD, 18));
 		frame.getContentPane().add(lblWelcomeToSpace);
 		
-		JLabel lblWhatIsThe = new JLabel("What is the crew name?");
-		lblWhatIsThe.setBounds(30, 50, 172, 32);
+		JLabel lblWhatIsThe = new JLabel("Name your crew:");
+		lblWhatIsThe.setBounds(30, 45, 172, 32);
 		frame.getContentPane().add(lblWhatIsThe);
 		
-		JLabel lblWhatIsThe_1 = new JLabel("What is the ship name?");
-		lblWhatIsThe_1.setBounds(30, 90, 140, 16);
+		JLabel lblWhatIsThe_1 = new JLabel("Name your ship:");
+		lblWhatIsThe_1.setBounds(30, 93, 140, 16);
 		frame.getContentPane().add(lblWhatIsThe_1);
 		
-		JLabel lblHowManyDay = new JLabel("How many day do you want?");
-		lblHowManyDay.setBounds(30, 130, 172, 16);
+		JLabel lblHowManyDay = new JLabel("How many days would you like to play for?");
+		lblHowManyDay.setBounds(30, 140, 250, 16);
 		frame.getContentPane().add(lblHowManyDay);
 		
-		JLabel lblHowManyCrew = new JLabel("How many crew do you want?");
-		lblHowManyCrew.setBounds(30, 180, 172, 16);
+		JLabel lblHowManyCrew = new JLabel("How many crew members would you like?");
+		lblHowManyCrew.setBounds(30, 193, 250, 16);
 		frame.getContentPane().add(lblHowManyCrew);
 		
 		txtName1 = new JTextField();
 		txtName1.setColumns(10);
-		txtName1.setBounds(40, 477, 89, 24);
+		txtName1.setBounds(30, 477, 89, 24);
 		frame.getContentPane().add(txtName1);
 	
 		
@@ -184,7 +184,7 @@ public class setupGame {
 				}
 				}
 			});
-		btnCrew1.setBounds(40, 401, 104, 38);
+		btnCrew1.setBounds(30, 401, 104, 38);
 		frame.getContentPane().add(btnCrew1);
 		btnCrew2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -199,7 +199,7 @@ public class setupGame {
 				}
 			});
 		
-		btnCrew2.setBounds(146, 401, 104, 38);
+		btnCrew2.setBounds(137, 401, 104, 38);
 		frame.getContentPane().add(btnCrew2);
 		btnCrew3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -214,7 +214,7 @@ public class setupGame {
 			}
 			});
 		
-		btnCrew3.setBounds(253, 401, 104, 38);
+		btnCrew3.setBounds(245, 401, 104, 38);
 		frame.getContentPane().add(btnCrew3);
 		btnCrew4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
@@ -230,7 +230,7 @@ public class setupGame {
 			});
 		
 		
-		btnCrew4.setBounds(361, 401, 104, 38);
+		btnCrew4.setBounds(353, 401, 104, 38);
 		frame.getContentPane().add(btnCrew4);
 		
 		JSlider slider = new JSlider();
@@ -304,7 +304,7 @@ public class setupGame {
 		btnLazySlepper.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember lazyslepper = new LazySleeper();
-				lbl_crewtype.setText(lazyslepper.viewtype());
+				lbl_crewtype.setText(lazyslepper.viewType());
 				lbl_Ability.setText(lazyslepper.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(lazyslepper);
@@ -316,14 +316,14 @@ public class setupGame {
 				}
 			}
 		});
-		btnLazySlepper.setBounds(30, 239, 104, 38);
+		btnLazySlepper.setBounds(30, 239, 114, 38);
 		frame.getContentPane().add(btnLazySlepper);
 		
 		JButton btnHungryBoy = new JButton("Hungry Boy");
 		btnHungryBoy.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember hungryboy = new HungryBoy();
-				lbl_crewtype.setText(hungryboy.viewtype());
+				lbl_crewtype.setText(hungryboy.viewType());
 				lbl_Ability.setText(hungryboy.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(hungryboy);
@@ -335,14 +335,14 @@ public class setupGame {
 				}
 			}
 		});
-		btnHungryBoy.setBounds(178, 239, 104, 38);
+		btnHungryBoy.setBounds(178, 239, 114, 38);
 		frame.getContentPane().add(btnHungryBoy);
 		
 		JButton btnHunk = new JButton("Hunk");
 		btnHunk.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember hunk = new Hunk();
-				lbl_crewtype.setText(hunk.viewtype());
+				lbl_crewtype.setText(hunk.viewType());
 				lbl_Ability.setText(hunk.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(hunk);
@@ -354,14 +354,14 @@ public class setupGame {
 				}
 			}
 		});
-		btnHunk.setBounds(320, 239, 104, 38);
+		btnHunk.setBounds(320, 239, 114, 38);
 		frame.getContentPane().add(btnHunk);
 		
 		JButton btnSeeker = new JButton("Seeker");
 		btnSeeker.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember seeker = new Seeker();
-				lbl_crewtype.setText(seeker.viewtype());
+				lbl_crewtype.setText(seeker.viewType());
 				lbl_Ability.setText(seeker.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(seeker);
@@ -373,14 +373,14 @@ public class setupGame {
 				}
 			}
 		});
-		btnSeeker.setBounds(30, 316, 104, 38);
+		btnSeeker.setBounds(30, 316, 114, 38);
 		frame.getContentPane().add(btnSeeker);
 		
 		JButton btnSuperman = new JButton("Superman");
 		btnSuperman.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember superman = new Superman();
-				lbl_crewtype.setText(superman.viewtype());
+				lbl_crewtype.setText(superman.viewType());
 				lbl_Ability.setText(superman.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(superman);
@@ -392,14 +392,14 @@ public class setupGame {
 				}
 			}
 		});
-		btnSuperman.setBounds(178, 316, 104, 38);
+		btnSuperman.setBounds(178, 316, 114, 38);
 		frame.getContentPane().add(btnSuperman);
 		
-		JButton btnTechnician = new JButton("Techician");
+		JButton btnTechnician = new JButton("Technician");
 		btnTechnician.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				CrewMember technician = new Technician();
-				lbl_crewtype.setText(technician.viewtype());
+				lbl_crewtype.setText(technician.viewType());
 				lbl_Ability.setText(technician.getAbility());
 				if (manager.crew_members.size() < manager.crewsize()) {
 					manager.crew_members.add(technician);
@@ -411,14 +411,15 @@ public class setupGame {
 				}
 			}
 		});
-		btnTechnician.setBounds(320, 316, 104, 38);
+		btnTechnician.setBounds(320, 316, 114, 38);
 		frame.getContentPane().add(btnTechnician);
 		
 		JLabel lblSelect = new JLabel("Selected:");
 		lblSelect.setBounds(30, 367, 89, 32);
 		frame.getContentPane().add(lblSelect);
 		
-		JButton btnStart = new JButton("Start");
+		JButton btnStart = new JButton("Start!");
+		btnStart.setFont(new Font("Tahoma", Font.PLAIN, 30));
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_members.size() >= 2) {
@@ -435,13 +436,13 @@ public class setupGame {
 			}
 			}
 		});
-		btnStart.setBounds(615, 478, 89, 22);
+		btnStart.setBounds(570, 436, 151, 65);
 		btnStart.setBackground(Color.BLUE);
-		btnStart.setForeground(Color.BLACK);
+		btnStart.setForeground(Color.WHITE);
 		frame.getContentPane().add(btnStart);
 		
 		JLabel lblCrewStatus = new JLabel("Crew Status");
-		lblCrewStatus.setBounds(589, 210, 89, 32);
+		lblCrewStatus.setBounds(611, 215, 89, 32);
 		frame.getContentPane().add(lblCrewStatus);
 		
 		JLabel lblCrewType = new JLabel("Crew Type");
@@ -456,34 +457,34 @@ public class setupGame {
 		frame.getContentPane().add(lblAbility);
 		
 		JLabel lblName = new JLabel("Name");
-		lblName.setBounds(50, 452, 56, 16);
+		lblName.setBounds(30, 452, 56, 16);
 		frame.getContentPane().add(lblName);
 		
 		txtName2 = new JTextField();
 		txtName2.setColumns(10);
-		txtName2.setBounds(151, 477, 89, 24);
+		txtName2.setBounds(137, 477, 89, 24);
 		frame.getContentPane().add(txtName2);
 		
 		txtName3 = new JTextField();
 		txtName3.setColumns(10);
-		txtName3.setBounds(261, 477, 89, 24);
+		txtName3.setBounds(245, 477, 89, 24);
 		frame.getContentPane().add(txtName3);
 		
 		txtName4 = new JTextField();
 		txtName4.setColumns(10);
-		txtName4.setBounds(365, 477, 89, 24);
+		txtName4.setBounds(353, 477, 89, 24);
 		frame.getContentPane().add(txtName4);
 		
 		JLabel label = new JLabel("Name");
-		label.setBounds(156, 452, 56, 16);
+		label.setBounds(137, 452, 56, 16);
 		frame.getContentPane().add(label);
 		
 		JLabel label_1 = new JLabel("Name");
-		label_1.setBounds(263, 452, 56, 16);
+		label_1.setBounds(245, 452, 56, 16);
 		frame.getContentPane().add(label_1);
 		
 		JLabel label_2 = new JLabel("Name");
-		label_2.setBounds(369, 452, 56, 16);
+		label_2.setBounds(353, 452, 56, 16);
 		frame.getContentPane().add(label_2);
 		
 		

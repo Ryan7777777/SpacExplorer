@@ -15,7 +15,7 @@ import java.awt.SystemColor;
 
 public class Store {
 
-	private JFrame frame;
+	private JFrame frmSpaceOutpost;
 	private GameManager manager;
 	JFrame parent = new JFrame();
 	private double price;
@@ -35,10 +35,10 @@ public class Store {
 	public Store(GameManager incomingManager){
 		manager = incomingManager;
 		initialize();
-		frame.setVisible(true);
+		frmSpaceOutpost.setVisible(true);
 	}
 	public void closeWindow() {
-		frame.dispose();
+		frmSpaceOutpost.dispose();
 	}
 	public void finishedWindow() {
 		manager.closeStore(this);
@@ -56,21 +56,22 @@ public class Store {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 935, 545);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmSpaceOutpost = new JFrame();
+		frmSpaceOutpost.setTitle("Space Outpost");
+		frmSpaceOutpost.setBounds(100, 100, 935, 545);
+		frmSpaceOutpost.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmSpaceOutpost.getContentPane().setLayout(null);
 		
 		JLabel lblError = new JLabel("");
 		lblError.setBounds(290, 42, 249, 16);
-		frame.getContentPane().add(lblError);
+		frmSpaceOutpost.getContentPane().add(lblError);
 		
 		JLabel lblMoney = new JLabel(Double.toString(manager.getmoney()));
 		lblMoney.setBounds(253, 42, 97, 16);
-		frame.getContentPane().add(lblMoney);
+		frmSpaceOutpost.getContentPane().add(lblMoney);
 		
 		JButton btnFood1 = new JButton("Banana");
-		btnFood1.setBounds(46, 104, 127, 47);
+		btnFood1.setBounds(46, 104, 159, 47);
 		btnFood1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= banana.getPrice()) {
@@ -82,10 +83,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood1);
+		frmSpaceOutpost.getContentPane().add(btnFood1);
 		
 		JButton btnFood2 = new JButton("Butter Chicken");
-		btnFood2.setBounds(205, 104, 127, 47);
+		btnFood2.setBounds(217, 104, 159, 47);
 		btnFood2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= butterchicken.getPrice()) {
@@ -97,10 +98,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood2);
+		frmSpaceOutpost.getContentPane().add(btnFood2);
 		
-		JButton btnFood3 = new JButton("Ham Sandwihes");
-		btnFood3.setBounds(376, 104, 127, 47);
+		JButton btnFood3 = new JButton("Ham Sandwiches");
+		btnFood3.setBounds(388, 104, 159, 47);
 		btnFood3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= hamsandwihes.getPrice()) {
@@ -112,10 +113,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood3);
+		frmSpaceOutpost.getContentPane().add(btnFood3);
 		
 		JButton btnFood4 = new JButton("Peaches");
-		btnFood4.setBounds(46, 182, 127, 47);
+		btnFood4.setBounds(46, 182, 159, 47);
 		btnFood4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= peaches.getPrice()) {
@@ -127,11 +128,11 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood4);
+		frmSpaceOutpost.getContentPane().add(btnFood4);
 		
-		JButton btnFood5 = new JButton("Spaghetti Bolonese");
-		btnFood5.setFont(new Font("Tahoma", Font.PLAIN, 10));
-		btnFood5.setBounds(205, 183, 127, 47);
+		JButton btnFood5 = new JButton("Spaghetti Bolognese");
+		btnFood5.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		btnFood5.setBounds(217, 182, 159, 47);
 		btnFood5.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= spaghetti_bolonese.getPrice()) {
@@ -143,10 +144,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood5);
+		frmSpaceOutpost.getContentPane().add(btnFood5);
 		
-		JButton btnFood6 = new JButton("Straeberries");
-		btnFood6.setBounds(376, 182, 127, 47);
+		JButton btnFood6 = new JButton("Strawberries");
+		btnFood6.setBounds(388, 182, 159, 47);
 		btnFood6.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= straeberries.getPrice()) {
@@ -158,10 +159,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnFood6);
+		frmSpaceOutpost.getContentPane().add(btnFood6);
 		
 		JButton btnMed1 = new JButton("Plagurcure");
-		btnMed1.setBounds(46, 281, 127, 42);
+		btnMed1.setBounds(46, 278, 159, 47);
 		btnMed1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= plagurcure.getPrice()) {
@@ -173,10 +174,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnMed1);
+		frmSpaceOutpost.getContentPane().add(btnMed1);
 		
 		JButton bntMed2 = new JButton("Small Med Pack");
-		bntMed2.setBounds(205, 278, 127, 45);
+		bntMed2.setBounds(217, 278, 159, 47);
 		bntMed2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= samllmedpack.getPrice()) {
@@ -188,10 +189,10 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(bntMed2);
+		frmSpaceOutpost.getContentPane().add(bntMed2);
 		
 		JButton btnMed3 = new JButton("Large Med Pack");
-		btnMed3.setBounds(376, 276, 127, 47);
+		btnMed3.setBounds(388, 278, 159, 47);
 		btnMed3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 			if(manager.getmoney() >= bigmedpack.getPrice()) {
@@ -203,20 +204,20 @@ public class Store {
 			}
 		}
 		});
-		frame.getContentPane().add(btnMed3);
+		frmSpaceOutpost.getContentPane().add(btnMed3);
 	
 		
 		JLabel lblNewLabel = new JLabel("Space Outpost:");
 		lblNewLabel.setBounds(12, 13, 161, 16);
-		frame.getContentPane().add(lblNewLabel);
+		frmSpaceOutpost.getContentPane().add(lblNewLabel);
 		
 		JLabel lblFoodItems = new JLabel("Food Items");
 		lblFoodItems.setBounds(12, 66, 97, 16);
-		frame.getContentPane().add(lblFoodItems);
+		frmSpaceOutpost.getContentPane().add(lblFoodItems);
 		
-		JLabel lblMediaclItems = new JLabel("Mediacl Items");
+		JLabel lblMediaclItems = new JLabel("Medical Items");
 		lblMediaclItems.setBounds(12, 241, 85, 16);
-		frame.getContentPane().add(lblMediaclItems);
+		frmSpaceOutpost.getContentPane().add(lblMediaclItems);
 		
 		JButton btnExit = new JButton("Exit Store");
 		btnExit.addActionListener(new ActionListener(){
@@ -224,26 +225,26 @@ public class Store {
 				finishedWindow();
 			}
 		});
-		btnExit.setBounds(406, 395, 97, 25);
-		frame.getContentPane().add(btnExit);
+		btnExit.setBounds(394, 407, 159, 47);
+		frmSpaceOutpost.getContentPane().add(btnExit);
 		
 		JLabel lblCrewMoney = new JLabel("Crew's Money");
 		lblCrewMoney.setFont(new Font("Tahoma", Font.PLAIN, 13));
 		lblCrewMoney.setBounds(82, 37, 118, 25);
-		frame.getContentPane().add(lblCrewMoney);
+		frmSpaceOutpost.getContentPane().add(lblCrewMoney);
 		
 		JTextPane txtFood = new JTextPane();
 		txtFood.setText(manager.viewFood());
 		txtFood.setBackground(SystemColor.control);
 		txtFood.setBounds(554, 99, 161, 369);
-		frame.getContentPane().add(txtFood);
+		frmSpaceOutpost.getContentPane().add(txtFood);
 		
 		JTextPane txtMed = new JTextPane();
 		txtMed.setText((String) null);
 		txtMed.setText(manager.viewMed());
 		txtMed.setBackground(SystemColor.menu);
 		txtMed.setBounds(744, 99, 161, 369);
-		frame.getContentPane().add(txtMed);
+		frmSpaceOutpost.getContentPane().add(txtMed);
 	}
 
 }

@@ -58,12 +58,12 @@ public class Peform {
 		frmPerformAnAction.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frmPerformAnAction.getContentPane().setLayout(null);
 		
-		JLabel lblSelectedCrew = new JLabel("Selected Crew:");
+		JLabel lblSelectedCrew = new JLabel("Selected Crew Member:");
 		lblSelectedCrew.setFont(new Font("Tahoma", Font.PLAIN, 15));
 		lblSelectedCrew.setBounds(60, 26, 174, 16);
 		frmPerformAnAction.getContentPane().add(lblSelectedCrew);
 		
-		JLabel lblCrewname = new JLabel(manager.selectcrew.getName());
+		JLabel lblCrewname = new JLabel(manager.selectCrew.getName());
 		lblCrewname.setBounds(280, 27, 204, 16);
 		frmPerformAnAction.getContentPane().add(lblCrewname);
 		
@@ -84,8 +84,8 @@ public class Peform {
 		JButton btnSleep = new JButton("Sleep");
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew.getaction() > 0) {
-					manager.crewasleep(manager.selectcrew);
+				if(manager.selectCrew.getAction() > 0) {
+					manager.crewasleep(manager.selectCrew);
 					finishedWindow();
 				}
 			} 
@@ -96,9 +96,9 @@ public class Peform {
 		JButton btnRepair = new JButton("Repair");
 		btnRepair.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew.getaction() > 0) {
+				if(manager.selectCrew.getAction() > 0) {
 					if (manager.getShieldhealth() < 200) {
-						manager.repair(manager.selectcrew);
+						manager.repair(manager.selectCrew);
 						finishedWindow();
 					} else {
 						JOptionPane.showMessageDialog(parent, "Spaceship shield already at 200%");
@@ -112,14 +112,14 @@ public class Peform {
 		JButton btnSearch = new JButton("Search");
 		btnSearch.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew.getaction() > 0) {
-					manager.searchParts(manager.selectcrew);
-					if(manager.getteditem != "") {
+				if(manager.selectCrew.getAction() > 0) {
+					manager.searchParts(manager.selectCrew);
+					if(manager.foundItem != "") {
 						if(manager.getpices() == 0) {
-							JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.getteditem);
+							JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.foundItem);
 							toScore();
 						}else {
-						JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.getteditem);
+						JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.foundItem);
 						finishedWindow();
 						}
 					} else {
@@ -131,13 +131,13 @@ public class Peform {
 		btnSearch.setBounds(44, 178, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnSearch);
 		
-		JButton btnExit = new JButton("Return");
+		JButton btnExit = new JButton("Return to Main Menu");
 		btnExit.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
 				finishedWindow();
 			}
 		});
-		btnExit.setBounds(455, 289, 139, 46);
+		btnExit.setBounds(420, 290, 174, 46);
 		frmPerformAnAction.getContentPane().add(btnExit);
 		
 		JButton btnNewButton = new JButton("Go to a new planet");

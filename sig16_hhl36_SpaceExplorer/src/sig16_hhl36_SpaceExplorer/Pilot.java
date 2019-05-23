@@ -43,17 +43,17 @@ public class Pilot {
 	public void setup() {
 		index = 0;
 		for (CrewMember member: manager.crew_members) {
-			if(member == manager.selectcrew) {}else {
+			if(member == manager.selectCrew) {} else {
 				index += 1;
-				if(index == 1 && member.getaction()>0) {
+				if(index == 1 && member.getAction()>0) {
 					member2 = member;
 					btn1 = (member.getName());
 				}
-				else if (index == 2 &&member.getaction()>0) {
+				else if (index == 2 &&member.getAction()>0) {
 					member3 = member;
 					btn2 = (member.getName());
 					
-				} else{if(member.getaction()>0) {
+				} else{if(member.getAction()>0) {
 					member4=  member;
 					btn3 = member.getName();
 					}}
@@ -83,7 +83,7 @@ public class Pilot {
 		lblChooseOneMore.setBounds(28, 27, 307, 25);
 		frmPilo.getContentPane().add(lblChooseOneMore);
 		
-		JLabel lblCrew1 = new JLabel(manager.selectcrew.getName());
+		JLabel lblCrew1 = new JLabel(manager.selectCrew.getName());
 		lblCrew1.setBounds(352, 31, 76, 16);
 		frmPilo.getContentPane().add(lblCrew1);
 		
@@ -92,8 +92,8 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member2 == null) {}else {
 				if(member2.action>0) {
-				manager.newPlanet(manager.selectcrew,member2);
-				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
+				manager.newPlanet(manager.selectCrew,member2);
+				JOptionPane.showMessageDialog(parent, "Event " + manager.randomeventName + " occur!");
 				finishedWindow();
 			}
 				}
@@ -108,8 +108,8 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member3 == null) {}else {
 				if(member3.action>0) {
-				manager.newPlanet(manager.selectcrew, member3);
-				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
+				manager.newPlanet(manager.selectCrew, member3);
+				JOptionPane.showMessageDialog(parent, "Event " + manager.randomeventName + " occur!");
 				finishedWindow();
 			}
 			}
@@ -123,8 +123,8 @@ public class Pilot {
 			public void actionPerformed(ActionEvent e) {
 				if(member4 == null) {}else {
 					if(member4.action>0 ) {
-				manager.newPlanet(manager.selectcrew, member4);
-				JOptionPane.showMessageDialog(parent, "Event "+manager.randomevent+" occur!");
+				manager.newPlanet(manager.selectCrew, member4);
+				JOptionPane.showMessageDialog(parent, "Event " + manager.randomeventName + " occur!");
 				finishedWindow();
 			}
 			}

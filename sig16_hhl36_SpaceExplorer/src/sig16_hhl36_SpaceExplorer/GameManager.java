@@ -1,9 +1,7 @@
 package sig16_hhl36_SpaceExplorer;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  * Implements a game manager class. Making the game playable from here.
@@ -18,7 +16,6 @@ public class GameManager {
 	private int crewSize = 4;
 	private double crewMoney = 200;
 	private int shieldHealth = 200;
-	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
 	ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
@@ -27,16 +24,16 @@ public class GameManager {
 	public int day = 10;
 	private int pieces;
 	private boolean shipParts;
-	public CrewMember selectcrew; 
-	public String getteditem;
-	public String randomevent;
+	public CrewMember selectCrew; 
+	public String foundItem;
+	public String randomeventName;
 	Random rand = new Random();
 	
 	/**
      * Get string representation of current day, for use with gui label.
      * @return Integer.toString(day) - String representation of current day.
      */
-	public String getdays() {
+	public String getDays() {
 		return Integer.toString(day);
 	}
 	
@@ -130,7 +127,7 @@ public class GameManager {
      * @param currentcrew - Current crew member chosen by player to complete the search for parts.
      */
 	public void searchParts(CrewMember currentcrew) {
-		currentcrew.subtractaction();
+		currentcrew.subtractAction();
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(5);
@@ -144,7 +141,7 @@ public class GameManager {
 			int lengthindex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
-					getteditem = food.getFoodName();
+					foundItem = food.getFoodName();
 					if(crew_food.size() == 0) {
 						food.addQuantity();
 						crew_food.add(food);
@@ -167,11 +164,11 @@ public class GameManager {
 	} else if (type == 1) {
 		int random_index = rand.nextInt(3);
 		int index = 0;
-		int length = crew_medical.size();
-		int lengthindex = 0;
+//		int length = crew_medical.size();
+//		int lengthindex = 0;
 		for (Medical_Item med: medical_sell) {
 			if(index == random_index) {
-				getteditem = med.getMedName();
+				foundItem = med.getMedName();
 				if(crew_medical.size() == 0) {
 					med.addQuantity();
 					crew_medical.add(med);
@@ -189,9 +186,9 @@ public class GameManager {
 			index += 1;
 		}
 	} else if(type == 2){
-		getteditem = "nothing";
+		foundItem = "nothing";
 	} else {
-		getteditem = "transporter parts " + type;
+		foundItem = "transporter parts " + type;
 		pieces -=1;
 		shipParts = true;
 	}
@@ -209,12 +206,12 @@ public class GameManager {
 		day -= 1;
 		for (CrewMember crew: crew_members) {
 			index += 1;
-			crew.resetaction();
-			if(crew.issick() == true) {
-				crew.sicklost(10);
+			crew.resetAction();
+			if(crew.isSick() == true) {
+				crew.sickLost(10);
 			}
-			crew.newday();
-			if(crew.gethealth() <=0) {
+			crew.newDay_status();
+			if(crew.getHealth() <=0) {
 				toRemove.add(crew);
 		}
 		}
@@ -357,7 +354,7 @@ public class GameManager {
      */
 	public void crewasleep(CrewMember currentcrew) {
 		currentcrew.sleep();
-		currentcrew.subtractaction();
+		currentcrew.subtractAction();
 	}
 	
 	/**
@@ -384,8 +381,8 @@ public class GameManager {
 		}
 		for (CrewMember crew: crew_members) {
 			if(currentcrew == crew) {
-				crew.addnutrition(food.getFoodNutrition());
-				crew.subtractaction();
+				crew.addNutrition(food.getFoodNutrition());
+				crew.subtractAction();
 			}
 		}	
 	}
@@ -417,8 +414,8 @@ public class GameManager {
 				if(med.getMedName() == "Space Plague Curer") {
 					crew.recovery();
 				}
-				crew.addhealth(med.getHealthAdd());
-				crew.subtractaction();
+				crew.addHealth(med.getHealthAdd());
+				crew.subtractAction();
 			}
 		}
 	}
@@ -430,10 +427,10 @@ public class GameManager {
 	 * @param currentcrew - current crew member object selected by user.
      */
 	public void repair(CrewMember currentcrew) {
-		currentcrew.subtractaction();
-		if(currentcrew.viewtype() == "Technician") {
+		currentcrew.subtractAction();
+		if(currentcrew.viewType() == "Technician") {
 			shieldHealth += 11;
-		} else if(currentcrew.viewtype() == "Superman") {
+		} else if(currentcrew.viewType() == "Superman") {
 			shieldHealth += 8;
 		} else {
 			shieldHealth += 4;
@@ -515,7 +512,7 @@ public class GameManager {
 	 * food item.
      */
 	public void alienparty() {
-		randomevent = "Alien pirates";
+		randomeventName = "Alien pirates";
 		boolean remove = false;
 		int remove_index = -1;
 		while (remove == false) {
@@ -568,7 +565,7 @@ public class GameManager {
 	 * contracting the plague.
      */
 	public void spaceplague() {
-		randomevent = "Space plague";
+		randomeventName = "Space plague";
 		for(CrewMember crew :crew_members) {
 			boolean bool =  rand.nextBoolean();
 			if(bool == true) {
@@ -583,7 +580,7 @@ public class GameManager {
 	 * the spaceship loses shield health by 30% of the total shield health every tiome.
      */
 	public void asteroidBelt() {
-		randomevent ="Asteroid belt";
+		randomeventName ="Asteroid belt";
 		shieldHealth = (int) (getShieldhealth() - (100 * 0.3));
 	}
 	
@@ -695,18 +692,18 @@ public class GameManager {
 	}
 	public static void main(String arg[]) {
 		GameManager manager = new GameManager();
-		Food_Item banana = new Banana();
-		Food_Item butterchicken = new ButterChicken();
-		Food_Item hamsandwihes = new HamSandwiches();
-		Food_Item peaches = new Peaches();
-		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-		Food_Item straeberries = new Strawberries();
-		Medical_Item plagurcure = new PlagueCure();
-		Medical_Item samllmedpack = new SmallMedPack();
-		Medical_Item bigmedpack = new LargeMedPack();
 		manager.setFoodstore();
 		manager.setMedicalstore();
 		manager.launchSetupScreen();
+//		Food_Item banana = new Banana();
+//		Food_Item butterchicken = new ButterChicken();
+//		Food_Item hamsandwihes = new HamSandwiches();
+//		Food_Item peaches = new Peaches();
+//		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
+//		Food_Item straeberries = new Strawberries();
+//		Medical_Item plagurcure = new PlagueCure();
+//		Medical_Item samllmedpack = new SmallMedPack();
+//		Medical_Item bigmedpack = new LargeMedPack();
 		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember lazyslepper = new LazySleeper();
 		manager.newPlannet(hungryboy, lazyslepper);

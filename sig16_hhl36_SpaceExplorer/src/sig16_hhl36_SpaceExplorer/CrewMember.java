@@ -12,9 +12,9 @@ public class CrewMember {
 	private int health;
 	private String type;
 	public int action;
-	private int healthdroprate;
-	private int hungerrate;
-	private int tirednessrate;
+	private int healthDroprate;
+	private int hungerRate;
+	private int tirednessRate;
 	private int vitality;
 	private int hungerLevel;
 	private String ability;
@@ -24,21 +24,21 @@ public class CrewMember {
      * Creates a Crew Member.
      * @param memberName - Given name of crew member.
      * @param crewType - The type of crew member. For example, technician, superman, hungryboy.
-     * @param crewHealthdroprate - The rate at which the health drops.
-     * @param crewHungerrate - The rate at which a crew member becomes hungry.
-     * @param crewTirednessrate - The rate at which the crew member starts to become tired.
+     * @param crewhealthDroprate - The rate at which the health drops.
+     * @param crewhungerRate - The rate at which a crew member becomes hungry.
+     * @param crewtirednessRate - The rate at which the crew member starts to become tired.
      * @param crewAbility - The specific ability given to a crew member. For example, part seeker and technician.
      */
-	public CrewMember(String memberName, String crewType, int crewHealthdroprate, int crewHungerrate, int crewTirednessrate, String crewAbility) {
+	public CrewMember(String memberName, String crewType, int crewhealthDroprate, int crewhungerRate, int crewtirednessRate, String crewAbility) {
 		name = memberName;
 		health = 100;
 		type = crewType;
 		action = 2;
 		vitality = 100;
 		hungerLevel = 100;
-		healthdroprate = crewHealthdroprate;
-		hungerrate = crewHungerrate;
-		tirednessrate = crewTirednessrate;
+		healthDroprate = crewhealthDroprate;
+		hungerRate = crewhungerRate;
+		tirednessRate = crewtirednessRate;
 		ability = crewAbility;
 		sick = false;
 	}
@@ -47,7 +47,7 @@ public class CrewMember {
      * Sets name of the crew member to a new user defined name.
      * @param newName - Given name of crew member.
      */
-	public void setname(String newName) {
+	public void setName(String newName) {
 		name = newName;
 	}
 	
@@ -63,7 +63,7 @@ public class CrewMember {
      * Gets current amount of actions of the crew member.
      * @return action - number of actions left.
      */
-	public int getaction() {
+	public int getAction() {
 		return action;
 	}
 	
@@ -71,7 +71,7 @@ public class CrewMember {
      * Gets current amount of health of the crew member.
      * @return health - Amount of health remaining.
      */
-	public int gethealth() {
+	public int getHealth() {
 		return health;
 	}
 	
@@ -87,14 +87,14 @@ public class CrewMember {
      * Resets amount of actions back to 
      * default value of 2 for the crew member.
      */
-	public void resetaction() {
+	public void resetAction() {
 		action = 2;
 	}
 	
     /**
      * Subtracts action of the crew member by 1 each time this method is called.
      */
-	public void subtractaction() {
+	public void subtractAction() {
 		action -= 1;
 	}
 	
@@ -103,7 +103,7 @@ public class CrewMember {
      * @return sick - If crew member is sick, returns true. If crew member
      * is not sick, returns false.
      */
-	public boolean issick() {
+	public boolean isSick() {
 		return sick;
 	}
 	
@@ -136,12 +136,12 @@ public class CrewMember {
     /**
      * Adds a specified amount of health for the crew member if less than 100,
      * otherwise, sets health to 100.
-     * @param addedamount - The amount of health to add to the remaining health
+     * @param addedAmount - The amount of health to add to the remaining health
      * of the crew member.
      */
-	public void addhealth(int addedamount) {
-		if (health + addedamount < 100) {
-			health += addedamount;
+	public void addHealth(int addedAmount) {
+		if (health + addedAmount < 100) {
+			health += addedAmount;
 		} else {
 			health = 100;
 		}
@@ -149,31 +149,31 @@ public class CrewMember {
 	
     /**
      * Decreases current health by lost health from the crew member while sick.
-     * @param losthealth - Lost health from the crew member being sick.
+     * @param lostHealth - Lost health from the crew member being sick.
      */
-	public void sicklost(int losthealth) {
-		health -= losthealth;
+	public void sickLost(int lostHealth) {
+		health -= lostHealth;
 	}
 	
     /**
      * Sets health, vitality and hunger level of the crew member
      * after the main game moves to the next day.
      */
-	public void newday() {
-		health = ((health * (100 - healthdroprate)) / 100);
-		vitality = ((vitality * (100 - tirednessrate)) / 100);
-		hungerLevel = ((hungerLevel * (100 - hungerrate)) / 100);
+	public void newDay_status() {
+		health = ((health * (100 - healthDroprate)) / 100);
+		vitality = ((vitality * (100 - tirednessRate)) / 100);
+		hungerLevel = ((hungerLevel * (100 - hungerRate)) / 100);
 	}
 	
     /**
      * Adds a specified amount of nutrition for the crew member if hunger level is 
      * less than 100, otherwise, sets hunger level to 100.
-     * @param nutritionamount - The amount of nutrition to add to the remaining hunger
+     * @param nutritionAmount - The amount of nutrition to add to the remaining hunger
      * level of the crew member.
      */
-	public void addnutrition(int nutritionamount) {
-		if (hungerLevel + nutritionamount < 100) {
-			hungerLevel += nutritionamount;
+	public void addNutrition(int nutritionAmount) {
+		if (hungerLevel + nutritionAmount < 100) {
+			hungerLevel += nutritionAmount;
 		} else {
 			hungerLevel = 100;
 		}
@@ -183,7 +183,7 @@ public class CrewMember {
      * Returns specific type of crew member.
      * @return type - Type of the crew member.
      */	
-	public String viewtype() {
+	public String viewType() {
 		return type;
 	}
 	

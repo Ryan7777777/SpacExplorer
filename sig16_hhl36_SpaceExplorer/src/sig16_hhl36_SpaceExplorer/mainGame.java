@@ -138,7 +138,7 @@ public class mainGame {
 		lblMedical.setBounds(570, 178, 150, 22);
 		frmSpaceExplorer.getContentPane().add(lblMedical);
 		
-		JLabel lblDays = new JLabel(manager.getdays());
+		JLabel lblDays = new JLabel(manager.getDays());
 		lblDays.setBounds(112, 71, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblDays);
 		
@@ -151,7 +151,7 @@ public class mainGame {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.day > 1) {
 					manager.newday();
-					lblDays.setText(manager.getdays());
+					lblDays.setText(manager.getDays());
 					setStringButton();
 					btnCrew1.setText(btn1);
 					btnCrew2.setText(btn2);
@@ -160,7 +160,7 @@ public class mainGame {
 					txtMedicial.setText(manager.getMedical());
 					txtFood.setText(manager.getFood());
 					lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
-					JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
+					JOptionPane.showMessageDialog(parent, "Event " + manager.randomeventName + " occured!");
 					if(manager.getShieldhealth() < 1) {
 						finishedWindow();
 					}
@@ -185,10 +185,10 @@ public class mainGame {
 		btnPeform.setBounds(12, 412, 97, 25);
 		btnPeform.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.selectcrew == null) {
+				if(manager.selectCrew == null) {
 					JOptionPane.showMessageDialog(parent, "Please select a crew by clicking their name");
 				} else {
-					if (manager.selectcrew.getaction() <= 0) {
+					if (manager.selectCrew.getAction() <= 0) {
 					JOptionPane.showMessageDialog(parent, "No action left for this crew!");
 				} else {
 					goPeform();
@@ -243,7 +243,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 1) {
-						manager.selectcrew = member;
+						manager.selectCrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -261,7 +261,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 3) {
-						manager.selectcrew = member;
+						manager.selectCrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -279,7 +279,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 2) {
-						manager.selectcrew = member;
+						manager.selectCrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}
@@ -297,7 +297,7 @@ public class mainGame {
 			 for(CrewMember member: manager.crew_members) {
 					index +=1;
 					if(index == 4) {
-						manager.selectcrew = member;
+						manager.selectCrew = member;
 						textStstus.setText(member.viewStatus());
 				}
 			}

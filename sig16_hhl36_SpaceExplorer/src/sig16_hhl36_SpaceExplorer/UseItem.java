@@ -136,7 +136,7 @@ public class UseItem {
 		frame.getContentPane().add(lblEat);
 		
 		JTextArea txtStatus = new JTextArea();
-		txtStatus.setText(manager.selectcrew.viewStatus());
+		txtStatus.setText(manager.selectCrew.viewStatus());
 		txtStatus.setBackground(SystemColor.control);
 		txtStatus.setBounds(589, 175, 182, 215);
 		frame.getContentPane().add(txtStatus);
@@ -150,21 +150,21 @@ public class UseItem {
 		btnFood1.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood1.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+			if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 			index = 1;
 			for (Food_Item food: manager.crew_food) {
 				if(index ==1) {
 				System.out.println(food);
-				manager.eat(manager.selectcrew, food);
+				manager.eat(manager.selectCrew, food);
 				setFoodButton();
-				txtStatus.setText(manager.selectcrew.viewStatus());
+				txtStatus.setText(manager.selectCrew.viewStatus());
 				btnFood1.setText(btn1);
 				btnFood2.setText(btn2);
 				btnFood3.setText(btn3);
 				btnFood4.setText(btn4);
 				btnFood5.setText(btn5);
 				btnFood6.setText(btn6);
-				if(manager.selectcrew.getaction() == 0) {
+				if(manager.selectCrew.getAction() == 0) {
 					JOptionPane.showMessageDialog(parent, "No action left");
 					finishedWindow();
 				}
@@ -181,20 +181,20 @@ public class UseItem {
 		btnFood2.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood2.addActionListener(new ActionListener() {
 		public void actionPerformed(ActionEvent e) {
-			if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+			if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 			index = 1;
 			for (Food_Item food: manager.crew_food) {
 				if(index == 2) {
-				manager.eat(manager.selectcrew, food);
+				manager.eat(manager.selectCrew, food);
 				setFoodButton();
-				txtStatus.setText(manager.selectcrew.viewStatus());
+				txtStatus.setText(manager.selectCrew.viewStatus());
 				btnFood1.setText(btn1);
 				btnFood2.setText(btn2);
 				btnFood3.setText(btn3);
 				btnFood4.setText(btn4);
 				btnFood5.setText(btn5);
 				btnFood6.setText(btn6);
-				if(manager.selectcrew.getaction() == 0) {
+				if(manager.selectCrew.getAction() == 0) {
 					JOptionPane.showMessageDialog(parent, "No action left");
 					finishedWindow();
 				}
@@ -212,20 +212,20 @@ public class UseItem {
 		btnFood3.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 3) {
-					manager.eat(manager.selectcrew, food);
+					manager.eat(manager.selectCrew, food);
 					setFoodButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnFood1.setText(btn1);
 					btnFood2.setText(btn2);
 					btnFood3.setText(btn3);
 					btnFood4.setText(btn4);
 					btnFood5.setText(btn5);
 					btnFood6.setText(btn6);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -243,20 +243,20 @@ public class UseItem {
 		btnFood4.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood4.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 4) {
-					manager.eat(manager.selectcrew, food);
+					manager.eat(manager.selectCrew, food);
 					setFoodButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnFood1.setText(btn1);
 					btnFood2.setText(btn2);
 					btnFood3.setText(btn3);
 					btnFood4.setText(btn4);
 					btnFood5.setText(btn5);
 					btnFood6.setText(btn6);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -274,20 +274,20 @@ public class UseItem {
 		btnFood5.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood5.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 5) {
-					manager.eat(manager.selectcrew, food);
+					manager.eat(manager.selectCrew, food);
 					setFoodButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnFood1.setText(btn1);
 					btnFood2.setText(btn2);
 					btnFood3.setText(btn3);
 					btnFood4.setText(btn4);
 					btnFood5.setText(btn5);
 					btnFood6.setText(btn6);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -305,20 +305,20 @@ public class UseItem {
 		btnFood6.setHorizontalAlignment(SwingConstants.LEFT);
 		btnFood6.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_food.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Food_Item food: manager.crew_food) {
 					if(index == 6) {
-					manager.eat(manager.selectcrew, food);
+					manager.eat(manager.selectCrew, food);
 					setFoodButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnFood1.setText(btn1);
 					btnFood2.setText(btn2);
 					btnFood3.setText(btn3);
 					btnFood4.setText(btn4);
 					btnFood5.setText(btn5);
 					btnFood6.setText(btn6);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -342,17 +342,17 @@ public class UseItem {
 		JButton btnMed3 = new JButton(btn9);
 		btnMed1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_medical.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index ==1) {
-					manager.useemditem(manager.selectcrew, med);
+					manager.useemditem(manager.selectCrew, med);
 					setMedicalButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);
 					btnMed2.setText(btn8);
 					btnMed3.setText(btn9);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -368,17 +368,17 @@ public class UseItem {
 		
 		btnMed2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_medical.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index ==2) {
-					manager.useemditem(manager.selectcrew, med);
+					manager.useemditem(manager.selectCrew, med);
 					setMedicalButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);
 					btnMed2.setText(btn8);
 					btnMed3.setText(btn9);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
@@ -395,17 +395,17 @@ public class UseItem {
 		
 		btnMed3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				if(manager.crew_medical.size()>0 && manager.selectcrew.getaction()>0) {
+				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index == 3) {
-					manager.useemditem(manager.selectcrew, med);
+					manager.useemditem(manager.selectCrew, med);
 					setMedicalButton();
-					txtStatus.setText(manager.selectcrew.viewStatus());
+					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);
 					btnMed2.setText(btn8);
 					btnMed3.setText(btn9);
-					if(manager.selectcrew.getaction() == 0) {
+					if(manager.selectCrew.getAction() == 0) {
 						JOptionPane.showMessageDialog(parent, "No action left");
 						finishedWindow();
 					}
