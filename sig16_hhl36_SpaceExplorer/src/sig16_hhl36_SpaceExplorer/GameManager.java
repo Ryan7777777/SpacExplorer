@@ -17,7 +17,7 @@ public class GameManager {
 	private String crewName;
 	private int crewSize = 4;
 	private double crewMoney = 200;
-	private int shieldHealth = 2000;
+	private int shieldHealth = 200;
 	private ArrayList<CrewMember> pilots = new ArrayList<CrewMember>();
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
@@ -219,7 +219,6 @@ public class GameManager {
 		}
 		}
 		crew_members.removeAll(toRemove);
-		System.out.println(crew_members);
 		randomEvent();
 	}
 	
