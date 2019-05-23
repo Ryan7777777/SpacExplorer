@@ -160,9 +160,9 @@ public class CrewMember {
      * after the main game moves to the next day.
      */
 	public void newday() {
-		health *= ((100 - healthdroprate) / 100);
-		vitality *= ((100 - tirednessrate) / 100);
-		hungerLevel *= ((100 - hungerrate) / 100);
+		health = ((health * (100 - healthdroprate)) / 100);
+		vitality = ((vitality * (100 - tirednessrate)) / 100);
+		hungerLevel = ((hungerLevel * (100 - hungerrate)) / 100);
 	}
 	
     /**

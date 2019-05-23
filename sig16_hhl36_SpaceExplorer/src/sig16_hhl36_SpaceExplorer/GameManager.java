@@ -130,7 +130,7 @@ public class GameManager {
      * @param currentcrew - Current crew member chosen by player to complete the search for parts.
      */
 	public void searchParts(CrewMember currentcrew) {
-		//currentcrew.subtractaction();
+		currentcrew.subtractaction();
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(5);
@@ -516,7 +516,10 @@ public class GameManager {
 	 * spaceship while having a random possibility of stealing a medical item or
 	 * food item.
      */
+<<<<<<< HEAD
 
+=======
+>>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
 	public void alienparty() {
 		randomevent = "Alien pirates";
 		boolean remove = false;
