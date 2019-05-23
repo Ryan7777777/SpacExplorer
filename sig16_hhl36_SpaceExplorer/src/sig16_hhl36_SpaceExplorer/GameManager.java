@@ -516,10 +516,6 @@ public class GameManager {
 	 * spaceship while having a random possibility of stealing a medical item or
 	 * food item.
      */
-<<<<<<< HEAD
-
-=======
->>>>>>> branch 'master' of https://github.com/Ryan7777777/SpacExplorer.git
 	public void alienparty() {
 		randomevent = "Alien pirates";
 		boolean remove = false;
