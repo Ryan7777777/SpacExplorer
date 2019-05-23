@@ -161,7 +161,7 @@ public class mainGame {
 					txtFood.setText(manager.getFood());
 					lblShipHealth.setText(Integer.toString(manager.getShieldhealth()));
 					JOptionPane.showMessageDialog(parent, "Event " + manager.randomevent + " occured!");
-					if(manager.getShieldhealth()<1) {
+					if(manager.getShieldhealth() < 1) {
 						finishedWindow();
 					}
 				} else {
