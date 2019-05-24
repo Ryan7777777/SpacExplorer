@@ -8,6 +8,7 @@ public class Banana extends Food_Item {
 	private static double price = 3.0;
 	private static int nutrition = 6;
 	private static String name = "Dried Banana";
+	
 	/**
 	 * Default constructor for dried bananas.
 	 */
