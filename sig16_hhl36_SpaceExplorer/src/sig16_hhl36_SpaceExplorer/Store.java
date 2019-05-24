@@ -19,12 +19,12 @@ public class Store {
 	private GameManager manager;
 	JFrame parent = new JFrame();
 	private double price;
-	Food_Item banana = new Banana();
-	Food_Item butterchicken = new ButterChicken();
-	Food_Item hamsandwihes = new HamSandwiches();
-	Food_Item peaches = new Peaches();
-	Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-	Food_Item straeberries = new Strawberries();
+	FoodItem banana = new Banana();
+	FoodItem butterchicken = new ButterChicken();
+	FoodItem hamsandwihes = new HamSandwiches();
+	FoodItem peaches = new Peaches();
+	FoodItem spaghetti_bolonese = new SpaghettiBolognese();
+	FoodItem straeberries = new Strawberries();
 	Medical_Item plagurcure = new PlagueCure();
 	Medical_Item samllmedpack = new SmallMedPack();
 	Medical_Item bigmedpack = new LargeMedPack();

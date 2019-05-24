@@ -17,9 +17,9 @@ public class GameManager {
 	private double crewMoney = 200;
 	private int shieldHealth = 200;
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
-	ArrayList<Food_Item> crew_food = new ArrayList<Food_Item>();
+	ArrayList<FoodItem> crew_food = new ArrayList<FoodItem>();
 	ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
-	private ArrayList<Food_Item> food_sell = new ArrayList<Food_Item>();
+	private ArrayList<FoodItem> food_sell = new ArrayList<FoodItem>();
 	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
 	public int day = 10;
 	private int pieces;
@@ -139,14 +139,14 @@ public class GameManager {
 			int index = 0;
 			int length = crew_food.size();
 			int lengthIndex = 0;
-			for (Food_Item food: food_sell) {
+			for (FoodItem food: food_sell) {
 				if(index == random_index) {
 					foundItem = food.getFoodName();
 					if(crew_food.size() == 0) {
 						food.addQuantity();
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
-						for(Food_Item myfood: crew_food) {
+						for(FoodItem myfood: crew_food) {
 							lengthIndex += 1;
 							if (lengthIndex <= length) {
 								if(myfood.getFoodName() == food.getFoodName()) {
@@ -220,12 +220,12 @@ public class GameManager {
 	 * the player can visit.
      */
 	public void setFoodstore() {
-		Food_Item peach = new Peaches();
-		Food_Item butterChicken = new ButterChicken();
-		Food_Item banana = new Banana();
-		Food_Item hamSandwiches = new HamSandwiches();
-		Food_Item strawberry = new Strawberries();
-		Food_Item spaghetti = new SpaghettiBolognese();
+		FoodItem peach = new Peaches();
+		FoodItem butterChicken = new ButterChicken();
+		FoodItem banana = new Banana();
+		FoodItem hamSandwiches = new HamSandwiches();
+		FoodItem strawberry = new Strawberries();
+		FoodItem spaghetti = new SpaghettiBolognese();
 		food_sell.add(peach);
 		food_sell.add(butterChicken);
 		food_sell.add(hamSandwiches);
@@ -269,7 +269,7 @@ public class GameManager {
      */
 	public String viewFood() {
 		String string ="";
-		for(Food_Item item: food_sell) {
+		for(FoodItem item: food_sell) {
 			string += item.getFoodName() + "\n";
 			string += "Price: "+ Double.toString(item.getPrice()) + "\n";
 			string += "Nutrition: " + item.getFoodNutrition() + "\n\n";
@@ -283,7 +283,7 @@ public class GameManager {
      */
 	public String getFood() {
 		String food = "";
-		for(Food_Item myfood: crew_food) {
+		for(FoodItem myfood: crew_food) {
 			food += "\nFood name:" + myfood.getFoodName();
 			food += "\nNutrition :" + myfood.getFoodNutrition();
 			food += "\nQuantity :" + myfood.getQuantity() + "\n";
@@ -310,10 +310,10 @@ public class GameManager {
 	 * and adds the purchased food to the crew supply.
 	 * @param object - Food item object selected by player.
      */
-	public void foodPurchase(Food_Item object) {
+	public void foodPurchase(FoodItem object) {
 		crewMoney = crewMoney - object.getPrice();
 		if(crew_food.contains(object)) {
-			for(Food_Item myfood: crew_food) {
+			for(FoodItem myfood: crew_food) {
 				if(myfood.getFoodName() == object.getFoodName()) {
 					myfood.addQuantity();
 				}
@@ -360,10 +360,10 @@ public class GameManager {
 	 * @param currentCrew - current crew member object selected by user.
 	 * @param food - Food item chosen by player.
      */
-	public void eat(CrewMember currentCrew, Food_Item food) {
+	public void eat(CrewMember currentCrew, FoodItem food) {
 		int remove = -1;
 		int index = -1;
-		for(Food_Item myfood: crew_food) {
+		for(FoodItem myfood: crew_food) {
 			index += 1;
 			if(food.getFoodName() == myfood.getFoodName()) {
 				myfood.subtractQuantity();
@@ -517,7 +517,7 @@ public class GameManager {
 				if(crew_food.size() > 0) {
 					int i = rand.nextInt(crew_food.size());
 					int index  = -1;
-				    for(Food_Item myfood: crew_food) {
+				    for(FoodItem myfood: crew_food) {
 					    index += 1;
 						if(index == i) {
 							myfood.subtractQuantity();
@@ -691,12 +691,12 @@ public class GameManager {
 		manager.setFoodstore();
 		manager.setMedicalstore();
 		manager.launchSetupScreen();
-//		Food_Item banana = new Banana();
-//		Food_Item butterchicken = new ButterChicken();
-//		Food_Item hamsandwihes = new HamSandwiches();
-//		Food_Item peaches = new Peaches();
-//		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-//		Food_Item straeberries = new Strawberries();
+//		FoodItem banana = new Banana();
+//		FoodItem butterchicken = new ButterChicken();
+//		FoodItem hamsandwihes = new HamSandwiches();
+//		FoodItem peaches = new Peaches();
+//		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
+//		FoodItem straeberries = new Strawberries();
 //		Medical_Item plagurcure = new PlagueCure();
 //		Medical_Item samllmedpack = new SmallMedPack();
 //		Medical_Item bigmedpack = new LargeMedPack();
@@ -706,23 +706,23 @@ public class GameManager {
 		System.out.println(hungryboy.viewStatus());
 		System.out.println(lazyslepper.viewStatus());
 		manager.setDay(7);*/
-		/*Food_Item butterchicken = new ButterChicken();
-		Food_Item hamsandwihes = new HamSandwiches();
-		Food_Item peaches = new Peaches();
-		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-		Food_Item straeberries = new Strawberries();
+		/*FoodItem butterchicken = new ButterChicken();
+		FoodItem hamsandwihes = new HamSandwiches();
+		FoodItem peaches = new Peaches();
+		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
+		FoodItem straeberries = new Strawberries();
 		manager.addCrew(hungryboy);
 		manager.addCrew(lazyslepper);
 		manager.searchParts(hungryboy);
 		manager.searchParts(hungryboy);
 		manager.searchParts(lazyslepper);
 		manager.searchParts(lazyslepper);
-		/*Food_Item banana = new Banana();
-		Food_Item butterchicken = new ButterChicken();
-		Food_Item hamsandwihes = new HamSandwiches();
-		Food_Item peaches = new Peaches();
-		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-		Food_Item straeberries = new Strawberries();
+		/*FoodItem banana = new Banana();
+		FoodItem butterchicken = new ButterChicken();
+		FoodItem hamsandwihes = new HamSandwiches();
+		FoodItem peaches = new Peaches();
+		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
+		FoodItem straeberries = new Strawberries();
 		manager.setFoodstore();
 		Medical_Item plagurcure = new PlagueCure();
 		Medical_Item samllmedpack = new SmallMedPack();
@@ -757,12 +757,12 @@ public class GameManager {
 		System.out.println("Pieces:");
 		System.out.println(crew.getpices());
 		//set up all six foods
-		Food_Item banana = new Banana();
-		Food_Item butterchicken = new ButterChicken();
-		Food_Item hamsandwihes = new HamSandwiches();
-		Food_Item peaches = new Peaches();
-		Food_Item spaghetti_bolonese = new SpaghettiBolognese();
-		Food_Item straeberries = new Strawberries();
+		FoodItem banana = new Banana();
+		FoodItem butterchicken = new ButterChicken();
+		FoodItem hamsandwihes = new HamSandwiches();
+		FoodItem peaches = new Peaches();
+		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
+		FoodItem straeberries = new Strawberries();
 		//test purchase food item 
 		crew.setFoodstore();*/
 		/*manager.foodPurchase(banana);

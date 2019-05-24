@@ -56,7 +56,7 @@ public class UseItem {
 			btn6 = "";
 		} else {
 			index = -1;
-			for (Food_Item food: manager.crew_food) {
+			for (FoodItem food: manager.crew_food) {
 				index += 1;
 				if(index == 0) {
 					btn1 = food.getFoodName();
@@ -152,7 +152,7 @@ public class UseItem {
 		public void actionPerformed(ActionEvent e) {
 			if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 			index = 1;
-			for (Food_Item food: manager.crew_food) {
+			for (FoodItem food: manager.crew_food) {
 				if(index ==1) {
 				System.out.println(food);
 				manager.eat(manager.selectCrew, food);
@@ -183,7 +183,7 @@ public class UseItem {
 		public void actionPerformed(ActionEvent e) {
 			if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 			index = 1;
-			for (Food_Item food: manager.crew_food) {
+			for (FoodItem food: manager.crew_food) {
 				if(index == 2) {
 				manager.eat(manager.selectCrew, food);
 				setFoodButton();
@@ -214,7 +214,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Food_Item food: manager.crew_food) {
+				for (FoodItem food: manager.crew_food) {
 					if(index == 3) {
 					manager.eat(manager.selectCrew, food);
 					setFoodButton();
@@ -245,7 +245,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Food_Item food: manager.crew_food) {
+				for (FoodItem food: manager.crew_food) {
 					if(index == 4) {
 					manager.eat(manager.selectCrew, food);
 					setFoodButton();
@@ -276,7 +276,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Food_Item food: manager.crew_food) {
+				for (FoodItem food: manager.crew_food) {
 					if(index == 5) {
 					manager.eat(manager.selectCrew, food);
 					setFoodButton();
@@ -307,7 +307,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_food.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Food_Item food: manager.crew_food) {
+				for (FoodItem food: manager.crew_food) {
 					if(index == 6) {
 					manager.eat(manager.selectCrew, food);
 					setFoodButton();

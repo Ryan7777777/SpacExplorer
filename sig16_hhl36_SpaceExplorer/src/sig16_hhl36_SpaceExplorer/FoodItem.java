@@ -4,7 +4,7 @@ package sig16_hhl36_SpaceExplorer;
  * Implements a food item class, used for events relating to food
  * available to be used by a crew member.
  */
-public class Food_Item {
+public class FoodItem {
 	
 	private double foodPrice;
 	private int foodNutrition;
