@@ -618,7 +618,7 @@ public class GameManager {
 	}
 
 	public void launchMainScreen () {
-		mainGame mainWindow = new mainGame(this);
+		new mainGame(this);
 	}
 	public void closeMainScreen(mainGame mainWindow) {
 		mainWindow.closeWindow();
@@ -630,14 +630,14 @@ public class GameManager {
 	}
 	public void launchSetupScreen() {
 		calculatePieces();
-		setupGame setupWindow = new setupGame(this);
+		new setupGame(this);
 	}
 	public void closeSetupScreen(setupGame setupWindow) {
 		setupWindow.closeWindow();
 		launchMainScreen();
 	}
 	public void launchStore() {
-		Store storeWindows = new Store(this);
+		new Store(this);
 	}
 	public void closeStore(Store storeWindows) {
 		storeWindows.closeWindow();
@@ -648,7 +648,7 @@ public class GameManager {
 		launchPeform();
 	}
 	public void launchPeform() {
-		Peform peforeWindows = new Peform(this);
+		new Peform(this);
 	}
 	public void closePeform(Peform peforeWindows) {
 		peforeWindows.closeWindow();
@@ -659,7 +659,7 @@ public class GameManager {
 		launchUseItem();
 	}
 	public void launchUseItem() {
-		UseItem itemWindows = new UseItem(this);
+		new UseItem(this);
 	}
 	public void closeUseItem(UseItem itemWindows) {
 		itemWindows.closeWindow();
@@ -670,13 +670,13 @@ public class GameManager {
 		launchScore();
 	}
 	public void launchScore() {
-		Score scoreWindows = new Score(this);
+		new Score(this);
 	}
 	public void closeScore(Score scoreWindows) {
 		scoreWindows.closeWindow();
 	}
 	public void launchPilot() {
-		Pilot pilotWindows = new Pilot(this);
+		new Pilot(this);
 	}
 	public void closePilot(Pilot pilotWindows) {
 		pilotWindows.closeWindow();
