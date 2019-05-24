@@ -25,9 +25,9 @@ public class Store {
 	FoodItem peaches = new Peaches();
 	FoodItem spaghetti_bolonese = new SpaghettiBolognese();
 	FoodItem straeberries = new Strawberries();
-	Medical_Item plagurcure = new PlagueCure();
-	Medical_Item samllmedpack = new SmallMedPack();
-	Medical_Item bigmedpack = new LargeMedPack();
+	MedicalItem plagurcure = new PlagueCure();
+	MedicalItem samllmedpack = new SmallMedPack();
+	MedicalItem bigmedpack = new LargeMedPack();
 
 	/**
 	 * Launch the application.

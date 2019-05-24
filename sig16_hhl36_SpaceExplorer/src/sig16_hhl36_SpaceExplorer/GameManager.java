@@ -18,9 +18,9 @@ public class GameManager {
 	private int shieldHealth = 200;
 	ArrayList<CrewMember> crew_members = new ArrayList<CrewMember>();
 	ArrayList<FoodItem> crew_food = new ArrayList<FoodItem>();
-	ArrayList<Medical_Item> crew_medical = new ArrayList<Medical_Item>();
+	ArrayList<MedicalItem> crew_medical = new ArrayList<MedicalItem>();
 	private ArrayList<FoodItem> food_sell = new ArrayList<FoodItem>();
-	private ArrayList<Medical_Item> medical_sell = new ArrayList<Medical_Item>();
+	private ArrayList<MedicalItem> medical_sell = new ArrayList<MedicalItem>();
 	public int day = 10;
 	private int pieces;
 	private boolean shipParts;
@@ -164,14 +164,14 @@ public class GameManager {
 	} else if (type == 1) {
 		int random_index = rand.nextInt(3);
 		int index = 0;
-		for (Medical_Item med: medical_sell) {
+		for (MedicalItem med: medical_sell) {
 			if(index == random_index) {
 				foundItem = med.getMedName();
 				if(crew_medical.size() == 0) {
 					med.addQuantity();
 					crew_medical.add(med);
 				} else if (crew_medical.contains(med)){
-					for(Medical_Item mymed: crew_medical) {
+					for(MedicalItem mymed: crew_medical) {
 						if(mymed.getMedName() == med.getMedName()) {
 							mymed.addQuantity();
 						}
@@ -239,9 +239,9 @@ public class GameManager {
 	 * the player can visit.
      */
 	public void setMedicalstore() {
-		Medical_Item largeMedpack = new LargeMedPack();
-		Medical_Item plaguecure = new PlagueCure();
-		Medical_Item smallMedpack = new SmallMedPack();
+		MedicalItem largeMedpack = new LargeMedPack();
+		MedicalItem plaguecure = new PlagueCure();
+		MedicalItem smallMedpack = new SmallMedPack();
 		medical_sell.add(largeMedpack);
 		medical_sell.add(plaguecure);
 		medical_sell.add(smallMedpack);
@@ -254,7 +254,7 @@ public class GameManager {
      */
 	public String viewMed() {
 		String string = "";
-		for (Medical_Item item: medical_sell) {
+		for (MedicalItem item: medical_sell) {
 			string += item.getMedName() + "\n";
 			string += "Price :" + Double.toString(item.getPrice()) + "\n";
 			string += "Health add: " + item.getHealthAdd() + "\n\n";
@@ -297,7 +297,7 @@ public class GameManager {
      */
 	public String getMedical() {
 		String med = "";
-		for(Medical_Item mymed: crew_medical) {
+		for(MedicalItem mymed: crew_medical) {
 			med += "\nFood name:" + mymed.getMedName();
 			med += "\nNutrition :" + mymed.getHealthAdd();
 			med += "\nQuantity :" + mymed.getQuantity() + "\n";
@@ -329,10 +329,10 @@ public class GameManager {
 	 * in the outpost and adds the purchased medical item to the crew supply.
 	 * @param object - Medical item object selected by player.
      */
-	public void medPurchase(Medical_Item object) {
+	public void medPurchase(MedicalItem object) {
 		crewMoney = crewMoney - object.getPrice();
 		if(crew_medical.contains(object)) {
-			for(Medical_Item mymed: crew_medical) {
+			for(MedicalItem mymed: crew_medical) {
 				if(mymed.getMedName() == object.getMedName()) {
 					mymed.addQuantity();
 				}
@@ -390,10 +390,10 @@ public class GameManager {
 	 * @param currentCrew - current crew member object selected by user.
 	 * @param med - Medical item chosen by player.
      */
-	public void useMedItem(CrewMember currentCrew, Medical_Item med) {
+	public void useMedItem(CrewMember currentCrew, MedicalItem med) {
 		int remove = -1;
 		int index = -1;
-		for(Medical_Item mymed: crew_medical) {
+		for(MedicalItem mymed: crew_medical) {
 			index += 1;
 			if(med.getMedName() == mymed.getMedName()) {
 				med.subtractQuantity();
@@ -535,7 +535,7 @@ public class GameManager {
 				  if(crew_medical.size() > 0) {
 					  int i = rand.nextInt(crew_medical.size());
 					  int index  = -1;
-					  for(Medical_Item mymed: crew_medical) {
+					  for(MedicalItem mymed: crew_medical) {
 					    index+=1;
 						if(index == i) {
 							mymed.subtractQuantity();
@@ -697,9 +697,9 @@ public class GameManager {
 //		FoodItem peaches = new Peaches();
 //		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
 //		FoodItem straeberries = new Strawberries();
-//		Medical_Item plagurcure = new PlagueCure();
-//		Medical_Item samllmedpack = new SmallMedPack();
-//		Medical_Item bigmedpack = new LargeMedPack();
+//		MedicalItem plagurcure = new PlagueCure();
+//		MedicalItem samllmedpack = new SmallMedPack();
+//		MedicalItem bigmedpack = new LargeMedPack();
 		/*CrewMember hungryboy = new HungryBoy();
 		CrewMember lazyslepper = new LazySleeper();
 		manager.newPlannet(hungryboy, lazyslepper);
@@ -724,9 +724,9 @@ public class GameManager {
 		FoodItem spaghetti_bolonese = new SpaghettiBolognese();
 		FoodItem straeberries = new Strawberries();
 		manager.setFoodstore();
-		Medical_Item plagurcure = new PlagueCure();
-		Medical_Item samllmedpack = new SmallMedPack();
-		Medical_Item bigmedpack = new LargeMedPack();
+		MedicalItem plagurcure = new PlagueCure();
+		MedicalItem samllmedpack = new SmallMedPack();
+		MedicalItem bigmedpack = new LargeMedPack();
 		manager.setMedicalstore();
 		// test all six characters
 		CrewMember hungryboy = new HungryBoy();
@@ -779,9 +779,9 @@ public class GameManager {
 		System.out.println(crew.getFood());
 		System.out.println(crew.getmoney());
 		//set up all three medical items
-		Medical_Item plagurcure = new PlagueCure();
-		Medical_Item samllmedpack = new SmallMedPack();
-		Medical_Item bigmedpack = new LargeMedPack();
+		MedicalItem plagurcure = new PlagueCure();
+		MedicalItem samllmedpack = new SmallMedPack();
+		MedicalItem bigmedpack = new LargeMedPack();
 		crew.setMedicalstore();
 		//test purchase medical item 
 		crew.medPurchase(plagurcure);

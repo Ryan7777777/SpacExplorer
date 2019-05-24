@@ -97,7 +97,7 @@ public class UseItem {
 			btn9 = "";
 		} else {
 			index = -1;
-			for (Medical_Item med: manager.crew_medical) {
+			for (MedicalItem med: manager.crew_medical) {
 				index += 1;
 				if(index == 0) {
 					btn7 = med.getMedName();
@@ -344,7 +344,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Medical_Item med: manager.crew_medical) {
+				for (MedicalItem med: manager.crew_medical) {
 					if(index ==1) {
 					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();
@@ -370,7 +370,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Medical_Item med: manager.crew_medical) {
+				for (MedicalItem med: manager.crew_medical) {
 					if(index ==2) {
 					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();
@@ -397,7 +397,7 @@ public class UseItem {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_medical.size()>0 && manager.selectCrew.getAction()>0) {
 				index = 1;
-				for (Medical_Item med: manager.crew_medical) {
+				for (MedicalItem med: manager.crew_medical) {
 					if(index == 3) {
 					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();

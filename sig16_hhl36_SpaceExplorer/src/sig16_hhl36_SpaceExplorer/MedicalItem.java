@@ -4,7 +4,7 @@ package sig16_hhl36_SpaceExplorer;
  * Implements a medical item class, used for events relating to medical items
  * available to be used by a crew member.
  */
-public class Medical_Item {
+public class MedicalItem {
 	
 	private double medItemPrice;
 	private int medHealthAdd;
@@ -17,7 +17,7 @@ public class Medical_Item {
      * @param addHealth - Amount of health given by medical item.
      * @param name - Name of the medical item
      */
-	public Medical_Item(double price, int addHealth, String name) {
+	public MedicalItem(double price, int addHealth, String name) {
 		medItemPrice = price;
 		medHealthAdd = addHealth;
 		medName = name;
