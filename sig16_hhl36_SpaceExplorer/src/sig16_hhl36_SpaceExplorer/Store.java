@@ -66,7 +66,7 @@ public class Store {
 		lblError.setBounds(290, 42, 249, 16);
 		frmSpaceOutpost.getContentPane().add(lblError);
 		
-		JLabel lblMoney = new JLabel(Double.toString(manager.getmoney()));
+		JLabel lblMoney = new JLabel(Double.toString(manager.getMoney()));
 		lblMoney.setBounds(253, 42, 97, 16);
 		frmSpaceOutpost.getContentPane().add(lblMoney);
 		
@@ -74,9 +74,9 @@ public class Store {
 		btnFood1.setBounds(46, 104, 159, 47);
 		btnFood1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= banana.getPrice()) {
+			if(manager.getMoney() >= banana.getPrice()) {
 				manager.foodPurchase(banana);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -89,9 +89,9 @@ public class Store {
 		btnFood2.setBounds(217, 104, 159, 47);
 		btnFood2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= butterchicken.getPrice()) {
+			if(manager.getMoney() >= butterchicken.getPrice()) {
 				manager.foodPurchase(butterchicken);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -104,9 +104,9 @@ public class Store {
 		btnFood3.setBounds(388, 104, 159, 47);
 		btnFood3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= hamsandwihes.getPrice()) {
+			if(manager.getMoney() >= hamsandwihes.getPrice()) {
 				manager.foodPurchase(hamsandwihes);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -119,9 +119,9 @@ public class Store {
 		btnFood4.setBounds(46, 182, 159, 47);
 		btnFood4.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= peaches.getPrice()) {
+			if(manager.getMoney() >= peaches.getPrice()) {
 				manager.foodPurchase(peaches);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -135,9 +135,9 @@ public class Store {
 		btnFood5.setBounds(217, 182, 159, 47);
 		btnFood5.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= spaghetti_bolonese.getPrice()) {
+			if(manager.getMoney() >= spaghetti_bolonese.getPrice()) {
 				manager.foodPurchase(spaghetti_bolonese);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -150,9 +150,9 @@ public class Store {
 		btnFood6.setBounds(388, 182, 159, 47);
 		btnFood6.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= straeberries.getPrice()) {
+			if(manager.getMoney() >= straeberries.getPrice()) {
 				manager.foodPurchase(straeberries);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -161,13 +161,13 @@ public class Store {
 		});
 		frmSpaceOutpost.getContentPane().add(btnFood6);
 		
-		JButton btnMed1 = new JButton("Plagurcure");
+		JButton btnMed1 = new JButton("Plague curer");
 		btnMed1.setBounds(46, 278, 159, 47);
 		btnMed1.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= plagurcure.getPrice()) {
+			if(manager.getMoney() >= plagurcure.getPrice()) {
 				manager.medPurchase(plagurcure);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -180,9 +180,9 @@ public class Store {
 		bntMed2.setBounds(217, 278, 159, 47);
 		bntMed2.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= samllmedpack.getPrice()) {
+			if(manager.getMoney() >= samllmedpack.getPrice()) {
 				manager.medPurchase(samllmedpack);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -195,9 +195,9 @@ public class Store {
 		btnMed3.setBounds(388, 278, 159, 47);
 		btnMed3.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e) {
-			if(manager.getmoney() >= bigmedpack.getPrice()) {
+			if(manager.getMoney() >= bigmedpack.getPrice()) {
 				manager.medPurchase(bigmedpack);
-				price = manager.getmoney();
+				price = manager.getMoney();
 				lblMoney.setText(Double.toString(price));
 			} else {
 				JOptionPane.showMessageDialog(parent, "Not enough money");
@@ -225,7 +225,7 @@ public class Store {
 				finishedWindow();
 			}
 		});
-		btnExit.setBounds(394, 407, 159, 47);
+		btnExit.setBounds(388, 407, 159, 47);
 		frmSpaceOutpost.getContentPane().add(btnExit);
 		
 		JLabel lblCrewMoney = new JLabel("Crew's Money");
@@ -236,14 +236,14 @@ public class Store {
 		JTextPane txtFood = new JTextPane();
 		txtFood.setText(manager.viewFood());
 		txtFood.setBackground(SystemColor.control);
-		txtFood.setBounds(554, 99, 161, 369);
+		txtFood.setBounds(554, 66, 161, 388);
 		frmSpaceOutpost.getContentPane().add(txtFood);
 		
 		JTextPane txtMed = new JTextPane();
 		txtMed.setText((String) null);
 		txtMed.setText(manager.viewMed());
 		txtMed.setBackground(SystemColor.menu);
-		txtMed.setBounds(744, 99, 161, 369);
+		txtMed.setBounds(744, 66, 161, 388);
 		frmSpaceOutpost.getContentPane().add(txtMed);
 	}
 

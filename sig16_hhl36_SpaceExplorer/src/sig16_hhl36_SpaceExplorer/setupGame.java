@@ -52,14 +52,14 @@ public class setupGame {
 	public void finishedWindow() {
 		manager.closeSetupScreen(this);
 	}
-	public void setcrewname(String name) {
-		manager.setcrewname(name);
+	public void setcrewName(String name) {
+		manager.setcrewName(name);
 	}
-	public void setshipname(String name) {
-		manager.setshipname(name);
+	public void setshipName(String name) {
+		manager.setshipName(name);
 	}
 	public void setStringButton() {
-		if(manager.getcrewsize() == 0) {
+		if(manager.getCrewSize() == 0) {
 			btn1 = "";
 			btn2 = "";
 			btn3 = "";
@@ -306,7 +306,7 @@ public class setupGame {
 				CrewMember lazyslepper = new LazySleeper();
 				lbl_crewtype.setText(lazyslepper.viewType());
 				lbl_Ability.setText(lazyslepper.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(lazyslepper);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -325,7 +325,7 @@ public class setupGame {
 				CrewMember hungryboy = new HungryBoy();
 				lbl_crewtype.setText(hungryboy.viewType());
 				lbl_Ability.setText(hungryboy.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(hungryboy);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -344,7 +344,7 @@ public class setupGame {
 				CrewMember hunk = new Hunk();
 				lbl_crewtype.setText(hunk.viewType());
 				lbl_Ability.setText(hunk.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(hunk);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -363,7 +363,7 @@ public class setupGame {
 				CrewMember seeker = new Seeker();
 				lbl_crewtype.setText(seeker.viewType());
 				lbl_Ability.setText(seeker.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(seeker);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -382,7 +382,7 @@ public class setupGame {
 				CrewMember superman = new Superman();
 				lbl_crewtype.setText(superman.viewType());
 				lbl_Ability.setText(superman.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(superman);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -401,7 +401,7 @@ public class setupGame {
 				CrewMember technician = new Technician();
 				lbl_crewtype.setText(technician.viewType());
 				lbl_Ability.setText(technician.getAbility());
-				if (manager.crew_members.size() < manager.crewsize()) {
+				if (manager.crew_members.size() < manager.crewSize()) {
 					manager.crew_members.add(technician);
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -423,13 +423,13 @@ public class setupGame {
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.crew_members.size() >= 2) {
-					if(manager.crew_members.size()==manager.crewsize()) {
-				manager.setCrewname(tfcrewname.getText());
-				manager.setshipname(tfshipname.getText());
+					if(manager.crew_members.size()==manager.crewSize()) {
+				manager.setcrewName(tfcrewname.getText());
+				manager.setshipName(tfshipname.getText());
 				namecrew();
 				finishedWindow();
 					}else {
-						JOptionPane.showMessageDialog(parent, "You have setup "+manager.crewsize()+" members but only selected"+manager.crew_members.size()+" members");
+						JOptionPane.showMessageDialog(parent, "You have setup "+manager.crewSize()+" members but only selected"+manager.crew_members.size()+" members");
 					}
 			}else {
 				JOptionPane.showMessageDialog(parent, "Please select at least 2 crews");

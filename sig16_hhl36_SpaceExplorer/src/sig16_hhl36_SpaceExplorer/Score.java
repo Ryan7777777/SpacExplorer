@@ -9,10 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.Color;
 import javax.swing.JButton;
+import javax.swing.UIManager;
 
 public class Score {
 
-	private JFrame frame;
+	private JFrame frmGameOver;
 	private GameManager manager;
 	/**
 	 * Launch the application.
@@ -20,10 +21,10 @@ public class Score {
 	public Score(GameManager incomingManager){
 		manager = incomingManager;
 		initialize();
-		frame.setVisible(true);
+		frmGameOver.setVisible(true);
 	}
 	public void closeWindow() {
-		frame.dispose();
+		frmGameOver.dispose();
 	}
 	public void finishedWindow() {
 		manager.closeScore(this);
@@ -41,28 +42,29 @@ public class Score {
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		frame = new JFrame();
-		frame.setBounds(100, 100, 620, 343);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.getContentPane().setLayout(null);
+		frmGameOver = new JFrame();
+		frmGameOver.setTitle("Game Over!");
+		frmGameOver.setBounds(100, 100, 620, 343);
+		frmGameOver.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmGameOver.getContentPane().setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Your score is:");
 		lblNewLabel.setFont(new Font("Tahoma", Font.PLAIN, 44));
 		lblNewLabel.setBounds(24, 140, 296, 69);
-		frame.getContentPane().add(lblNewLabel);
+		frmGameOver.getContentPane().add(lblNewLabel);
 		
 		JLabel lblGameOver = new JLabel("Game Over!!");
-		lblGameOver.setFont(new Font("Tahoma", Font.BOLD, 29));
+		lblGameOver.setFont(new Font("Tahoma", Font.BOLD, 35));
 		lblGameOver.setForeground(Color.RED);
-		lblGameOver.setBounds(174, 13, 215, 59);
-		frame.getContentPane().add(lblGameOver);
+		lblGameOver.setBounds(201, 43, 237, 69);
+		frmGameOver.getContentPane().add(lblGameOver);
 		
-		JLabel lblScore = new JLabel(String.valueOf(manager.Calaulatescore()));
+		JLabel lblScore = new JLabel(String.valueOf(manager.calcScore()));
 		lblScore.setBackground(new Color(192, 192, 192));
-		lblScore.setForeground(new Color(255, 255, 0));
+		lblScore.setForeground(new Color(128, 128, 128));
 		lblScore.setFont(new Font("Tahoma", Font.BOLD, 44));
-		lblScore.setBounds(317, 152, 247, 57);
-		frame.getContentPane().add(lblScore);
+		lblScore.setBounds(299, 146, 247, 57);
+		frmGameOver.getContentPane().add(lblScore);
 		
 		JButton btnExit = new JButton("Exit");
 		btnExit.setBounds(494, 248, 97, 25);
@@ -71,6 +73,6 @@ public class Score {
 				finishedWindow();
 			}
 		});
-		frame.getContentPane().add(btnExit);
+		frmGameOver.getContentPane().add(btnExit);
 	}
 }

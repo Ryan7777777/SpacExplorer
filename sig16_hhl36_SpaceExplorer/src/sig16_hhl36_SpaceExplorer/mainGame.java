@@ -150,7 +150,7 @@ public class mainGame {
 		btnNextDay.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.day > 1) {
-					manager.newday();
+					manager.newDay();
 					lblDays.setText(manager.getDays());
 					setStringButton();
 					btnCrew1.setText(btn1);
@@ -222,11 +222,11 @@ public class mainGame {
 		lblShipName.setBounds(112, 42, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblShipName);
 		
-		JLabel lblLostPices = new JLabel(Integer.toString(manager.getpices()));
+		JLabel lblLostPices = new JLabel(Integer.toString(manager.getPieces()));
 		lblLostPices.setBounds(112, 100, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblLostPices);
 		
-		JLabel lblCrewMoney = new JLabel(Double.toString(manager.getmoney()));
+		JLabel lblCrewMoney = new JLabel(Double.toString(manager.getMoney()));
 		lblCrewMoney.setBounds(112, 158, 159, 16);
 		frmSpaceExplorer.getContentPane().add(lblCrewMoney);
 		

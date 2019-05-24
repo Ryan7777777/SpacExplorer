@@ -41,7 +41,7 @@ public class GameManager {
      * Gets size of array crew_members.
      * @return crew_members.size() - Size of array crew_members.
      */
-	public int getcrewsize() {
+	public int getCrewSize() {
 		return crew_members.size();
 	}
 	
@@ -49,7 +49,7 @@ public class GameManager {
      * Sets number of crew(team) that player has chosen.
      * @return crewSize - Amount of crew selected.
      */
-	public int crewsize() {
+	public int crewSize() {
 		return crewSize;
 	}
 	
@@ -57,7 +57,7 @@ public class GameManager {
      * Sets name of crew(team) that player has chosen.
      * @param name - Name given to crew(team).
      */
-	public void setcrewname(String name) {
+	public void setcrewName(String name) {
 		crewName = name;
 	}
 	
@@ -65,7 +65,7 @@ public class GameManager {
      * Sets name of spaceship as chosen by player.
      * @param nameShip - Name of spaceship.
      */
-	public void setshipname(String nameShip) {
+	public void setshipName(String nameShip) {
 		shipName = nameShip;
 	}
 	
@@ -100,7 +100,7 @@ public class GameManager {
      * Gets the current amount of spaceship parts.
      * @return pieces - Current amount of spaceship parts.
      */
-	public int getpices() {
+	public int getPieces() {
 		return pieces;
 	}
 	
@@ -108,7 +108,7 @@ public class GameManager {
      * Gets current amount of money held by the crew(team).
      * @return crewMoney - Current amount of money held by crew(team).
      */
-	public double getmoney() {
+	public double getMoney() {
 		return crewMoney;
 	}
 	
@@ -126,8 +126,8 @@ public class GameManager {
 	 * choice of finding a medical item, food item or spaceship parts.
      * @param currentcrew - Current crew member chosen by player to complete the search for parts.
      */
-	public void searchParts(CrewMember currentcrew) {
-		currentcrew.subtractAction();
+	public void searchParts(CrewMember currentCrew) {
+		currentCrew.subtractAction();
 		int type = -1;
 		if(shipParts == false) {
 			type = rand.nextInt(5);
@@ -138,7 +138,7 @@ public class GameManager {
 			int random_index = rand.nextInt(6);
 			int index = 0;
 			int length = crew_food.size();
-			int lengthindex = 0;
+			int lengthIndex = 0;
 			for (Food_Item food: food_sell) {
 				if(index == random_index) {
 					foundItem = food.getFoodName();
@@ -147,8 +147,8 @@ public class GameManager {
 						crew_food.add(food);
 					} else if (crew_food.contains(food)){
 						for(Food_Item myfood: crew_food) {
-							lengthindex += 1;
-							if (lengthindex <= length) {
+							lengthIndex += 1;
+							if (lengthIndex <= length) {
 								if(myfood.getFoodName() == food.getFoodName()) {
 									myfood.addQuantity();
 								}
@@ -164,8 +164,6 @@ public class GameManager {
 	} else if (type == 1) {
 		int random_index = rand.nextInt(3);
 		int index = 0;
-//		int length = crew_medical.size();
-//		int lengthindex = 0;
 		for (Medical_Item med: medical_sell) {
 			if(index == random_index) {
 				foundItem = med.getMedName();
@@ -200,12 +198,10 @@ public class GameManager {
 	 * This method also calls the randomEvent() method from within, this is
 	 * to make sure a random event occurs when moving on to the new day.
      */	
-	public void newday() {
+	public void newDay() {
 		ArrayList<CrewMember> toRemove= new ArrayList<CrewMember>();
-		int index = -1;
 		day -= 1;
 		for (CrewMember crew: crew_members) {
-			index += 1;
 			crew.resetAction();
 			if(crew.isSick() == true) {
 				crew.sickLost(10);
@@ -225,16 +221,16 @@ public class GameManager {
      */
 	public void setFoodstore() {
 		Food_Item peach = new Peaches();
-		Food_Item butter_chicken = new ButterChicken();
+		Food_Item butterChicken = new ButterChicken();
 		Food_Item banana = new Banana();
-		Food_Item hamsandwiches = new HamSandwiches();
+		Food_Item hamSandwiches = new HamSandwiches();
 		Food_Item strawberry = new Strawberries();
-		Food_Item sapghettibologonese = new SpaghettiBolognese();
+		Food_Item spaghetti = new SpaghettiBolognese();
 		food_sell.add(peach);
-		food_sell.add(butter_chicken);
-		food_sell.add(hamsandwiches);
+		food_sell.add(butterChicken);
+		food_sell.add(hamSandwiches);
 		food_sell.add(strawberry);
-		food_sell.add(sapghettibologonese);
+		food_sell.add(spaghetti);
 		food_sell.add(banana);
 	}
 	
@@ -243,12 +239,12 @@ public class GameManager {
 	 * the player can visit.
      */
 	public void setMedicalstore() {
-		Medical_Item largenedoack = new LargeMedPack();
+		Medical_Item largeMedpack = new LargeMedPack();
 		Medical_Item plaguecure = new PlagueCure();
-		Medical_Item smallmedpack = new SmallMedPack();
-		medical_sell.add(largenedoack);
+		Medical_Item smallMedpack = new SmallMedPack();
+		medical_sell.add(largeMedpack);
 		medical_sell.add(plaguecure);
-		medical_sell.add(smallmedpack);
+		medical_sell.add(smallMedpack);
 	}
 	
 	/**
@@ -261,7 +257,7 @@ public class GameManager {
 		for (Medical_Item item: medical_sell) {
 			string += item.getMedName() + "\n";
 			string += "Price :" + Double.toString(item.getPrice()) + "\n";
-			string += "Health add: " + item.getHealthAdd() + "\n";
+			string += "Health add: " + item.getHealthAdd() + "\n\n";
 		}
 		return string;
 	}
@@ -274,9 +270,9 @@ public class GameManager {
 	public String viewFood() {
 		String string ="";
 		for(Food_Item item: food_sell) {
-			string += item.getFoodName() +"\n";
-			string += "Price: "+ Double.toString(item.getPrice()) +"\n";
-			string += "Nutrition: "+item.getFoodNutrition() +"\n";
+			string += item.getFoodName() + "\n";
+			string += "Price: "+ Double.toString(item.getPrice()) + "\n";
+			string += "Nutrition: " + item.getFoodNutrition() + "\n\n";
 		}
 		return string;
 	}
@@ -335,43 +331,43 @@ public class GameManager {
      */
 	public void medPurchase(Medical_Item object) {
 		crewMoney = crewMoney - object.getPrice();
-			if(crew_medical.contains(object)) {
-				for(Medical_Item mymed: crew_medical) {
-					if(mymed.getMedName() == object.getMedName()) {
-						mymed.addQuantity();
-					}
+		if(crew_medical.contains(object)) {
+			for(Medical_Item mymed: crew_medical) {
+				if(mymed.getMedName() == object.getMedName()) {
+					mymed.addQuantity();
 				}
-			} else {
-				object.addQuantity();
-				crew_medical.add(object);
 			}
+		} else {
+			object.addQuantity();
+			crew_medical.add(object);
 		}
+	}
 	
 	/**
 	 * This method allows the player to make the selected crew member
 	 * go to sleep. Also subtracts an action from the crew member while doing so.
-	 * @param currentcrew - Current crew member object selected by player.
+	 * @param currentCrew - Current crew member object selected by player.
      */
-	public void crewasleep(CrewMember currentcrew) {
-		currentcrew.sleep();
-		currentcrew.subtractAction();
+	public void crewAsleep(CrewMember currentCrew) {
+		currentCrew.sleep();
+		currentCrew.subtractAction();
 	}
 	
 	/**
 	 * This method allows the player to feed the selected crew member
 	 * with a selected food item. This method also subtracts an action from 
 	 * the chosen crew member.
-	 * @param currentcrew - current crew member object selected by user.
+	 * @param currentCrew - current crew member object selected by user.
 	 * @param food - Food item chosen by player.
      */
-	public void eat(CrewMember currentcrew, Food_Item food) {
+	public void eat(CrewMember currentCrew, Food_Item food) {
 		int remove = -1;
 		int index = -1;
 		for(Food_Item myfood: crew_food) {
-			index +=1;
+			index += 1;
 			if(food.getFoodName() == myfood.getFoodName()) {
 				myfood.subtractQuantity();
-				if(myfood.getQuantity() == 0 ) {
+				if(myfood.getQuantity() == 0) {
 					remove = index;
 				}
 			}
@@ -380,7 +376,7 @@ public class GameManager {
 			crew_food.remove(remove);
 		}
 		for (CrewMember crew: crew_members) {
-			if(currentcrew == crew) {
+			if(currentCrew == crew) {
 				crew.addNutrition(food.getFoodNutrition());
 				crew.subtractAction();
 			}
@@ -391,14 +387,14 @@ public class GameManager {
 	 * This method allows the player to heal the selected crew member
 	 * with a selected medical item. This method also subtracts an action from 
 	 * the chosen crew member.
-	 * @param currentcrew - current crew member object selected by user.
+	 * @param currentCrew - current crew member object selected by user.
 	 * @param med - Medical item chosen by player.
      */
-	public void useemditem(CrewMember currentcrew, Medical_Item med) {
+	public void useMedItem(CrewMember currentCrew, Medical_Item med) {
 		int remove = -1;
 		int index = -1;
 		for(Medical_Item mymed: crew_medical) {
-			index +=1;
+			index += 1;
 			if(med.getMedName() == mymed.getMedName()) {
 				med.subtractQuantity();
 				if(med.getQuantity() == 0 ) {
@@ -410,7 +406,7 @@ public class GameManager {
 			crew_medical.remove(remove);
 		}
 		for (CrewMember crew: crew_members) {
-			if(currentcrew == crew) {
+			if(currentCrew == crew) {
 				if(med.getMedName() == "Space Plague Curer") {
 					crew.recovery();
 				}
@@ -424,13 +420,13 @@ public class GameManager {
 	 * This method allows the player to repair the spaceship with the
 	 * selected crew member. This method also subtracts an action from 
 	 * the chosen crew member.
-	 * @param currentcrew - current crew member object selected by user.
+	 * @param currentCrew - current crew member object selected by user.
      */
-	public void repair(CrewMember currentcrew) {
-		currentcrew.subtractAction();
-		if(currentcrew.viewType() == "Technician") {
+	public void repair(CrewMember currentCrew) {
+		currentCrew.subtractAction();
+		if(currentCrew.viewType() == "Technician") {
 			shieldHealth += 11;
-		} else if(currentcrew.viewType() == "Superman") {
+		} else if(currentCrew.viewType() == "Superman") {
 			shieldHealth += 8;
 		} else {
 			shieldHealth += 4;
@@ -491,18 +487,18 @@ public class GameManager {
 	 * Calculates final score for when the game ends. Score depends on
 	 * spaceship shield health, amount of spaceship parts left, amount of crew members left
 	 * and the amount of money left over.
-	 * @return gamescore - Final game score.
+	 * @return gameScore - Final game score.
      */
-	public double Calaulatescore() {
-		double gamescore = 0;
-		gamescore += shieldHealth * 10;
-		gamescore -= pieces * 200;
-		gamescore -= crewSize - crew_members.size() * 40;
-		gamescore += crewMoney *10;
+	public double calcScore() {
+		double gameScore = 0;
+		gameScore += shieldHealth * 10;
+		gameScore -= pieces * 200;
+		gameScore -= crewSize - crew_members.size() * 40;
+		gameScore += crewMoney *10;
 		if(pieces == 0) {
-			gamescore +=1000;
+			gameScore +=1000;
 		}
-		return gamescore;
+		return gameScore;
 	}
 	
 	/**
@@ -511,8 +507,8 @@ public class GameManager {
 	 * spaceship while having a random possibility of stealing a medical item or
 	 * food item.
      */
-	public void alienparty() {
-		randomeventName = "Alien pirates";
+	public void alienPirates() {
+		randomeventName = "Alien Pirates";
 		boolean remove = false;
 		int remove_index = -1;
 		while (remove == false) {
@@ -564,8 +560,8 @@ public class GameManager {
 	 * any of the crew members have a random possibility of 
 	 * contracting the plague.
      */
-	public void spaceplague() {
-		randomeventName = "Space plague";
+	public void spacePlague() {
+		randomeventName = "Space Plague";
 		for(CrewMember crew :crew_members) {
 			boolean bool =  rand.nextBoolean();
 			if(bool == true) {
@@ -580,7 +576,7 @@ public class GameManager {
 	 * the spaceship loses shield health by 30% of the total shield health every tiome.
      */
 	public void asteroidBelt() {
-		randomeventName ="Asteroid belt";
+		randomeventName ="Asteroid Belt";
 		shieldHealth = (int) (getShieldhealth() - (100 * 0.3));
 	}
 	
@@ -593,10 +589,10 @@ public class GameManager {
 		if(crew_food.size() > 0 || crew_medical.size() > 0) {
 			switch (randint) {
 				case 0: 
-					spaceplague();
+					spacePlague();
 					break;
 				case 1: 
-					alienparty();
+					alienPirates();
 					break;
 				case 2:
 					asteroidBelt();
@@ -606,7 +602,7 @@ public class GameManager {
 			randint = new Random().nextInt(2);
 			switch (randint) {
 				case 0: 
-					spaceplague();
+					spacePlague();
 					break;
 				case 1:
 					asteroidBelt();
@@ -616,8 +612,8 @@ public class GameManager {
 	}
 		
 	public void newPlanet(CrewMember member1, CrewMember member2) {
-		member2.action -=1;
-		member1.action -=1;
+		member2.action -= 1;
+		member1.action -= 1;
 		randomEvent();
 	}
 
@@ -802,7 +798,7 @@ public class GameManager {
 		test party
 		crew.alienpary();
 		test space plague
-		crew.spaceplague();*/
+		crew.spacePlague();*/
 		//System.out.println(manager.getFood());
 		/*System.out.println(crew.getMedical());
 		System.out.println(crew.getFood());

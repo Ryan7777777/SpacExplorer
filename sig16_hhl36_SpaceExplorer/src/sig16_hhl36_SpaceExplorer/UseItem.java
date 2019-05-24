@@ -346,7 +346,7 @@ public class UseItem {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index ==1) {
-					manager.useemditem(manager.selectCrew, med);
+					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();
 					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);
@@ -372,7 +372,7 @@ public class UseItem {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index ==2) {
-					manager.useemditem(manager.selectCrew, med);
+					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();
 					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);
@@ -399,7 +399,7 @@ public class UseItem {
 				index = 1;
 				for (Medical_Item med: manager.crew_medical) {
 					if(index == 3) {
-					manager.useemditem(manager.selectCrew, med);
+					manager.useMedItem(manager.selectCrew, med);
 					setMedicalButton();
 					txtStatus.setText(manager.selectCrew.viewStatus());
 					btnMed1.setText(btn7);

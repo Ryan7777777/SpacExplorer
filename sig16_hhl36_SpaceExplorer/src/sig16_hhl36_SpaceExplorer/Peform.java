@@ -85,7 +85,7 @@ public class Peform {
 		btnSleep.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(manager.selectCrew.getAction() > 0) {
-					manager.crewasleep(manager.selectCrew);
+					manager.crewAsleep(manager.selectCrew);
 					finishedWindow();
 				}
 			} 
@@ -115,7 +115,7 @@ public class Peform {
 				if(manager.selectCrew.getAction() > 0) {
 					manager.searchParts(manager.selectCrew);
 					if(manager.foundItem != "") {
-						if(manager.getpices() == 0) {
+						if(manager.getPieces() == 0) {
 							JOptionPane.showMessageDialog(parent, "Congratulation you get " + manager.foundItem);
 							toScore();
 						}else {
