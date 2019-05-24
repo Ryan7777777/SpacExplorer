@@ -17,7 +17,7 @@ public class FoodItem {
      * @param nutrition - Nutritional value of the food item.
      * @param name - Name of the food item
      */
-	public Food_Item(double price, int nutrition, String name) {
+	public FoodItem(double price, int nutrition, String name) {
 		foodPrice = price;
 		foodNutrition = nutrition;
 		foodName = name;
